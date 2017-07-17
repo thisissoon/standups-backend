@@ -1,0 +1,19 @@
+{
+  "name": "stand-ups-visualisation-backend",
+  "version": "1.0.0",
+  "description": "A simple Express, PostgresSQL and Sequelize Web API and Database for the storage and serving of data from SOON_'s once daily morning stand-ups.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisissoon/stand-ups-visualisation-backend.git"
+  },
+  "author": "SOON_",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thisissoon/stand-ups-visualisation-backend/issues"
+  },
+  "homepage": "https://github.com/thisissoon/stand-ups-visualisation-backend#readme"
+}
