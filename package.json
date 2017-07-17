@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A simple Express, PostgresSQL and Sequelize Web API and Database for the storage and serving of data from SOON_'s once daily morning stand-ups.",
   "main": "index.js",
+  "private": true,
   "scripts": {
+    "start": "node ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/thisissoon/stand-ups-visualisation-backend/issues"
   },
-  "homepage": "https://github.com/thisissoon/stand-ups-visualisation-backend#readme"
+  "homepage": "https://github.com/thisissoon/stand-ups-visualisation-backend#readme",
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "morgan": "~1.8.1"
+  }
 }
