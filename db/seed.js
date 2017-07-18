@@ -1,17 +1,16 @@
-const Article = require('../models/staff').Article;
+const Staff = require('../models/staff').Staff;
 
-Article
+Staff
   .sync({force: true})
   .then(() => {
-    Article.create({
-      title: 'Hello there',
-      slug: 'hello-there',
-      body: 'A nothing article about saying hello in different languages',
-      approved: true
+    Staff.create({
+      first_name: 'Jack',
+      last_name: 'Matthews',
+      role: 'Developer'
     }, {
-      fields: ['title', 'body', 'slug']
-    }).then(instertedArticle => {
-      console.log(instertedArticle.dataValues);
+      fields: ['first_name', 'last_name', 'role']
+    }).then(instertedStaff => {
+      console.log(instertedStaff.dataValues);
     });
   })
   .catch(error => {

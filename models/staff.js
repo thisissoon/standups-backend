@@ -1,43 +1,20 @@
 const Sequelize = require('sequelize');
 const connection = require('../db/config').connection;
 
-const Article = connection.define('article', {
-  slug: {
+const Staff = connection.define('staff', {
+  first_name: {
     type: Sequelize.STRING,
-    primaryKey: true
+    allowNull: false
   },
-  title: {
+  last_name: {
     type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
-    validate: {
-      len: {
-        args: [10, 100],
-        msg: 'Please enter a title between 10 and 100'
-      }
-    }
+    allowNull: false
   },
-  body: {
-    type: Sequelize.TEXT,
-    defaultValue: 'Coming soon...',
-    validate: {
-      startsWithUpper: bodyval => {
-        const first = bodyval.charAt(0);
-        var startsWithUpper = first === first.toUpperCase();
-        if (!startsWithUpper) {
-          throw new Error('First letter must be a uppercase letter');
-        } else {
-          // ..
-        }
-      }
-    }
-  },
-  approved: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false
+  role: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
 }, {
-  timestamps: false,
   hooks: {
     beforeValidate: () => {
       console.log('beforeValidate');
@@ -49,9 +26,9 @@ const Article = connection.define('article', {
       console.log('beforeCreate');
     },
     afterCreate: (res) => {
-      console.log('created article with title:', res.dataValues.title);
+      console.log('created staff with name:', res.dataValues.first_name);
     }
   }
 });
 
-exports.Article = Article;
+exports.Staff = Staff;
