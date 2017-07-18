@@ -2,6 +2,11 @@ const Sequelize = require('sequelize');
 const connection = require('../db/config').connection;
 
 const Staff = connection.define('staff', {
+  id: {
+    primaryKey: true,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV1
+  },
   first_name: {
     type: Sequelize.STRING,
     allowNull: false
