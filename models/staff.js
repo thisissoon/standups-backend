@@ -20,6 +20,8 @@ const Staff = connection.define('staff', {
     allowNull: false
   }
 }, {
+  timestamps: false,
+  freezeTableName: true,
   hooks: {
     beforeValidate: () => {
       console.log('beforeValidate');
