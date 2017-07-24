@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable(
-    'days',
+    'Days',
       {
         id: {
           primaryKey: true,
@@ -18,6 +18,6 @@ module.exports = {
     );
   },
   down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('days');
+    return queryInterface.dropTable('Days');
   }
 };
