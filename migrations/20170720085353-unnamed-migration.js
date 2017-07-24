@@ -1,6 +1,8 @@
+'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    queryInterface.createTable(
+    return queryInterface.createTable(
     'staff',
       {
         id: {
@@ -20,15 +22,10 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false
         }
-      },
-      {
-        engine: 'MYISAM',                     // default: 'InnoDB'
-        charset: 'latin1',                    // default: null
-        schema: 'public'                      // default: public, PostgreSQL only.
       }
     );
   },
-  down: (queryInterface, Sequelize) => {
-    // logic for reverting the changes
+  down: function (queryInterface, Sequelize) {
+    return queryInterface.dropTable('staff');
   }
 };
