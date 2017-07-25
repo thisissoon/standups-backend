@@ -3,29 +3,35 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable(
-    'Staff',
+    'StaffMember',
       {
-        id: {
+        ID: {
           primaryKey: true,
           type: Sequelize.UUID,
           defaultValue: Sequelize.UUIDV1
         },
-        first_name: {
+        firstName: {
           type: Sequelize.STRING,
           allowNull: false
         },
-        last_name: {
+        lastName: {
           type: Sequelize.STRING,
           allowNull: false
         },
         role: {
           type: Sequelize.STRING,
           allowNull: false
+        },
+        createdAt: {
+          type: Sequelize.DATE
+        },
+        updatedAt: {
+          type: Sequelize.DATE
         }
       }
     );
   },
   down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Staff');
+    return queryInterface.dropTable('StaffMember');
   }
 };

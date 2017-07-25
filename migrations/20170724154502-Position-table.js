@@ -3,9 +3,9 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable(
-    'Positions',
+    'Position',
       {
-        id: {
+        ID: {
           primaryKey: true,
           type: Sequelize.UUID,
           defaultValue: Sequelize.UUIDV1
@@ -14,24 +14,32 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false
         },
-        staff_id: {
+        staffID: {
           type: Sequelize.UUID,
           allowNull: false,
           references: {
-            model: 'Staff'
+            model: 'StaffMember',
+            key: 'ID'
           }
         },
-        day_id: {
+        dayID: {
           type: Sequelize.UUID,
           allowNull: false, 
           references: {
-            model: 'Days'
+            model: 'Day',
+            key: 'ID'
           }
+        },
+        createdAt: {
+          type: Sequelize.DATE
+        },
+        updatedAt: {
+          type: Sequelize.DATE
         }
       }
     );
   },
   down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Positions');
+    return queryInterface.dropTable('Position');
   }
 };
