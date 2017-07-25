@@ -1,21 +1,28 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   const Staff = sequelize.define('Staff', {
-    id: {
+    ID: {
       primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV1
+      type: DataTypes.UUID
     },
-    first_name: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    last_name: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false
     },
     role: {
       type: DataTypes.STRING,
+      allowNull: false
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
       allowNull: false
     }
   }, {
