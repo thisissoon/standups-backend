@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   const Day = sequelize.define('Day', {
-    id: {
+    ID: {
       primaryKey: true,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV1
@@ -17,8 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         Day.hasMany(models.Position);
       }
     },
-    timestamps: false,
-    tableName: 'Days'
+    tableName: 'Day'
   });
   return Day;
 };
