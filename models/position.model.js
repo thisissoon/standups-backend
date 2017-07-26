@@ -1,37 +1,36 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  const Position = sequelize.define('Position', {
-    id: {
-      primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV1
-    },
-    place_index: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    staff_id: {
-      type: DataTypes.UUID,
-      allowNull: false,
-      references: {
-        model: 'staff'
-      }
-    },
-    day_id: {
-      type: DataTypes.UUID,
-      allowNull: false, 
-      references: {
-        model: 'days'
-      }
-    }
-  }, {
-    classMethods: {
-      associate: function(models) {
+const Sequelize = require('sequelize');
+const sequelize = require('../db/db.config.js').sequelize;
 
-      }
-    },
-    timestamps: false,
-    tableName: 'Positions'
-  });
-  return Position;
+const Position = sequelize.define('Position', {
+  ID: {
+    primaryKey: true,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV1
+  },
+  place_index: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  staffID: {
+    type: Sequelize.UUID,
+    allowNull: false,
+    references: {
+      model: 'StaffMember',
+      key: 'ID'
+    }
+  },
+  dayID: {
+    type: Sequelize.UUID,
+    allowNull: false, 
+    references: {
+      model: 'Day',
+      key: 'ID'
+    }
+  }
+}, {
+  tableName: 'Positions'
+});
+
+module.exports = {
+  Position
 };
