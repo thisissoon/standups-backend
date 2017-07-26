@@ -29,6 +29,8 @@ models.StaffMember
     staffID: staffID
   });
 })
-.then(insertedSummary => {
-  console.log(insertedSummary);
+.then(() => models.Day.findAll())
+.then(days => {
+  const day = days[0];
+  console.dir(day.getSummaries());
 });
