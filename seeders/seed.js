@@ -1,11 +1,13 @@
-const models = require('../models');
+const models = require('../models/index');
 
-models.Staff.create({
-  first_name: 'Jack',
-  last_name: 'Matthews',
+console.log(models);
+
+models.StaffMember.create({
+  firstName: 'Jack',
+  lastName: 'Matthews',
   role: 'Developer'
 }, {
-  fields: ['first_name', 'last_name', 'role']
+  fields: ['firstName', 'lastName', 'role']
 }).then(instertedStaff => {
   console.log(instertedStaff.dataValues);
 });
@@ -18,17 +20,17 @@ models.Day.create({
   console.log(instertedDays.dataValues);
 });
 
-let dayId;
-let staffId;
+let dayID;
+let staffID;
 
 models.Day.findAll().then(days => {
-  dayId = days[0].id;
-  models.Staff.findAll().then(staff => {
-    staffId = staff[0].id;
+  dayID = days[0].ID;
+  models.StaffMember.findAll().then(staffMembers => {
+    staffID = staffMembers[0].ID;
     models.Summary.create({
-      order: 1,
-      day_id: dayId,
-      staff_id: staffId
+      orderIndex: 1,
+      dayID: dayID,
+      staffID: staffID
     }).then(insertedSummary => {
       console.log(insertedSummary);
     });
