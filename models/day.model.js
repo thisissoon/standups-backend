@@ -15,6 +15,4 @@ const Day = sequelize.define('Day', {
   tableName: 'Day'
 });
 
-module.exports = {
-  Day
-};
+module.exports = Day;
