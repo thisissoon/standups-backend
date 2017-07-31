@@ -1,0 +1,57 @@
+[
+  {
+    "firstName": "ken",
+    "lastName": "shaw",
+    "role": "designer"
+  },
+  {
+    "firstName": "vanda",
+    "lastName": "gomes",
+    "role": "designer"
+  },
+  {
+    "firstName": "fred",
+    "lastName": "flade",
+    "role": "designer"
+  },
+  {
+    "firstName": "alex",
+    "lastName": "light",
+    "role": "MD"
+  },
+  {
+    "firstName": "ryan",
+    "lastName": "french",
+    "role": "designer"
+  },
+  {
+    "firstName": "chris",
+    "lastName": "reeves",
+    "role": "developer"
+  },
+  {
+    "firstName": "james",
+    "lastName": "warren",
+    "role": "developer"
+  },
+  {
+    "firstName": "ed",
+    "lastName": "opare-aryee",
+    "role": "developer"
+  },
+  {
+    "firstName": "radek",
+    "lastName": "notsure",
+    "role": "developer"
+  },
+  {
+    "firstName": "florence",
+    "lastName": "holmes",
+    "role": "producer"
+  },
+  {
+    "firstName": "greg",
+    "lastName": "reed",
+    "role": "developer"
+  }
+]
