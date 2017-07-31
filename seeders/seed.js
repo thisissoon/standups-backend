@@ -1,36 +1,38 @@
 const models = require('../models/index');
+const parserMethods = require('../parser/parser-methods');
+
+const jsonFileName = parserMethods.getFileName(`${__dirname}/../parser/output`);
+
+const daysArray = require(`../parser/output/${jsonFileName}`);
+
+const dayObject = daysArray[0];
 
 let dayID;
 let staffID;
 
-models.StaffMember
-.create({
-  firstName: 'Jack',
-  lastName: 'Matthews',
-  role: 'Developer'
-}, {
-  fields: ['firstName', 'lastName', 'role']
-})
-.then(models.Day.create({
-  date: Date.now()
+models.Day.create({
+  date: dayObject.date
 }, {
   fields: ['date']
-}))
-.then(() => models.Day.findAll())
-.then(days => {
-  dayID = days[0].ID;
-  return models.StaffMember.findAll();
 })
-.then(staffMembers => {
-  staffID = staffMembers[0].ID;
-  return models.Summary.create({
-    orderIndex: 1,
-    dayID: dayID,
-    staffID: staffID
+.then(day => {
+  dayID = day.dataValues.ID;
+  dayObject.positions.forEach((firstName, index) => {
+    models.StaffMember.findOne({where: {firstName}})
+      .then(staffMember => {
+        staffID = staffMember.dataValues.ID;
+        const position = {
+          place_index: index,
+          staffID: staffID,
+          dayID: dayID 
+        };
+        return models.Position.create(position);
+      })
+      .then(position => {
+        return position.getStaffMember();
+      })
+      .then(staffMember => {
+        console.log(staffMember.dataValues);
+      });
   });
-})
-.then(() => models.Day.findAll())
-.then(days => {
-  const day = days[0];
-  console.dir(day.getSummaries());
 });

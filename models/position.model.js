@@ -28,7 +28,7 @@ const Position = sequelize.define('Position', {
     }
   }
 }, {
-  tableName: 'Positions'
+  tableName: 'Position'
 });
 
 module.exports = {
