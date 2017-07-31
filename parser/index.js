@@ -1,12 +1,15 @@
-const StandupParser  = require('standup-parser').StandupParser;
 const fs             = require('fs');
+const StandupParser  = require('standup-parser').StandupParser;
 const getFileName    = require('./parser-methods').getFileName;
 const clearFolder    = require('./parser-methods').clearFolder;
 
 const inputFileName = getFileName(`${__dirname}/input`);
 const inputFilePath = `${__dirname}/input/${inputFileName}.txt`;
 
+const args = process.argv? process.argv.slice(2) : null;
+
 const standupParser  = new StandupParser;
+standupParser.logger.debugLevel = args? args[0] : 'info';
 
 clearFolder(`${__dirname}/output`)
   .then(() => standupParser.parse(inputFilePath))
