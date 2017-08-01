@@ -22,6 +22,9 @@ function savePositionsOrSummaries(Model, indexName, dayID, namesArray){
       .then(staffMember => {
         const staffID = staffMember.dataValues.ID;
         return Model.create({[indexName]: index, staffID, dayID});
+      })
+      .catch(err => {
+        console.dir('loggggg', err);
       });
   });
   return Promise.all(promises);
@@ -31,7 +34,9 @@ saveStandup(standUp)
   .then(([positionObjects, summaryObjects]) => {
     console.log('POSITIONS', positionObjects[0].dataValues);
     console.log('SUMMARIES', summaryObjects[0].dataValues);
+    process.exit();
   });
+
 
 /*
 standup = {date, formations, summaries}
