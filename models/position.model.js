@@ -7,7 +7,7 @@ const Position = sequelize.define('Position', {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV1
   },
-  place_index: {
+  placeIndex: {
     type: Sequelize.INTEGER,
     allowNull: false
   },

@@ -5,34 +5,48 @@ const jsonFileName = parserMethods.getFileName(`${__dirname}/../parser/output`);
 
 const daysArray = require(`../parser/output/${jsonFileName}`);
 
-const dayObject = daysArray[0];
+function saveStandups(standupsArray, index) {
+  return models.Day.create({date: standupsArray[index].date})
+    .then(day => {
+      savePositions(standupsArray[index].positions, 0, day.dataValues.ID);
+    })
+    .then(() => {
+      if (index < standupsArray.length - 1) {
+        saveStandups(standupsArray, ++index);
+      } else {
+        return new Promise(resolve => {
+          resolve();
+        });
+      }
+    });
+}
 
-let dayID;
-let staffID;
+function savePositions(positions, placeIndex, dayID) {
+  const positionObjects = [];
+  return getStaffID(positions[placeIndex])
+    .then(staffID => {
+      return models.Position.create({staffID, dayID, placeIndex});
+    })
+    .then(position => {
+      positionObjects.push(position);
+      if (placeIndex < positions.length - 1) {
+        savePositions(positions, ++placeIndex, dayID);
+      } else {
+        return new Promise(resolve => {
+          resolve(positionObjects);
+        });
+      }
+    });
+}
 
-models.Day.create({
-  date: dayObject.date
-}, {
-  fields: ['date']
-})
-.then(day => {
-  dayID = day.dataValues.ID;
-  dayObject.positions.forEach((firstName, index) => {
-    models.StaffMember.findOne({where: {firstName}})
-      .then(staffMember => {
-        staffID = staffMember.dataValues.ID;
-        const position = {
-          place_index: index,
-          staffID: staffID,
-          dayID: dayID 
-        };
-        return models.Position.create(position);
-      })
-      .then(position => {
-        return position.getStaffMember();
-      })
-      .then(staffMember => {
-        console.log(staffMember.dataValues);
+function getStaffID(firstName){
+  return models.StaffMember.findOne({where: {firstName}})
+    .then(staffMember => {
+      return new Promise(resolve => {
+        resolve(staffMember.dataValues.ID);
       });
-  });
-});
+    });
+}
+
+saveStandups(daysArray, 0)
+  .then(() => console.log('complete?'));
