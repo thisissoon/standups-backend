@@ -9,19 +9,31 @@ const StaffMember = sequelize.define('StaffMember', {
   },
   firstName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    set(val) {
+      this.setDataValue('firstName', val.toLowerCase());
+    }
   },
   lastName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    set(val) {
+      this.setDataValue('lastName', val.toLowerCase());
+    }
   },
   fullName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    set(val) {
+      this.setDataValue('fullName', val.toLowerCase());
+    }
   },
   role: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    set(val) {
+      this.setDataValue('role', val.toLowerCase());
+    }
   }
 }, {
   tableName: 'StaffMember',
