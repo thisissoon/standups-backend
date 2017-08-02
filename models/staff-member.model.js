@@ -9,20 +9,28 @@ const StaffMember = sequelize.define('StaffMember', {
   },
   firstName: {
     type: Sequelize.STRING,
-    allowNull: false,
-    unique: 'fullName'
+    allowNull: false
   },
   lastName: {
     type: Sequelize.STRING,
-    allowNull: false,
-    unique: 'fullName'
+    allowNull: false
+  },
+  fullName: {
+    type: Sequelize.STRING,
+    allowNull: false
   },
   role: {
     type: Sequelize.STRING,
     allowNull: false
   }
 }, {
-  tableName: 'StaffMember'
+  tableName: 'StaffMember',
+  hooks: {
+    beforeValidate: (staffMember) => {
+      const fullName = `${staffMember.dataValues.firstName} ${staffMember.dataValues.lastName}`;
+      staffMember.fullName = fullName;
+    }
+  }
 });
 
 module.exports = {
