@@ -30,16 +30,30 @@ function savePositionsOrSummaries(Model, indexName, dayID, namesArray) {
 // sequelize.query('DELETE FROM "Position"')
 //   .then('DELETE FROM "Day"')
 //   .then('DELETE FROM "Summary"')
-sequelize.query('')
-  .then(() => saveStandUp(standUp))
-  .then(([positionObjects, summaryObjects]) => {
-    console.log('POSITIONS', positionObjects[0]);
-    console.log('SUMMARIES', summaryObjects[0]);
-    process.exit();
-  })
-  .catch(err => {
-    console.log(err.message);
+// sequelize.query('')
+//   .then(() => saveStandUp(standUp))
+//   .then(([positionObjects, summaryObjects]) => {
+//     console.log('POSITIONS', positionObjects[0]);
+//     console.log('SUMMARIES', summaryObjects[0]);
+//     process.exit();
+//   })
+//   .catch(err => {
+//     console.log(err.message);
+//   });
+
+
+function saveStandUps(standUps){
+  const promises = standUps.map(standUp => {
+    return saveStandUp(standUp);
   });
+  return Promise.all(promises);
+}
+
+sequelize.query('DELETE FROM "Position"')
+  .then(sequelize.query('DELETE FROM "Day"'))
+  .then(sequelize.query('DELETE FROM "Summary"'))
+  .then(() => saveStandUps(standUps))
+  .catch(err => console.log('WWWTTTTFFFFF', err));
 
 
 /*
