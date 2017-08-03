@@ -1,4 +1,6 @@
 const models = require('../models/index');
+const sequelize = require('../db/db.config.js').sequelize;
+
 const parserMethods = require('../parser/parser-methods');
 
 const jsonFileName = parserMethods.getFileName(`${__dirname}/../parser/output`);
@@ -7,7 +9,7 @@ const standUps = require(`../parser/output/${jsonFileName}`);
 
 const standUp = standUps[0];
 
-function saveStandup(standUp) {
+function saveStandUp(standUp) {
   return models.Day.create({ date: standUp.date })
   .then(day => {
     const positionPromise = savePositionsOrSummaries(models.Position, 'placeIndex', day.dataValues.ID, standUp.positions);
@@ -28,7 +30,8 @@ function savePositionsOrSummaries(Model, indexName, dayID, namesArray){
   return Promise.all(promises);
 }
 
-saveStandup(standUp)
+sequelize.query('DELETE FROM "Position", "Day", "Summary"')
+  .then(() => saveStandUp(standUp))
   .then(([positionObjects, summaryObjects]) => {
     console.log('POSITIONS', positionObjects[0]);
     console.log('SUMMARIES', summaryObjects[0]);

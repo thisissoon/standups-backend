@@ -1,11 +1,14 @@
 const models = require('../models/index');
+const sequelize = require('../db/db.config.js').sequelize;
 
-models.StaffMember
-  .create({ 
-    firstName: 'Jack', 
-    lastName: 'Matthews',
-    role: 'Dev',
-    fullName: ''
+sequelize.query('DELETE FROM "StaffMember"')
+  .then(() => {
+    return models.StaffMember.create({
+      firstName: 'Jack',
+      lastName: 'Matthews',
+      role: 'Dev',
+      fullName: ''
+    });
   })
   .then(() => {
     return models.StaffMember
