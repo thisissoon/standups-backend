@@ -1,5 +1,5 @@
-const models = require('../models/index');
-const logger = require('../logger/index').logger;
+const models = require('../../models/index');
+const logger = require('../../logger/index').logger;
 
 function saveStandUps(standUps){
   const promises = standUps.map((standUp, index) => {
@@ -74,4 +74,4 @@ function getStaffID(firstName) {
     });
 }
 
-module.exports.saveStandUps = saveStandUps;
+exports.saveStandUps = saveStandUps;

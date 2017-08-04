@@ -1,5 +1,5 @@
-const models = require('../models/index');
-const logger = require('../logger/index').logger;
+const models = require('../../models/index');
+const logger = require('../../logger/index').logger;
 
 function saveStaffMembers(staffMembers){
   const promises = staffMembers.map((staffMember, index) => {
@@ -20,4 +20,4 @@ function saveStaffMember(staffMember, index) {
     });
 }
 
-module.exports.saveStaffMembers = saveStaffMembers;
+exports.saveStaffMembers = saveStaffMembers;
