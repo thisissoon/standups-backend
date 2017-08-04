@@ -1,5 +1,5 @@
-const models = require('../models/index');
-const logger = require('../logger/index').logger;
+const models = require('../../models/index');
+const logger = require('../../logger/index').logger;
 
 function saveStandUps(standUps){
   const promises = standUps.map((standUp, index) => {
@@ -17,7 +17,7 @@ function saveStandUp(standUp, index) {
       return Promise.all([positionPromise, summaryPromise]);
     })
     .catch(err => {
-      logger.log('error', `${err.errors[0].message}. Standup ${++index} was not saved.`);
+      logger.log('error', `${err.errors[0].message}. Standup ${++index} (with date ${standUp.date}) was not saved.`);
       process.exit(1);
     });
 }
@@ -74,4 +74,4 @@ function getStaffID(firstName) {
     });
 }
 
-module.exports.saveStandUps = saveStandUps;
+exports.saveStandUps = saveStandUps;
