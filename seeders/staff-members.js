@@ -1,22 +1,5 @@
-const Logger = require('logger').Logger;
-
 const models = require('../models/index');
-const sequelize = require('../db/db.config.js').sequelize;
-const staffMembers = require('./staff-members.json');
-
-const logger = new Logger();
-logger.debugLevel = 'success';
-
-sequelize.query('DELETE FROM "Position"')
-  .then(sequelize.query('DELETE FROM "Day"'))
-  .then(sequelize.query('DELETE FROM "Summary"'))
-  .then(sequelize.query('DELETE FROM "StaffMember"'))
-  .then(() => saveStaffMembers(staffMembers))
-  .then(() => process.exit())
-  .catch(err => {
-    logger.log('error', err);
-    process.exit();
-  });
+const logger = require('../logger/index').logger;
 
 function saveStaffMembers(staffMembers){
   const promises = staffMembers.map((staffMember, index) => {
@@ -33,6 +16,8 @@ function saveStaffMember(staffMember, index) {
     })
     .catch(err => {
       logger.log('error', `${err.errors[0].message}. StaffMember ${++index} was not saved.`);
-      return err.errors;
+      process.exit(1);
     });
 }
+
+module.exports.saveStaffMembers = saveStaffMembers;
