@@ -17,7 +17,7 @@ function saveStandUp(standUp, index) {
       return Promise.all([positionPromise, summaryPromise]);
     })
     .catch(err => {
-      logger.log('error', `${err.errors[0].message}. Standup ${++index} was not saved.`);
+      logger.log('error', `${err.errors[0].message}. Standup ${++index} (with date ${standUp.date}) was not saved.`);
       process.exit(1);
     });
 }
