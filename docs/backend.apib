@@ -408,3 +408,47 @@ Access a specific position using this resource.
             "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
             "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
         }
+
+# Group Stand-ups
+
+Resources related to stand-ups in the API.
+
+## Stand-ups Collection [/stand-ups{?date}]
+
+### List All Stand-ups [GET]
+
++ Parameters
+
+    + date: `2016-04-11T23:00:00.000Z` (string, optional) - Filter by date.
+        + Default: null
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "/positions?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                }
+            },
+            "_embedded": {
+                "positions": [
+                    {
+                        "_links": {
+                            "self": {
+                                "href": "v1/positions/bf618250-792c-11e7-9e1d-b10f7e8a2b0a"
+                            }
+                        },
+                        "ID": "bf618250-792c-11e7-9e1d-b10f7e8a2b0a",
+                        "placeIndex": 4,
+                        "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
+                        "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                ]
+            }
+        }
