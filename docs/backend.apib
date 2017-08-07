@@ -1,0 +1,79 @@
+FORMAT: 1A
+
+# Stand-up Visualisation Backend
+
+A simple Express Web API for the storage and serving of data from SOON_'s daily morning stand-ups.
+
+# Group Staff Members
+
+Resources related to Staff Members in the API.
+
+## Staff Members Collection [/staff-members]
+
+### List All Staff Members [GET]
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+        {
+            "_embedded": {
+                "staffMembers": [
+                    {
+                        "ID": "v6x4GK3GE59D",
+                        "firstName": "foo",
+                        "lastName": "bar",
+                        "fullName": "foo bar",
+                        "role": "developer",
+                        "_links": {
+                            "self": {
+                                "href": "/v1/staff-members/v6x4GK3GE59D"
+                            }
+                        }
+                    }
+                ]
+            },
+            "_links":{
+                "self": {
+                    "href": "/staff-members"
+                }
+            }
+        }
+
+### Create a Staff Member [POST]
+
+You may create a new Staff Member with this action. It takes a JSON object
+containing a role and name information about the new Member.
+
++ firstName (string)
++ lastName (string)
++ role (string) - For example Designer, Developer or Producer.
+
++ Request (application/json)
+
+        {
+            "firstName": "Foo",
+            "lastName": "Bar",
+            "role": "Foo"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "ID": "v6x4GK3GE59D",
+                "firstName": "foo",
+                "lastName": "bar",
+                "fullName": "foo bar",
+                "role": "developer",
+                "_links": {
+                    "self": {
+                        "href": "/v1/staff-members/v6x4GK3GE59D"
+                    }
+                }
+            }

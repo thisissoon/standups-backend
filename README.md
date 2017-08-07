@@ -6,7 +6,7 @@ ___
 
 # Stand-ups Visualisation Backend
 
-A simple Express, PostgresSQL and Sequelize Web API and Database for the storage and serving of data from SOON_'s once daily morning stand-ups.
+A simple Express, PostgresSQL and Sequelize Web API and Database for the storage and serving of data from SOON_'s daily morning stand-ups.
 
 This project was used as a learning tool for the Express application generator, Sequelize, Sequelize CLI, relational databases, HAL API structure and api blueprint.
 
