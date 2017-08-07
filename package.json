@@ -8,7 +8,9 @@
     "parse": "node ./parse/index",
     "start": "nodemon ./bin/www",
     "seed": "node ./seed/index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:integration": "dredd",
+    "test:runserver": "node tests/integration.js"
   },
   "repository": {
     "type": "git",
@@ -24,10 +26,12 @@
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
+    "dredd": "^4.1.2",
     "express": "~4.15.2",
     "hal": "^1.1.0",
     "logger": "git://github.com/jackhkmatthews/node-logger#v1.0.0",
     "morgan": "~1.8.1",
+    "nock": "^9.0.14",
     "pg": "^6.4.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.3.2",
