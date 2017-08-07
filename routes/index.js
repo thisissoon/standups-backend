@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.json([{message: 'hi'}]);
-});
+const express = require('express');
+const router = new express.Router();
+
+const staffMembers = require('./staff-members');
+
+// API Gateway Routes
+router.use('/staff-members', staffMembers);
 
 module.exports = router;
