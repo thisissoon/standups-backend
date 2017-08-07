@@ -93,6 +93,29 @@ containing a role and name information about the new Member.
                 }
             }
 
++ Request (application/json)
+
+        {
+            "firstName": "Foo",
+            "lastName": "Bar"
+        }
+
++ Response 500 (application/json)
+
+    + Body
+
+            {
+                "name": "SequelizeValidationError",
+                "errors": [
+                    {
+                        "message": "role cannot be null",
+                        "type": "notNull Violation",
+                        "path": "role",
+                        "value": null
+                    }
+                ]
+            }
+
 ## Staff Member [/staff-members/{id}]
 
 Manage a specific Staff Member's state using this resource.
