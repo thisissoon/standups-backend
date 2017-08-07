@@ -24,14 +24,14 @@ Resources related to Staff Members in the API.
             "_embedded": {
                 "staffMembers": [
                     {
-                        "ID": "v6x4GK3GE59D",
+                        "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
                         "firstName": "foo",
                         "lastName": "bar",
                         "fullName": "foo bar",
                         "role": "developer",
                         "_links": {
                             "self": {
-                                "href": "/v1/staff-members/v6x4GK3GE59D"
+                                "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                             }
                         }
                     }
@@ -66,14 +66,79 @@ containing a role and name information about the new Member.
     + Body
 
             {
-                "ID": "v6x4GK3GE59D",
+                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
                 "firstName": "foo",
                 "lastName": "bar",
                 "fullName": "foo bar",
                 "role": "developer",
                 "_links": {
                     "self": {
-                        "href": "/v1/staff-members/v6x4GK3GE59D"
+                        "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 }
             }
+
+## Staff Member [/staff-members/{id}]
+
+Manage a specific Staff Member's state using this resource.
+
++ Parameters
+    + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The Staff Member UUID
+
+### Get specific Staff Member [GET]
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+            {
+                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                "firstName": "foo",
+                "lastName": "bar",
+                "fullName": "foo bar",
+                "role": "developer",
+                "_links": {
+                    "self": {
+                        "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                }
+            }
+
+### Udpate Staff Member [PUT]
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+            {
+                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                "firstName": "foo",
+                "lastName": "bar",
+                "fullName": "foo bar",
+                "role": "developer",
+                "_links": {
+                    "self": {
+                        "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                }
+            }
+
+### Delete Staff Member [DELETE]
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+            []
