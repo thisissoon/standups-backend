@@ -1,36 +1,37 @@
 const express = require('express');
-const path = require('path');
 const logger = require('morgan');
-const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
 const routes = require('./routes');
 
-const app = express();
+class Server {
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+  constructor(port) {
+    // Configure
+    this.port = port || 5000;
 
-app.use('/', routes);
+    // Initialise
+    this.app = express();
+    this.init();
+  }
 
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+  init() {
+    // Express settings
+    this.app.settings['x-powered-by'] = false;
 
-// error handler
-app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // Global middleware
+    this.app.use(bodyParser.json());
+    this.app.use(logger('dev'));
 
-  // render the error page
-  res.status(err.status || 500);
-  res.json([{ reasource: 'error' }]);
-});
+    // Setup routes
+    this.app.use('', routes);
 
-module.exports = app;
+  }
+
+  run() {
+    this.app.listen(this.port, function () {
+      const addr = this.address();
+      console.log(`Server listening on ${addr.address}:${addr.port}`);
+    });
+  }
+}
+module.exports = Server;
