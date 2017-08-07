@@ -8,7 +8,7 @@ class StaffMember extends hal.Resource {
   constructor(data) {
     delete data.createdAt;
     delete data.updatedAt;
-    super(data, `${root}/staff-member/${data.ID}`);
+    super(data, `${root}/staff-members/${data.ID}`);
   }
 }
 
