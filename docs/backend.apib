@@ -8,9 +8,24 @@ A simple Express Web API for the storage and serving of data from SOON_'s daily 
 
 Resources related to Staff Members in the API.
 
-## Staff Members Collection [/staff-members]
+## Staff Members Collection [/staff-members{?sort,role}]
 
 ### List All Staff Members [GET]
+
++ Parameters
+
+    + role: `developer` (string, optional) - Filter by tole.
+        + Default: null
+    + sort: `firstName:asc` (string, optional)
+        Sort projects by supported parameters
+        + Default: `firstName:asc`
+        + Members
+            + `firstName:asc`
+            + `firstName:desc`
+            + `lastName:asc`
+            + `lastName:desc`
+            + `role:asc`
+            + `role:desc`
 
 + Request (application/json; charset=utf-8)
 
