@@ -332,3 +332,79 @@ Access a specific position using this resource.
             "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
             "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
         }
+
+# Group Summaries
+
+Resources related to Summaries in the API.
+
+## Summaries Collection [/summaries{?date,staffID}]
+
+### List All Summaries [GET]
+
++ Parameters
+
+    + date: `2016-04-11T23:00:00.000Z` (string, optional) - Filter by date.
+        + Default: null
+    + staffID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by staff member.
+        + Default: null
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "/positions?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                }
+            },
+            "_embedded": {
+                "positions": [
+                    {
+                        "_links": {
+                            "self": {
+                                "href": "v1/positions/bf618250-792c-11e7-9e1d-b10f7e8a2b0a"
+                            }
+                        },
+                        "ID": "bf618250-792c-11e7-9e1d-b10f7e8a2b0a",
+                        "placeIndex": 4,
+                        "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
+                        "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                ]
+            }
+        }
+
+## Summary [/summaries/{id}]
+
+Access a specific position using this resource.
+
++ Parameters
+    + id: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The summary UUID
+
+
+### Get specific summary [GET]
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "v1/positions/bf618250-792c-11e7-9e1d-b10f7e8a2b0a"
+                }
+            },
+            "ID": "bf618250-792c-11e7-9e1d-b10f7e8a2b0a",
+            "placeIndex": 4,
+            "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
+            "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+        }
