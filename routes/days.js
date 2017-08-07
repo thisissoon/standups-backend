@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = new express.Router();
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  res.json([{reasource: 'days'}]);
-});
+const dayCtrl = require('../controllers').dayCtrl;
+
+// Routes
+router.route('/')
+  .get(dayCtrl.get);
+
+router.route('/:id')
+  .get(dayCtrl.find);
 
 module.exports = router;

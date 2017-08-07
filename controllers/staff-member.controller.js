@@ -1,9 +1,6 @@
 const hal = require('hal');
-const Logger = require('logger').Logger;
 
 const models = require('../models');
-const logger = new Logger();
-logger.debugLevel = 'warn';
 
 const root = 'v1';
 
@@ -23,10 +20,13 @@ class StaffMembersList extends hal.Resource {
 }
 
 exports.get = function get(req, res) {
-  models.StaffMember.findById(req.params.id)
-    .then(staffMember => {
-      const resource = new StaffMember(staffMember.dataValues);
-      res.status(200).json(resource);
+  models.StaffMember.findAll()
+    .then(staffMembers => {
+      staffMembers = staffMembers.map(staffMember => {
+        return new StaffMember(staffMember.dataValues);
+      });
+      const resource = new StaffMembersList(req.originalUrl, staffMembers);
+      res.json(resource);
     })
     .catch(err => {
       res.status(500).json(err);
@@ -45,13 +45,10 @@ exports.create = function create(req, res) {
 };
 
 exports.find = function find(req, res) {
-  models.StaffMember.findAll()
-    .then(staffMembers => {
-      staffMembers = staffMembers.map(staffMember => {
-        return new StaffMember(staffMember.dataValues);
-      });
-      const resource = new StaffMembersList(req.originalUrl, staffMembers);
-      res.json(resource);
+  models.StaffMember.findById(req.params.id)
+    .then(staffMember => {
+      const resource = new StaffMember(staffMember.dataValues);
+      res.status(200).json(resource);
     })
     .catch(err => {
       res.status(500).json(err);

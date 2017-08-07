@@ -17,7 +17,7 @@ Resources related to Staff Members in the API.
     + role: `developer` (string, optional) - Filter by tole.
         + Default: null
     + sort: `firstName:asc` (string, optional)
-        Sort projects by supported parameters
+        Sort staff members by supported parameters
         + Default: `firstName:asc`
         + Members
             + `firstName:asc`
@@ -146,7 +146,7 @@ Manage a specific Staff Member's state using this resource.
                 }
             }
 
-### Udpate Staff Member [PUT]
+### Update Staff Member [PUT]
 
 + Request (application/json; charset=utf-8)
 
@@ -180,3 +180,77 @@ Manage a specific Staff Member's state using this resource.
 + Response 200 (application/json)
 
             []
+
+# Group Days
+
+Resources related to Days in the API.
+
+## Days Collection [/days{?sort}]
+
+### List All Days [GET]
+
++ Parameters
+
+    + sort: `date:asc` (string, optional)
+        Sort days by supported parameters
+        + Default: `date:asc`
+        + Members
+            + `date:asc`
+            + `date:desc`
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+        {
+            "_embedded": {
+                "days": [
+                    {
+                        "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                        "date": "foo",
+                        "_links": {
+                            "self": {
+                                "href": "/v1/days/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                            }
+                        }
+                    }
+                ]
+            },
+            "_links":{
+                "self": {
+                    "href": "v1/staff-members"
+                }
+            }
+        }
+
+## Day [/days/{id}]
+
+Access a specific day using this resource.
+
++ Parameters
+    + id: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The day UUID
+
+
+### Get specific day [GET]
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "v1/staff/bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                }
+            },
+            "ID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a",
+            "date": "2016-04-11T23:00:00.000Z"
+        }
