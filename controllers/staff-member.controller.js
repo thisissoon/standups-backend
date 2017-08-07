@@ -20,7 +20,7 @@ class StaffMembersList extends hal.Resource {
 }
 
 exports.get = function get(req, res) {
-  models.StaffMember.findAll()
+  models.StaffMember.findAll({where: req.query})
     .then(staffMembers => {
       staffMembers = staffMembers.map(staffMember => {
         return new StaffMember(staffMember.dataValues);
