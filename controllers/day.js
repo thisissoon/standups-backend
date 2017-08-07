@@ -8,7 +8,7 @@ class Day extends hal.Resource {
   constructor(data) {
     delete data.createdAt;
     delete data.updatedAt;
-    super(data, `${root}/staff/${data.ID}`);
+    super(data, `${root}/days/${data.ID}`);
   }
 }
 
