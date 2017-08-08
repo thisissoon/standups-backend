@@ -1,23 +1,6 @@
-const hal = require('hal');
-
-const models = require('../models');
-
-const root = 'v1';
-
-class Position extends hal.Resource {
-  constructor(data) {
-    delete data.createdAt;
-    delete data.updatedAt;
-    super(data, `${root}/positions/${data.ID}`);
-  }
-}
-
-class PositionsList extends hal.Resource {
-  constructor(url, positions) {
-    super({}, url);
-    if (positions.length) this.embed('positions', positions);
-  }
-}
+const models        = require('../models');
+const Position      = require('../resources').Position;
+const PositionsList = require('../resources').PositionsList;
 
 exports.get = function get(req, res) {
   models.Position.findAll({ where: req.query })

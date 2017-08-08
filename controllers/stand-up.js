@@ -30,7 +30,7 @@ exports.get = function get(req, res) {
   http days
   .then
     map
-      used day ID to make request to positions
+      used day ID to make request to positions DB
         strip out unused bits
       use day ID to make request to summaries
         strip out unused bits
