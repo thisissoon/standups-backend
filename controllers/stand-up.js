@@ -16,13 +16,6 @@ class StandUp {
   }
 }
 
-class StandUpsList extends hal.Resource {
-  constructor(url, standUps) {
-    super({}, url);
-    if (standUps.length) this.embed('standUps', standUps);
-  }
-}
-
 exports.get = function get(req, res) {
 
   const ID = req.query.dayID;
@@ -38,7 +31,7 @@ exports.get = function get(req, res) {
         return new Position(position.dataValues);
       });
       const resource = new PositionsList(req.originalUrl, positions);
-      return resource;
+      return resource._embedded.positions;
     });
   const summaries = models.Summary.findAll({ where: req.query })
     .then(summaries => {
@@ -46,7 +39,7 @@ exports.get = function get(req, res) {
         return new Summary(summary.dataValues);
       });
       const resource = new SummariesList(req.originalUrl, summaries);
-      return resource;
+      return resource._embedded.summaries;
     });
 
   Promise.all([day, positions, summaries])
