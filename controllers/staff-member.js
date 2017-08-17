@@ -1,23 +1,6 @@
-const hal = require('hal');
-
-const models = require('../models');
-
-const root = 'v1';
-
-class StaffMember extends hal.Resource {
-  constructor(data) {
-    delete data.createdAt;
-    delete data.updatedAt;
-    super(data, `${root}/staff-members/${data.ID}`);
-  }
-}
-
-class StaffMembersList extends hal.Resource {
-  constructor(url, staffMembers) {
-    super({}, url);
-    if (staffMembers.length) this.embed('staffMembers', staffMembers);
-  }
-}
+const models           = require('../models');
+const StaffMember      = require('../resources').StaffMember;
+const StaffMembersList = require('../resources').StaffMembersList;
 
 exports.get = function get(req, res) {
   models.StaffMember.findAll({where: req.query})

@@ -1,23 +1,6 @@
-const hal = require('hal');
-
-const models = require('../models');
-
-const root = 'v1';
-
-class Day extends hal.Resource {
-  constructor(data) {
-    delete data.createdAt;
-    delete data.updatedAt;
-    super(data, `${root}/days/${data.ID}`);
-  }
-}
-
-class DaysList extends hal.Resource {
-  constructor(url, days) {
-    super({}, url);
-    if (days.length) this.embed('days', days);
-  }
-}
+const models   = require('../models');
+const Day      = require('../resources').Day;
+const DaysList = require('../resources').DaysList;
 
 exports.get = function get(req, res) {
   models.Day.findAll()

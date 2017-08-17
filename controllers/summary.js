@@ -1,23 +1,6 @@
-const hal = require('hal');
-
-const models = require('../models');
-
-const root = 'v1';
-
-class Summary extends hal.Resource {
-  constructor(data) {
-    delete data.createdAt;
-    delete data.updatedAt;
-    super(data, `${root}/summaries/${data.ID}`);
-  }
-}
-
-class SummariesList extends hal.Resource {
-  constructor(url, summaries) {
-    super({}, url);
-    if (summaries.length) this.embed('summaries', summaries);
-  }
-}
+const models        = require('../models');
+const Summary       = require('../resources').Summary;
+const SummariesList = require('../resources').SummariesList;
 
 exports.get = function get(req, res) {
   models.Summary.findAll({ where: req.query })
