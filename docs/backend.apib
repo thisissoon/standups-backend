@@ -8,24 +8,25 @@ A simple Express Web API for the storage and serving of data from SOON_'s daily 
 
 Resources related to Staff Members in the API.
 
-## Staff Members Collection [/staff-members{?sort,role,firstName}]
+## Staff Members Collection [/staff-members{?sort,role,firstName,fullName}]
 
 ### List All Staff Members [GET]
 
 + Parameters
 
     + role: `developer` (string, optional) - Filter by role.
-        + Default: null
+        + Members
+          + `developer`
+          + `designer`
+          + `producer`
     + firstName: `fred` (string, optional) - Filter by first name.
-        + Default: null
+    + fullName: `fred flade` (string, optional) - Filter by full name.
     + sort: `firstName:asc` (string, optional)
         Sort staff members by supported parameters
         + Default: `firstName:asc`
         + Members
             + `firstName:asc`
             + `firstName:desc`
-            + `lastName:asc`
-            + `lastName:desc`
             + `role:asc`
             + `role:desc`
 
@@ -35,6 +36,7 @@ Resources related to Staff Members in the API.
 
             Accept: application/json
 
+
 + Response 200 (application/json)
 
         {
@@ -42,13 +44,13 @@ Resources related to Staff Members in the API.
                 "staffMembers": [
                     {
                         "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
-                        "firstName": "foo",
-                        "lastName": "bar",
-                        "fullName": "foo bar",
-                        "role": "developer",
+                        "firstName": "fred",
+                        "lastName": "flade",
+                        "fullName": "fred flade",
+                        "role": "designer",
                         "_links": {
                             "self": {
-                                "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                                "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                             }
                         }
                     }
@@ -66,56 +68,56 @@ Resources related to Staff Members in the API.
 You may create a new Staff Member with this action. It takes a JSON object
 containing a role and name information about the new Member.
 
-+ firstName (string)
-+ lastName (string)
-+ role (string) - For example Designer, Developer or Producer.
++ Attributes
+    + firstName: `jack` (string) - First name
+    + lastName: `matthews` (string) - Last name
+    + role: `developer` (string) - Staff member's role within SOON_.
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
-        {
-            "firstName": "Foo",
-            "lastName": "Bar",
-            "role": "Foo"
-        }
+    + Headers
 
-+ Response 201 (application/json)
+            Accept: application/json
+
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
             {
-                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
-                "firstName": "foo",
-                "lastName": "bar",
-                "fullName": "foo bar",
-                "role": "developer",
                 "_links": {
                     "self": {
-                        "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "/staff-members"
+                    },
+                    "project": {
+                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 }
             }
 
-+ Request (application/json)
++ Request Invalid Body (application/json; charset=utf-8)
 
-        {
-            "firstName": "Foo",
-            "lastName": "Bar"
-        }
+    + Headers
 
-+ Response 500 (application/json)
+            Accept: application/json
+
++ Response 422 (application/json; charset=utf-8)
 
     + Body
 
             {
-                "name": "SequelizeValidationError",
-                "errors": [
-                    {
-                        "message": "role cannot be null",
-                        "type": "notNull Violation",
-                        "path": "role",
-                        "value": null
+                "_links": {
+                    "self": {
+                        "href": "/staff-members"
                     }
-                ]
+                },
+                "_errors": {
+                    "message": "Validation Error",
+                    "errors": {
+                        "firstName": "non zero value required",
+                        "lastName": "non zero value required",
+                        "role": "non zero value required"
+                    }
+                }
             }
 
 ## Staff Member [/staff-members/{id}]
@@ -125,7 +127,7 @@ Manage a specific Staff Member's state using this resource.
 + Parameters
     + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The Staff Member UUID
 
-### Get specific Staff Member [GET]
+### Get Staff Member [GET]
 
 + Request (application/json; charset=utf-8)
 
@@ -143,31 +145,106 @@ Manage a specific Staff Member's state using this resource.
                 "role": "developer",
                 "_links": {
                     "self": {
-                        "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
+                }
+            }
+
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                    }
+                },
+                "_errors": {
+                    "message": "Not Found"
                 }
             }
 
 ### Update Staff Member [PUT]
 
++ Attributes
+    + firstName: `jack` (string) - First name
+    + lastName: `matthews` (string) - Last name
+    + role: `developer` (string) - Staff member's role within SOON_.
+
 + Request (application/json; charset=utf-8)
 
     + Headers
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 201 (application/json; charset=utf-8)
+
+    + Body
 
             {
-                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
-                "firstName": "foo",
-                "lastName": "bar",
-                "fullName": "foo bar",
-                "role": "developer",
                 "_links": {
                     "self": {
-                        "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "/staff-members"
+                    },
+                    "project": {
+                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
+                }
+            }
+
++ Request Invalid Body (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 422 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/staff-members"
+                    }
+                },
+                "_errors": {
+                    "message": "Validation Error",
+                    "errors": {
+                        "firstName": "non zero value required",
+                        "lastName": "non zero value required",
+                        "role": "non zero value required"
+                    }
+                }
+            }
+
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                    }
+                },
+                "_errors": {
+                    "message": "Not Found"
                 }
             }
 
@@ -179,9 +256,29 @@ Manage a specific Staff Member's state using this resource.
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 204 (application/json)
 
-            []
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                    }
+                },
+                "_errors": {
+                    "message": "Not Found"
+                }
+            }
 
 # Group Days
 
