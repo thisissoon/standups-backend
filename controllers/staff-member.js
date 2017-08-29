@@ -2,7 +2,7 @@ const models           = require('../models');
 const StaffMember      = require('../resources').StaffMember;
 const StaffMembersList = require('../resources').StaffMembersList;
 
-exports.get = function get(req, res) {
+exports.list = function list(req, res) {
   models.StaffMember.findAll({where: req.query})
     .then(staffMembers => {
       staffMembers = staffMembers.map(staffMember => {

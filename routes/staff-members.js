@@ -5,7 +5,7 @@ const staffMemberCtrl = require('../controllers').staffMemberCtrl;
 
 // Routes
 router.route('/')
-  .get(staffMemberCtrl.get)
+  .get(staffMemberCtrl.list)
   .post(staffMemberCtrl.create);
 
 router.route('/:id')
