@@ -59,6 +59,13 @@ class HalErrors extends HAL.Resource {
     super({}, req.originalUrl);
     if (err instanceof CustomError) {
       this._errors = err.toJSON();
+    } else if (err.name === 'SequelizeUniqueConstraintError') {
+      this._errors = {
+        message: err.message,
+        errors: {
+          [err.errors[0].path]: err.errors[0].message
+        }
+      };
     } else if (err instanceof Error) {
       this._errors = { message: err.message };
     }
