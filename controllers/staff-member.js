@@ -4,6 +4,16 @@ const StaffMembersList = require('../resources').StaffMembersList;
 const errors = require('../restapi/errors');
 
 /**
+ * 
+ * @param {String} string Sort string from request URL 
+ */
+function parseOrder(string) {
+  const array = string.split(':');
+  array[1] = array[1].toUpperCase();
+  return [array];
+}
+
+/**
  * List all staff members.
  *
  * @method list
@@ -12,7 +22,9 @@ const errors = require('../restapi/errors');
  * @param {Function} next Callback to continue middleware chain
  */
 exports.list = function list(req, res, next) {
-  models.StaffMember.findAll({where: req.query})
+  const order = parseOrder(req.query.sort);
+  delete req.query.sort;
+  models.StaffMember.findAll({where: req.query, order: order})
     .then(staffMembers => {
       staffMembers = staffMembers.map(staffMember => {
         return new StaffMember(staffMember.dataValues);
