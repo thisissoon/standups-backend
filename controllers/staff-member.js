@@ -1,8 +1,17 @@
 const models           = require('../models');
 const StaffMember      = require('../resources').StaffMember;
 const StaffMembersList = require('../resources').StaffMembersList;
+const errors = require('../restapi/errors');
 
-exports.list = function list(req, res) {
+/**
+ * List all staff members.
+ *
+ * @method list
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.list = function list(req, res, next) {
   models.StaffMember.findAll({where: req.query})
     .then(staffMembers => {
       staffMembers = staffMembers.map(staffMember => {
@@ -11,8 +20,8 @@ exports.list = function list(req, res) {
       const resource = new StaffMembersList(req.originalUrl, staffMembers);
       res.json(resource);
     })
-    .catch(err => {
-      res.status(500).json(err);
+    .catch((err) => {
+      next(err);
     });
 };
 
