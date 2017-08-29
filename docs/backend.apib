@@ -14,7 +14,7 @@ Resources related to Staff Members in the API.
 
 + Parameters
 
-    + role: `developer` (string, optional) - Filter by role.
+    + role: `designer` (string, optional) - Filter by role.
         + Members
           + `developer`
           + `designer`
@@ -57,7 +57,7 @@ Resources related to Staff Members in the API.
             },
             "_links":{
                 "self": {
-                    "href": "v1/staff-members"
+                    "href": "/v1/staff-members?role=designer&firstName=fred&fullName=fred flade&sort=firstName:asc"
                 }
             }
         }
