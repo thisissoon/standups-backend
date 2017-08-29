@@ -36,7 +36,6 @@ Resources related to Staff Members in the API.
 
             Accept: application/json
 
-
 + Response 200 (application/json)
 
         {
@@ -50,7 +49,7 @@ Resources related to Staff Members in the API.
                         "role": "designer",
                         "_links": {
                             "self": {
-                                "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                                "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                             }
                         }
                     }
@@ -58,15 +57,12 @@ Resources related to Staff Members in the API.
             },
             "_links":{
                 "self": {
-                    "href": "/staff-members"
+                    "href": "v1/staff-members"
                 }
             }
         }
 
 ### Create a Staff Member [POST]
-
-You may create a new Staff Member with this action. It takes a JSON object
-containing a role and name information about the new Member.
 
 + Attributes
     + firstName: `jack` (string) - First name
@@ -86,10 +82,10 @@ containing a role and name information about the new Member.
             {
                 "_links": {
                     "self": {
-                        "href": "/staff-members"
+                        "href": "v1/staff-members"
                     },
                     "project": {
-                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 }
             }
@@ -99,6 +95,10 @@ containing a role and name information about the new Member.
     + Headers
 
             Accept: application/json
+        
+    + Body
+    
+            {}
 
 + Response 422 (application/json; charset=utf-8)
 
@@ -107,7 +107,7 @@ containing a role and name information about the new Member.
             {
                 "_links": {
                     "self": {
-                        "href": "/staff-members"
+                        "href": "v1/staff-members"
                     }
                 },
                 "_errors": {
@@ -145,7 +145,7 @@ Manage a specific Staff Member's state using this resource.
                 "role": "developer",
                 "_links": {
                     "self": {
-                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 }
             }
@@ -164,7 +164,7 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
                     }
                 },
                 "_errors": {
@@ -185,17 +185,17 @@ Manage a specific Staff Member's state using this resource.
 
             Accept: application/json
 
-+ Response 201 (application/json; charset=utf-8)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
             {
                 "_links": {
                     "self": {
-                        "href": "/staff-members"
+                        "href": "v1/staff-members"
                     },
                     "project": {
-                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 }
             }
@@ -205,6 +205,10 @@ Manage a specific Staff Member's state using this resource.
     + Headers
 
             Accept: application/json
+    
+    + Body
+    
+            {}
 
 + Response 422 (application/json; charset=utf-8)
 
@@ -213,7 +217,7 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "/staff-members"
+                        "href": "v1/staff-members"
                     }
                 },
                 "_errors": {
@@ -240,7 +244,7 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
                     }
                 },
                 "_errors": {
@@ -272,7 +276,7 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
                     }
                 },
                 "_errors": {
