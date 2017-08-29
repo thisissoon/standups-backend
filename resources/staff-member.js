@@ -13,6 +13,6 @@ exports.StaffMember = class StaffMember extends hal.Resource {
 exports.StaffMembersList = class StaffMembersList extends hal.Resource {
   constructor(url, staffMembers) {
     super({}, url);
-    if (staffMembers.length) this.embed('staffMembers', staffMembers);
+    this.embed('staffMembers', staffMembers);
   }
 };
