@@ -9,7 +9,7 @@ router.route('/')
   .post(staffMemberCtrl.create);
 
 router.route('/:id')
-  .get(staffMemberCtrl.find)
+  .get(staffMemberCtrl.get)
   .put(staffMemberCtrl.update)
   .delete(staffMemberCtrl.delete);
 

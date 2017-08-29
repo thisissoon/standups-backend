@@ -30,59 +30,114 @@ exports.list = function list(req, res, next) {
         return new StaffMember(staffMember.dataValues);
       });
       const resource = new StaffMembersList(req.originalUrl, staffMembers);
-      res.json(resource);
+      res.status(200).json(resource);
     })
     .catch((err) => {
       next(err);
     });
 };
 
-exports.create = function create(req, res) {
+/**
+ * Create a new staff member.
+ *
+ * @method create
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.create = function create(req, res, next) {
   models.StaffMember.create(req.body)
     .then(staffMember => {
+      const resource = {
+        _links: {
+          self: {
+            href: 'v1/staff-members'
+          },
+          staffMember: {
+            href: `v1/staff-members/${staffMember.dataValues.ID}`
+          }
+        }
+      };
+      console.log(resource);
+      res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
+ * Retrieve a specific staff member
+ *
+ * @method get
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.get = function get(req, res, next) {
+  models.StaffMember.findById(req.params.id)
+    .then(staffMember => {
+      if (!staffMember) throw new errors.NotFound();
       const resource = new StaffMember(staffMember.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {
-      res.status(500).json(err);
+      next(err);
     });
 };
 
-exports.find = function find(req, res) {
+/**
+ * Update a specific staff member
+ *
+ * @method update
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.update = function update(req, res, next) {
   models.StaffMember.findById(req.params.id)
     .then(staffMember => {
-      const resource = new StaffMember(staffMember.dataValues);
-      res.status(200).json(resource);
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
-};
-
-exports.update = function update(req, res) {
-  models.StaffMember.findById(req.params.id)
-    .then(staffMember => {
+      if (!staffMember) throw new errors.NotFound();
       return staffMember.update(req.body);
     })
     .then(staffMember => {
-      const resource = new StaffMember(staffMember.dataValues);
+      const resource = {
+        _links: {
+          self: {
+            href: 'v1/staff-members'
+          },
+          staffMember: {
+            href: `v1/staff-members/${staffMember.dataValues.ID}`
+          }
+        }
+      };
       res.status(200).json(resource);
     })
     .catch(err => {
-      res.status(500).json(err);
+      next(err);
     });
 };
 
-exports.delete = (req, res) => {
+/**
+ * Delete a specific staff member
+ *
+ * @method delete
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.delete = (req, res, next) => {
   models.StaffMember.findById(req.params.id)
     .then(staffMember => {
+      if (!staffMember) throw new errors.NotFound();
       return staffMember.destroy();
     })
     .then(noDestroyed => {
-      res.status(200).json(noDestroyed);
+      console.log(noDestroyed);
+      res.status(204).json(noDestroyed);
     })
     .catch(err => {
-      res.status(500).json(err);
+      next(err);
     });
 };
 
