@@ -30,7 +30,13 @@ const StaffMember = sequelize.define('StaffMember', {
   }
 }, 
   {
-    tableName: 'StaffMember'
+    tableName: 'StaffMember',
+    getterMethods: {
+      fullName: function () {
+        var string = this.firstName + ' ' + this.lastName;
+        return string;
+      }
+    }
   }
 );
 
