@@ -1,22 +1,41 @@
 const models   = require('../models');
-const Day      = require('../resources').Day;
-const DaysList = require('../resources').DaysList;
+const Day      = require('../resources').DayResources.Day;
+const DaysList = require('../resources').DayResources.DaysList;
 
-exports.get = function get(req, res) {
-  models.Day.findAll()
+/**
+ * 
+ * @param {String} string Sort string from request URL 
+ */
+function parseOrder(string) {
+  const array = string.split(':');
+  array[1] = array[1].toUpperCase();
+  return [array];
+}
+
+/**
+ * List all days.
+ *
+ * @method list
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.list = function get(req, res, next) {
+  const order = req.query.sort ? parseOrder(req.query.sort) : null;
+  models.Day.findAll({ order: order })
     .then(days => {
       days = days.map(day => {
         return new Day(day.dataValues);
       });
       const resource = new DaysList(req.originalUrl, days);
-      res.json(resource);
+      res.status(200).json(resource);
     })
     .catch(err => {
-      res.status(500).json(err);
+      next(err);
     });
 };
 
-exports.find = function find(req, res) {
+exports.get = function find(req, res) {
   models.Day.findById(req.params.id)
     .then(day => {
       const resource = new Day(day.dataValues);
