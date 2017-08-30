@@ -1,4 +1,5 @@
 const HAL = require('hal');
+const ValidationError = require('sequelize/lib/errors').ValidationError;
 
 /**
  * Extendable default Error class
@@ -56,20 +57,21 @@ class HalErrors extends HAL.Resource {
    * @param {Error}  err   Error
    */
   constructor(req, err) {
+    console.log(err);
     super({}, req.originalUrl);
     if (err instanceof CustomError) {
       this._errors = err.toJSON();
-    } else if (err.name === 'SequelizeUniqueConstraintError') {
+    } else if (err instanceof ValidationError) {
       this._errors = {
         message: err.message,
-        errors: {
-          [err.errors[0].path]: err.errors[0].message
-        }
+        errors: err.errors.reduce((sum, value) => {
+          sum[value.path] = value.message;
+          return sum;
+        }, {})
       };
     } else if (err instanceof Error) {
       this._errors = { message: err.message };
     }
-
   }
 }
 exports.HalErrors = HalErrors;
