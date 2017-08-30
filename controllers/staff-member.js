@@ -23,7 +23,7 @@ function parseOrder(string) {
  * @param {Function} next Callback to continue middleware chain
  */
 exports.list = function list(req, res, next) {
-  const order = parseOrder(req.query.sort);
+  const order = req.query.sort? parseOrder(req.query.sort) : null;
   delete req.query.sort;
   models.StaffMember.findAll({where: req.query, order: order})
     .then(staffMembers => {
@@ -50,7 +50,6 @@ exports.create = function create(req, res, next) {
   models.StaffMember.create(req.body)
     .then(staffMember => {
       const resource = new StaffMemberCreate(staffMember.dataValues);
-      console.log(resource);
       res.status(200).json(resource);
     })
     .catch(err => {
