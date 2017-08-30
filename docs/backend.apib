@@ -8,7 +8,7 @@ A simple Express Web API for the storage and serving of data from SOON_'s daily 
 
 Resources related to Staff Members in the API.
 
-## Staff Members Collection [/staff-members{?sort,role,firstName,fullName}]
+## Staff Members Collection [/staff-members{?sort,role,firstName}]
 
 ### List All Staff Members [GET]
 
@@ -20,7 +20,6 @@ Resources related to Staff Members in the API.
           + `designer`
           + `producer`
     + firstName: `fred` (string, optional) - Filter by first name.
-    + fullName: `fred flade` (string, optional) - Filter by full name.
     + sort: `firstName:asc` (string, optional)
         Sort staff members by supported parameters
         + Members
@@ -44,7 +43,6 @@ Resources related to Staff Members in the API.
                         "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
                         "firstName": "fred",
                         "lastName": "flade",
-                        "fullName": "fred flade",
                         "role": "designer",
                         "_links": {
                             "self": {
@@ -56,7 +54,7 @@ Resources related to Staff Members in the API.
             },
             "_links":{
                 "self": {
-                    "href": "/v1/staff-members?role=designer&firstName=fred&fullName=fred flade&sort=firstName:asc"
+                    "href": "/v1/staff-members?role=designer&firstName=fred&sort=firstName:asc"
                 }
             }
         }
@@ -140,7 +138,6 @@ Manage a specific Staff Member's state using this resource.
                 "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
                 "firstName": "foo",
                 "lastName": "bar",
-                "fullName": "foo bar",
                 "role": "developer",
                 "_links": {
                     "self": {
