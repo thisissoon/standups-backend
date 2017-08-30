@@ -1,12 +1,12 @@
 const hal = require('hal');
 
-const root = 'v1';
+const root = 'v1/days';
 
 exports.Day = class Day extends hal.Resource {
   constructor(data) {
     delete data.createdAt;
     delete data.updatedAt;
-    super(data, `${root}/days/${data.ID}`);
+    super(data, `${root}/${data.ID}`);
   }
 };
 

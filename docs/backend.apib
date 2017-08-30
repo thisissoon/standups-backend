@@ -284,18 +284,22 @@ Manage a specific Staff Member's state using this resource.
 
 Resources related to Days in the API.
 
-## Days Collection [/days{?sort}]
+## Days Collection [/days{?date,sort,page,limit}]
 
 ### List All Days [GET]
 
 + Parameters
 
+    + date: `2016-04-13T23:00:00.000Z` (string, optional) - Filter by date.
     + sort: `date:asc` (string, optional)
         Sort days by supported parameters
-        + Default: `date:asc`
         + Members
             + `date:asc`
             + `date:desc`
+    + page: `1` (number, optional) - Set the page number to view content for.
+        + Default: `1` 
+    + limit: `2` (number, optional) - Set the number of items per page.
+        + Default: `100`
 
 + Request (application/json; charset=utf-8)
 
@@ -316,14 +320,30 @@ Resources related to Days in the API.
                                 "href": "/v1/days/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                             }
                         }
+                    },
+                    {
+                        "ID": "bg4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                        "date": "bar",
+                        "_links": {
+                            "self": {
+                                "href": "/v1/days/bg4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                            }
+                        }
                     }
                 ]
             },
             "_links":{
                 "self": {
-                    "href": "v1/staff-members"
+                    "href": "v1/days?page=1&limit=2"
+                },
+                "next": {
+                    "href": "v1/days?page=2&limit=2",
                 }
-            }
+            },
+            "pages": 180,
+            "currentPage": 1,
+            "limit": 2,
+            "total": 360
         }
 
 ## Day [/days/{id}]
@@ -334,7 +354,7 @@ Access a specific day using this resource.
     + id: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The day UUID
 
 
-### Get specific day [GET]
+### Get Day [GET]
 
 + Request (application/json; charset=utf-8)
 
@@ -347,12 +367,34 @@ Access a specific day using this resource.
         {
             "_links": {
                 "self": {
-                    "href": "v1/staff/bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                    "href": "v1/days/bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
                 }
             },
             "ID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a",
             "date": "2016-04-11T23:00:00.000Z"
         }
+
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf53dc51-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "v1/days/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                    }
+                },
+                "_errors": {
+                    "message": "Not Found"
+                }
+            }
 
 # Group Positions
 
