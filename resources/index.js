@@ -1,5 +1,4 @@
-exports.Day = require('./day').Day;
-exports.DaysList = require('./day').DaysList;
+exports.DayResources = require('./day');
 exports.Position = require('./position').Position;
 exports.PositionsList = require('./position').PositionsList;
 exports.StaffMemberResources = require('./staff-member');
