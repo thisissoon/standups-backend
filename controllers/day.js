@@ -25,7 +25,10 @@ exports.list = function get(req, res, next) {
   const limit = req.query.limit ? parseInt(req.query.limit) : 100;
   const page = req.query.page ? parseInt(req.query.page) : 1;
   const offset = (page - 1) * limit;
-  models.Day.findAndCountAll({ order, limit, offset })
+  delete req.query.sort;
+  delete req.query.limit;
+  delete req.query.page;
+  models.Day.findAndCountAll({ where: req.query, order, limit, offset })
     .then(result => {
       const days = result.rows.map(day => {
         return new Day(day.dataValues);
@@ -42,13 +45,21 @@ exports.list = function get(req, res, next) {
     });
 };
 
-exports.get = function find(req, res) {
+/**
+ * Retrieve a specific day
+ *
+ * @method get
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.get = function find(req, res, next) {
   models.Day.findById(req.params.id)
     .then(day => {
       const resource = new Day(day.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {
-      res.status(500).json(err);
+      next(err);
     });
 };
