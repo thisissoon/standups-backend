@@ -1,6 +1,7 @@
 const models   = require('../models');
 const Day      = require('../resources').DayResources.Day;
 const DaysList = require('../resources').DayResources.DaysList;
+const errors = require('../restapi/errors');
 
 /**
  * 
@@ -56,6 +57,7 @@ exports.list = function get(req, res, next) {
 exports.get = function find(req, res, next) {
   models.Day.findById(req.params.id)
     .then(day => {
+      if (!day) throw new errors.NotFound();
       const resource = new Day(day.dataValues);
       res.status(200).json(resource);
     })
