@@ -11,7 +11,7 @@ function saveStaffMembers(staffMembers){
 function saveStaffMember(staffMember, index) {
   return models.StaffMember.create(staffMember)
     .then(staffMemberObject => {
-      logger.log('success', `${staffMemberObject.dataValues.fullName} was saved.`);
+      logger.log('success', `${staffMemberObject.firstName} ${staffMemberObject.lastName} was saved.`);
       return staffMemberObject.dataValues;
     })
     .catch(err => {
