@@ -22,7 +22,9 @@ function parseOrder(string) {
  */
 exports.list = function get(req, res, next) {
   const order = req.query.sort ? parseOrder(req.query.sort) : null;
-  models.Day.findAll({ order: order })
+  const limit = req.query.limit;
+  const offset = (req.query.page - 1) * limit;
+  models.Day.findAll({ order, limit, offset })
     .then(days => {
       days = days.map(day => {
         return new Day(day.dataValues);
