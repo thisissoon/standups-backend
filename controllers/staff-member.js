@@ -1,6 +1,7 @@
 const models           = require('../models');
-const StaffMember      = require('../resources').StaffMember;
-const StaffMembersList = require('../resources').StaffMembersList;
+const StaffMember = require('../resources').StaffMemberResources.StaffMember;
+const StaffMembersList = require('../resources').StaffMemberResources.StaffMembersList;
+const StaffMemberCreate = require('../resources').StaffMemberResources.StaffMemberCreate;
 const errors = require('../restapi/errors');
 
 /**
@@ -48,16 +49,7 @@ exports.list = function list(req, res, next) {
 exports.create = function create(req, res, next) {
   models.StaffMember.create(req.body)
     .then(staffMember => {
-      const resource = {
-        _links: {
-          self: {
-            href: 'v1/staff-members'
-          },
-          staffMember: {
-            href: `v1/staff-members/${staffMember.dataValues.ID}`
-          }
-        }
-      };
+      const resource = new StaffMemberCreate(staffMember.dataValues);
       console.log(resource);
       res.status(200).json(resource);
     })
@@ -101,16 +93,7 @@ exports.update = function update(req, res, next) {
       return staffMember.update(req.body);
     })
     .then(staffMember => {
-      const resource = {
-        _links: {
-          self: {
-            href: 'v1/staff-members'
-          },
-          staffMember: {
-            href: `v1/staff-members/${staffMember.dataValues.ID}`
-          }
-        }
-      };
+      const resource = new StaffMember(staffMember.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {
