@@ -5,11 +5,11 @@ const staffMemberCtrl = require('../controllers').staffMemberCtrl;
 
 // Routes
 router.route('/')
-  .get(staffMemberCtrl.get)
+  .get(staffMemberCtrl.list)
   .post(staffMemberCtrl.create);
 
 router.route('/:id')
-  .get(staffMemberCtrl.find)
+  .get(staffMemberCtrl.get)
   .put(staffMemberCtrl.update)
   .delete(staffMemberCtrl.delete);
 

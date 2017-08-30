@@ -18,11 +18,6 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false
         },
-        fullName: {
-          type: Sequelize.STRING,
-          allowNull: false,
-          unique: true
-        },
         role: {
           type: Sequelize.STRING,
           allowNull: false
@@ -37,7 +32,12 @@ module.exports = {
           defaultValue: Sequelize.NOW
         }
       }
-    );
+    ).then(() => {
+      queryInterface.addConstraint('StaffMember', ['firstName', 'lastName'], {
+        type: 'unique',
+        name: 'full_name'
+      });
+    });
   },
   down: function (queryInterface, Sequelize) {
     return queryInterface.dropTable('StaffMember');

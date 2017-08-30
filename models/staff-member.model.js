@@ -21,13 +21,6 @@ const StaffMember = sequelize.define('StaffMember', {
       this.setDataValue('lastName', val.toLowerCase());
     }
   },
-  fullName: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    set(val) {
-      this.setDataValue('fullName', val.toLowerCase());
-    }
-  },
   role: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -35,15 +28,17 @@ const StaffMember = sequelize.define('StaffMember', {
       this.setDataValue('role', val.toLowerCase());
     }
   }
-}, {
-  tableName: 'StaffMember',
-  hooks: {
-    beforeValidate: (staffMember) => {
-      const fullName = `${staffMember.dataValues.firstName} ${staffMember.dataValues.lastName}`;
-      staffMember.fullName = fullName;
+}, 
+  {
+    tableName: 'StaffMember',
+    getterMethods: {
+      fullName: function () {
+        var string = this.firstName + ' ' + this.lastName;
+        return string;
+      }
     }
   }
-});
+);
 
 module.exports = {
   StaffMember

@@ -1,4 +1,4 @@
-const Server = require('../app');
+const Server = require('../restapi').Server;
 
 // Configure and run instance of server
 const server = new Server(3000);

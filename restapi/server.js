@@ -1,7 +1,8 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const routes = require('./routes');
+const routes = require('../routes');
+const errors = require('../restapi/errors');
 
 class Server {
 
@@ -22,8 +23,11 @@ class Server {
     this.app.use(bodyParser.json());
     this.app.use(logger('dev'));
 
-    // Setup routes
+    // // Setup routes
     this.app.use('', routes);
+
+    // Error handling
+    this.app.use(this.error);
 
   }
 
@@ -33,5 +37,20 @@ class Server {
       console.log(`Server listening on ${addr.address}:${addr.port}`);
     });
   }
+
+  /**
+   * Handle server errors, respond with HAL representation
+   *
+   * @method error
+   * @param {Error}    err  Error thrown in request chain
+   * @param {Object}   req  Express Request
+   * @param {Object}   res  Express Response
+   * @param {Function} next Callback to continue middleware chain
+   */
+  error(err, req, res, next) {
+    res.status(err && err.status ? err.status : 500)
+      .json(new errors.HalErrors(req, err));
+  }
+
 }
 module.exports = Server;
