@@ -22,14 +22,19 @@ function parseOrder(string) {
  */
 exports.list = function get(req, res, next) {
   const order = req.query.sort ? parseOrder(req.query.sort) : null;
-  const limit = req.query.limit;
-  const offset = (req.query.page - 1) * limit;
-  models.Day.findAll({ order, limit, offset })
-    .then(days => {
-      days = days.map(day => {
+  const limit = req.query.limit ? parseInt(req.query.limit) : 100;
+  const page = req.query.page ? parseInt(req.query.page) : 1;
+  const offset = (page - 1) * limit;
+  models.Day.findAndCountAll({ order, limit, offset })
+    .then(result => {
+      const days = result.rows.map(day => {
         return new Day(day.dataValues);
       });
       const resource = new DaysList(req.originalUrl, days);
+      resource.currentPage = page;
+      resource.limt = limit;
+      resource.total = result.count;
+      resource.pages = Math.ceil(result.count / limit);
       res.status(200).json(resource);
     })
     .catch(err => {
