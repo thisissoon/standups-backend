@@ -115,7 +115,6 @@ exports.delete = (req, res, next) => {
       return staffMember.destroy();
     })
     .then(noDestroyed => {
-      console.log(noDestroyed);
       res.status(204).json(noDestroyed);
     })
     .catch(err => {

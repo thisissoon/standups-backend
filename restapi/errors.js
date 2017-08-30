@@ -57,7 +57,6 @@ class HalErrors extends HAL.Resource {
    * @param {Error}  err   Error
    */
   constructor(req, err) {
-    console.log(err);
     super({}, req.originalUrl);
     if (err instanceof CustomError) {
       this._errors = err.toJSON();
