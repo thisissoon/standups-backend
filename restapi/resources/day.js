@@ -1,5 +1,7 @@
 const hal = require('hal');
 
+const getPagination = require('../pagination').get;
+
 const root = 'v1/days';
 
 exports.Day = class Day extends hal.Resource {
@@ -11,8 +13,10 @@ exports.Day = class Day extends hal.Resource {
 };
 
 exports.DaysList = class DaysList extends hal.Resource {
-  constructor(url, days) {
-    super({}, url);
+  constructor(url, days, currentPage, limit, count) {
+    const pagination = getPagination(currentPage, limit, count);
+    super(pagination, url);
     if (days.length) this.embed('days', days);
   }
 };
+

@@ -1,5 +1,7 @@
 const hal = require('hal');
 
+const getPagination = require('../pagination').get;
+
 const root = 'v1/positions';
 
 exports.Position = class Position extends hal.Resource {
@@ -11,8 +13,9 @@ exports.Position = class Position extends hal.Resource {
 };
 
 exports.PositionsList = class PositionsList extends hal.Resource {
-  constructor(url, positions) {
-    super({}, url);
+  constructor(url, positions, currentPage, limit, count) {
+    const pagination = getPagination(currentPage, limit, count);
+    super(pagination, url);
     if (positions.length) this.embed('positions', positions);
   }
 };

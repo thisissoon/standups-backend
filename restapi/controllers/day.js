@@ -1,17 +1,8 @@
+const queryParser = require('../query-parser');
 const models   = require('../../db/models');
 const Day      = require('../resources').DayResources.Day;
 const DaysList = require('../resources').DayResources.DaysList;
 const errors = require('../errors');
-
-/**
- * 
- * @param {String} string Sort string from request URL 
- */
-function parseOrder(string) {
-  const array = string.split(':');
-  array[1] = array[1].toUpperCase();
-  return [array];
-}
 
 /**
  * List all days.
@@ -22,23 +13,15 @@ function parseOrder(string) {
  * @param {Function} next Callback to continue middleware chain
  */
 exports.list = function get(req, res, next) {
-  const order = req.query.sort ? parseOrder(req.query.sort) : null;
   const limit = req.query.limit ? parseInt(req.query.limit) : 100;
-  const page = req.query.page ? parseInt(req.query.page) : 1;
-  const offset = (page - 1) * limit;
-  delete req.query.sort;
-  delete req.query.limit;
-  delete req.query.page;
-  models.Day.findAndCountAll({ where: req.query, order, limit, offset })
+  const currentPage = req.query.page ? parseInt(req.query.page) : 1;
+  const query = queryParser.findAndCountAll(req.query, limit);
+  models.Day.findAndCountAll(query)
     .then(result => {
       const days = result.rows.map(day => {
         return new Day(day.dataValues);
       });
-      const resource = new DaysList(req.originalUrl, days);
-      resource.currentPage = page;
-      resource.limt = limit;
-      resource.total = result.count;
-      resource.pages = Math.ceil(result.count / limit);
+      const resource = new DaysList(req.originalUrl, days, currentPage, limit, result.count);
       res.status(200).json(resource);
     })
     .catch(err => {

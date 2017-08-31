@@ -1,18 +1,9 @@
+const queryParser = require('../query-parser');
 const models = require('../../db/models');
 const StaffMember = require('../resources').StaffMemberResources.StaffMember;
 const StaffMembersList = require('../resources').StaffMemberResources.StaffMembersList;
 const StaffMemberCreate = require('../resources').StaffMemberResources.StaffMemberCreate;
 const errors = require('../errors');
-
-/**
- * 
- * @param {String} string Sort string from request URL 
- */
-function parseOrder(string) {
-  const array = string.split(':');
-  array[1] = array[1].toUpperCase();
-  return [array];
-}
 
 /**
  * List all staff members.
@@ -23,9 +14,8 @@ function parseOrder(string) {
  * @param {Function} next Callback to continue middleware chain
  */
 exports.list = function list(req, res, next) {
-  const order = req.query.sort? parseOrder(req.query.sort) : null;
-  delete req.query.sort;
-  models.StaffMember.findAll({where: req.query, order: order})
+  const query = queryParser.findAndCountAll(req.query);
+  models.StaffMember.findAll(query)
     .then(staffMembers => {
       staffMembers = staffMembers.map(staffMember => {
         return new StaffMember(staffMember.dataValues);
