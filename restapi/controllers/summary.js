@@ -1,7 +1,7 @@
-const models        = require('../models');
-const Position      = require('../resources').PositionResource.Position;
-const PositionsList = require('../resources').PositionResource.PositionsList;
-const errors = require('../restapi/errors');
+const models = require('../../db/models');
+const Summary       = require('../resources').SummaryResources.Summary;
+const SummariesList = require('../resources').SummaryResources.SummariesList;
+const errors = require('../errors');
 
 /**
  * 
@@ -14,7 +14,7 @@ function parseOrder(string) {
 }
 
 /**
- * List all positions.
+ * List all summaries.
  *
  * @method list
  * @param {Object}   req  Express Request
@@ -29,12 +29,12 @@ exports.list = function list(req, res, next) {
   delete req.query.sort;
   delete req.query.limit;
   delete req.query.page;
-  models.Position.findAndCountAll({ where: req.query, order, limit, offset })
+  models.Summary.findAndCountAll({ where: req.query, order, limit, offset })
     .then(result => {
-      const positions = result.rows.map(position => {
-        return new Position(position.dataValues);
+      const summaries = result.rows.map(summary => {
+        return new Summary(summary.dataValues);
       });
-      const resource = new PositionsList(req.originalUrl, positions);
+      const resource = new SummariesList(req.originalUrl, summaries);
       resource.currentPage = page;
       resource.limt = limit;
       resource.total = result.count;
@@ -47,7 +47,7 @@ exports.list = function list(req, res, next) {
 };
 
 /**
- * Retrieve a specific position.
+ * Retrieve a specific summary.
  *
  * @method get
  * @param {Object}   req  Express Request
@@ -55,13 +55,14 @@ exports.list = function list(req, res, next) {
  * @param {Function} next Callback to continue middleware chain
  */
 exports.get = function get(req, res, next) {
-  models.Position.findById(req.params.id)
-    .then(position => {
-      if (!position) throw new errors.NotFound();
-      const resource = new Position(position.dataValues);
+  models.Summary.findById(req.params.id)
+    .then(summary => {
+      if (!summary) throw new errors.NotFound();
+      const resource = new Summary(summary.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {
       next(err);
     });
 };
+

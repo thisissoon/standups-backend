@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../db/db.config.js').sequelize;
+const sequelize = require('../connection').sequelize;
 
 const Day = sequelize.define('Day', {
   ID: {

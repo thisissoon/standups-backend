@@ -1,8 +1,8 @@
-const models           = require('../models');
+const models = require('../../db/models');
 const StaffMember = require('../resources').StaffMemberResources.StaffMember;
 const StaffMembersList = require('../resources').StaffMemberResources.StaffMembersList;
 const StaffMemberCreate = require('../resources').StaffMemberResources.StaffMemberCreate;
-const errors = require('../restapi/errors');
+const errors = require('../errors');
 
 /**
  * 

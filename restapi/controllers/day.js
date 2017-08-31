@@ -1,7 +1,7 @@
-const models   = require('../models');
+const models   = require('../../db/models');
 const Day      = require('../resources').DayResources.Day;
 const DaysList = require('../resources').DayResources.DaysList;
-const errors = require('../restapi/errors');
+const errors = require('../errors');
 
 /**
  * 

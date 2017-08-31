@@ -1,6 +1,6 @@
 const hal = require('hal');
 
-const models = require('../models');
+const models = require('../../db/models');
 const Day = require('../resources').Day;
 const DaysList = require('../resources').DaysList;
 const Position = require('../resources').Position;

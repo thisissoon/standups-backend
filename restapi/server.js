@@ -1,8 +1,8 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const routes = require('../routes');
-const errors = require('../restapi/errors');
+const routes = require('./routes');
+const errors = require('./errors');
 
 class Server {
 
