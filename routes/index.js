@@ -10,7 +10,7 @@ const standUps = require('./stand-ups');
 // API Routes
 router.use('/v1/staff-members', staffMembers);
 router.use('/v1/days', days);
-router.use('/positions', positions);
+router.use('/v1/positions', positions);
 router.use('/summaries', summaries);
 router.use('/stand-ups', standUps);
 
