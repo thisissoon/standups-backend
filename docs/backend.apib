@@ -511,16 +511,25 @@ Access a specific position using this resource.
 
 Resources related to Summaries in the API.
 
-## Summaries Collection [/v1/summaries{?date,staffID}]
+## Summaries Collection [/v1/summaries{?dayID,staffID,sort,page,limit}]
 
 ### List All Summaries [GET]
 
 + Parameters
 
-    + date: `2016-04-11T23:00:00.000Z` (string, optional) - Filter by date.
-        + Default: null
-    + staffID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by staff member.
-        + Default: null
+    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by dayID.
+    + staffID: `bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by staffID.
+    + sort: `date:asc` (string, optional)
+        Sort summaries by supported parameters
+        + Members
+            + `date:asc`
+            + `date:desc`
+            + `orderIndex:asc`
+            + `orderIndex:desc`
+    + page: `1` (number, optional) - Set the page number to view content for.
+        + Default: `1` 
+    + limit: `10` (number, optional) - Set the number of items per page.
+        + Default: `200`
 
 + Request (application/json; charset=utf-8)
 
@@ -531,26 +540,30 @@ Resources related to Summaries in the API.
 + Response 200 (application/json)
 
         {
-            "_links": {
-                "self": {
-                    "href": "/positions?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
-                }
-            },
             "_embedded": {
-                "positions": [
+                "summaries": [
                     {
                         "_links": {
                             "self": {
-                                "href": "v1/positions/bf618250-792c-11e7-9e1d-b10f7e8a2b0a"
+                                "href": "v1/summaries/bf618250-792c-11e7-9e1d-b10f7e8a2b0a"
                             }
                         },
                         "ID": "bf618250-792c-11e7-9e1d-b10f7e8a2b0a",
-                        "placeIndex": 4,
+                        "orderIndex": 4,
                         "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
                         "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 ]
-            }
+            },
+            "_links": {
+                "self": {
+                    "href": "/summaries?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a&staffID=bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a&date=2016-04-11T23:00:00.000Z&sort=date:asc&page=1&limit=2"
+                }
+            },
+            "pages": 1,
+            "currentPage": 1,
+            "limit": 10,
+            "total": 9
         }
 
 ## Summary [/v1/summaries/{id}]
@@ -558,7 +571,7 @@ Resources related to Summaries in the API.
 Access a specific position using this resource.
 
 + Parameters
-    + id: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The summary UUID
+    + id: `bf618250-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The summary UUID
 
 
 ### Get specific summary [GET]
@@ -574,7 +587,7 @@ Access a specific position using this resource.
         {
             "_links": {
                 "self": {
-                    "href": "v1/positions/bf618250-792c-11e7-9e1d-b10f7e8a2b0a"
+                    "href": "v1/summaries/bf618250-792c-11e7-9e1d-b10f7e8a2b0a"
                 }
             },
             "ID": "bf618250-792c-11e7-9e1d-b10f7e8a2b0a",
@@ -583,6 +596,28 @@ Access a specific position using this resource.
             "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
         }
 
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf53dc51-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "v1/positions/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                }
+            },
+            "_errors": {
+                "message": "Not Found"
+            }
+        }
+        
 # Group Stand-ups
 
 Resources related to stand-ups in the API.
