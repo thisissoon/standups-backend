@@ -12,7 +12,7 @@ exports.Summary = class Summary extends hal.Resource {
   }
 };
 
-exports.SummariesList = class SummariesList extends hal.Resource {
+exports.List = class List extends hal.Resource {
   constructor(url, summaries, currentPage, limit, count) {
     const pagination = getPagination(currentPage, limit, count);
     super(pagination, url);
