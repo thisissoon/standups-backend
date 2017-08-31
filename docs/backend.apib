@@ -8,7 +8,7 @@ A simple Express Web API for the storage and serving of data from SOON_'s daily 
 
 Resources related to Staff Members in the API.
 
-## Staff Members Collection [/staff-members{?sort,role,firstName}]
+## Staff Members Collection [/v1/staff-members{?sort,role,firstName}]
 
 ### List All Staff Members [GET]
 
@@ -117,7 +117,7 @@ Resources related to Staff Members in the API.
                 }
             }
 
-## Staff Member [/staff-members/{id}]
+## Staff Member [/v1/staff-members/{id}]
 
 Manage a specific Staff Member's state using this resource.
 
@@ -284,7 +284,7 @@ Manage a specific Staff Member's state using this resource.
 
 Resources related to Days in the API.
 
-## Days Collection [/days{?date,sort,page,limit}]
+## Days Collection [/v1/days{?date,sort,page,limit}]
 
 ### List All Days [GET]
 
@@ -346,7 +346,7 @@ Resources related to Days in the API.
             "total": 360
         }
 
-## Day [/days/{id}]
+## Day [/v1/days/{id}]
 
 Access a specific day using this resource.
 
@@ -400,16 +400,23 @@ Access a specific day using this resource.
 
 Resources related to Positions in the API.
 
-## Positions Collection [/positions{?date,staffID}]
+## Positions Collection [/v1/positions{?dayID,date,sort,page,limit}]
 
 ### List All Positions [GET]
 
 + Parameters
 
+    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by dayID.
     + date: `2016-04-11T23:00:00.000Z` (string, optional) - Filter by date.
-        + Default: null
-    + staffID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by staff member.
-        + Default: null
+    + sort: `date:asc` (string, optional)
+        Sort positions by supported parameters
+        + Members
+            + `date:asc`
+            + `date:desc`
+    + page: `1` (number, optional) - Set the page number to view content for.
+        + Default: `1` 
+    + limit: `10` (number, optional) - Set the number of items per page.
+        + Default: `200`
 
 + Request (application/json; charset=utf-8)
 
@@ -420,11 +427,6 @@ Resources related to Positions in the API.
 + Response 200 (application/json)
 
         {
-            "_links": {
-                "self": {
-                    "href": "/positions?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
-                }
-            },
             "_embedded": {
                 "positions": [
                     {
@@ -439,10 +441,19 @@ Resources related to Positions in the API.
                         "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 ]
-            }
+            },
+            "_links": {
+                "self": {
+                    "href": "/v1/positions?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a&date=2016-04-11T23:00:00.000Z&sort=date:asc&page=1&limit=2"
+                }
+            },
+            "pages": 1,
+            "currentPage": 1,
+            "limit": 10,
+            "total": 9
         }
 
-## Position [/positions/{id}]
+## Position [/v1/positions/{id}]
 
 Access a specific position using this resource.
 
@@ -472,11 +483,33 @@ Access a specific position using this resource.
             "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
         }
 
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf53dc51-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "v1/positions/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                }
+            },
+            "_errors": {
+                "message": "Not Found"
+            }
+        }
+
 # Group Summaries
 
 Resources related to Summaries in the API.
 
-## Summaries Collection [/summaries{?date,staffID}]
+## Summaries Collection [/v1/summaries{?date,staffID}]
 
 ### List All Summaries [GET]
 
@@ -518,7 +551,7 @@ Resources related to Summaries in the API.
             }
         }
 
-## Summary [/summaries/{id}]
+## Summary [/v1/summaries/{id}]
 
 Access a specific position using this resource.
 
@@ -552,7 +585,7 @@ Access a specific position using this resource.
 
 Resources related to stand-ups in the API.
 
-## Stand-ups Collection [/stand-ups{?date}]
+## Stand-ups Collection [/v1/stand-ups{?date}]
 
 ### List All Stand-ups [GET]
 
