@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../db/db.config.js').sequelize;
+const sequelize = require('../connection').sequelize;
 
-const Summary = sequelize.define('Summary', {
+const Position = sequelize.define('Position', {
   ID: {
     primaryKey: true,
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV1
   },
-  orderIndex: {
+  placeIndex: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
@@ -28,9 +28,9 @@ const Summary = sequelize.define('Summary', {
     }
   }
 }, {
-  tableName: 'Summary'
+  tableName: 'Position'
 });
 
 module.exports = {
-  Summary
+  Position
 };

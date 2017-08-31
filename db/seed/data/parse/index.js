@@ -16,7 +16,7 @@ standupParser.logger.debugLevel = args? args[0] : 'success';
 
 standupParser.parse(inputFilePath)
   .then(json => {
-    fs.writeFile(`${__dirname}/../seed/data/stand-ups.json`, JSON.stringify(json), 'utf8', function (err) {
+    fs.writeFile(`${__dirname}/../stand-ups.json`, JSON.stringify(json), 'utf8', function (err) {
       if (err) {
         logger.log('error', err);
         process.exit(1);
