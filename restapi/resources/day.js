@@ -12,7 +12,7 @@ exports.Day = class Day extends hal.Resource {
   }
 };
 
-exports.DaysList = class DaysList extends hal.Resource {
+exports.List = class List extends hal.Resource {
   constructor(url, days, currentPage, limit, count) {
     const pagination = getPagination(currentPage, limit, count);
     super(pagination, url);

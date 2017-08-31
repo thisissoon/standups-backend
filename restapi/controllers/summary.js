@@ -1,7 +1,6 @@
 const queryParser = require('../query-parser');
 const models = require('../../db/models');
-const Summary       = require('../resources').SummaryResources.Summary;
-const SummariesList = require('../resources').SummaryResources.SummariesList;
+const resources = require('../resources');
 const errors = require('../errors');
 
 /**
@@ -19,9 +18,9 @@ exports.list = function list(req, res, next) {
   models.Summary.findAndCountAll(query)
     .then(result => {
       const summaries = result.rows.map(summary => {
-        return new Summary(summary.dataValues);
+        return new resources.summaries.Summary(summary.dataValues);
       });
-      const resource = new SummariesList(req.originalUrl, summaries, currentPage, limit, result.count);
+      const resource = new resources.summaries.List(req.originalUrl, summaries, currentPage, limit, result.count);
       res.json(resource);
     })
     .catch(err => {
@@ -41,7 +40,7 @@ exports.get = function get(req, res, next) {
   models.Summary.findById(req.params.id)
     .then(summary => {
       if (!summary) throw new errors.NotFound();
-      const resource = new Summary(summary.dataValues);
+      const resource = new resources.summaries.Summary(summary.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {

@@ -1,8 +1,6 @@
 const queryParser = require('../query-parser');
 const models = require('../../db/models');
-const StaffMember = require('../resources').StaffMemberResources.StaffMember;
-const StaffMembersList = require('../resources').StaffMemberResources.StaffMembersList;
-const StaffMemberCreate = require('../resources').StaffMemberResources.StaffMemberCreate;
+const resources = require('../resources');
 const errors = require('../errors');
 
 /**
@@ -18,9 +16,9 @@ exports.list = function list(req, res, next) {
   models.StaffMember.findAll(query)
     .then(staffMembers => {
       staffMembers = staffMembers.map(staffMember => {
-        return new StaffMember(staffMember.dataValues);
+        return new resources.staffMembers.StaffMember(staffMember.dataValues);
       });
-      const resource = new StaffMembersList(req.originalUrl, staffMembers);
+      const resource = new resources.staffMembers.List(req.originalUrl, staffMembers);
       res.status(200).json(resource);
     })
     .catch((err) => {
@@ -39,7 +37,7 @@ exports.list = function list(req, res, next) {
 exports.create = function create(req, res, next) {
   models.StaffMember.create(req.body)
     .then(staffMember => {
-      const resource = new StaffMemberCreate(staffMember.dataValues);
+      const resource = new resources.staffMembers.Create(staffMember.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {
@@ -59,7 +57,7 @@ exports.get = function get(req, res, next) {
   models.StaffMember.findById(req.params.id)
     .then(staffMember => {
       if (!staffMember) throw new errors.NotFound();
-      const resource = new StaffMember(staffMember.dataValues);
+      const resource = new resources.staffMembers.StaffMember(staffMember.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {
@@ -82,7 +80,7 @@ exports.update = function update(req, res, next) {
       return staffMember.update(req.body);
     })
     .then(staffMember => {
-      const resource = new StaffMember(staffMember.dataValues);
+      const resource = new resources.staffMembers.StaffMember(staffMember.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {

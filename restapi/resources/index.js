@@ -1,4 +1,4 @@
-exports.DayResources = require('./day');
-exports.PositionResource = require('./position');
-exports.StaffMemberResources = require('./staff-member');
-exports.SummaryResources = require('./summary');
+exports.days = require('./day');
+exports.positions = require('./position');
+exports.staffMembers = require('./staff-member');
+exports.summaries = require('./summary');

@@ -12,7 +12,7 @@ exports.Position = class Position extends hal.Resource {
   }
 };
 
-exports.PositionsList = class PositionsList extends hal.Resource {
+exports.List = class List extends hal.Resource {
   constructor(url, positions, currentPage, limit, count) {
     const pagination = getPagination(currentPage, limit, count);
     super(pagination, url);

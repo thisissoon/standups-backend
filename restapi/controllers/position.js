@@ -1,7 +1,6 @@
 const queryParser = require('../query-parser');
 const models = require('../../db/models');
-const Position      = require('../resources').PositionResource.Position;
-const PositionsList = require('../resources').PositionResource.PositionsList;
+const resources = require('../resources');
 const errors = require('../errors');
 
 /**
@@ -19,9 +18,9 @@ exports.list = function list(req, res, next) {
   models.Position.findAndCountAll(query)
     .then(result => {
       const positions = result.rows.map(position => {
-        return new Position(position.dataValues);
+        return new resources.positions.Position(position.dataValues);
       });
-      const resource = new PositionsList(req.originalUrl, positions, currentPage, limit, result.count);
+      const resource = new resources.positions.List(req.originalUrl, positions, currentPage, limit, result.count);
       res.json(resource);
     })
     .catch(err => {
@@ -41,7 +40,7 @@ exports.get = function get(req, res, next) {
   models.Position.findById(req.params.id)
     .then(position => {
       if (!position) throw new errors.NotFound();
-      const resource = new Position(position.dataValues);
+      const resource = new resources.positions.Position(position.dataValues);
       res.status(200).json(resource);
     })
     .catch(err => {

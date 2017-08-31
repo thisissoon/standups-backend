@@ -10,14 +10,14 @@ exports.StaffMember = class StaffMember extends hal.Resource {
   }
 };
 
-exports.StaffMembersList = class StaffMembersList extends hal.Resource {
+exports.List = class List extends hal.Resource {
   constructor(url, staffMembers) {
     super({}, url);
     this.embed('staffMembers', staffMembers);
   }
 };
 
-exports.StaffMemberCreate = class StaffMemberCreate extends hal.Resource {
+exports.Create = class Create extends hal.Resource {
   constructor(data) {
     super({}, root);
     this.link('staffMember', `${root}/${data.ID}`);
