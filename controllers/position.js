@@ -47,7 +47,7 @@ exports.list = function list(req, res, next) {
 };
 
 /**
- * Retrieve a specific day
+ * Retrieve a specific position.
  *
  * @method get
  * @param {Object}   req  Express Request

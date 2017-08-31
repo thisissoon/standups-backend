@@ -11,7 +11,7 @@ const standUps = require('./stand-ups');
 router.use('/v1/staff-members', staffMembers);
 router.use('/v1/days', days);
 router.use('/v1/positions', positions);
-router.use('/summaries', summaries);
+router.use('/v1/summaries', summaries);
 router.use('/stand-ups', standUps);
 
 module.exports = router;
