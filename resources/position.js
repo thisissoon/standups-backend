@@ -1,12 +1,12 @@
 const hal = require('hal');
 
-const root = 'v1';
+const root = 'v1/positions';
 
 exports.Position = class Position extends hal.Resource {
   constructor(data) {
     delete data.createdAt;
     delete data.updatedAt;
-    super(data, `${root}/positions/${data.ID}`);
+    super(data, `${root}/${data.ID}`);
   }
 };
 
