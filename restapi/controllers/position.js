@@ -1,17 +1,8 @@
+const queryParser = require('../query-parser');
 const models = require('../../db/models');
 const Position      = require('../resources').PositionResource.Position;
 const PositionsList = require('../resources').PositionResource.PositionsList;
 const errors = require('../errors');
-
-/**
- * 
- * @param {String} string Sort string from request URL 
- */
-function parseOrder(string) {
-  const array = string.split(':');
-  array[1] = array[1].toUpperCase();
-  return [array];
-}
 
 /**
  * List all positions.
@@ -22,23 +13,15 @@ function parseOrder(string) {
  * @param {Function} next Callback to continue middleware chain
  */
 exports.list = function list(req, res, next) {
-  const order = req.query.sort ? parseOrder(req.query.sort) : null;
   const limit = req.query.limit ? parseInt(req.query.limit) : 200;
-  const page = req.query.page ? parseInt(req.query.page) : 1;
-  const offset = (page - 1) * limit;
-  delete req.query.sort;
-  delete req.query.limit;
-  delete req.query.page;
-  models.Position.findAndCountAll({ where: req.query, order, limit, offset })
+  const currentPage = req.query.page ? parseInt(req.query.page) : 1;
+  const query = queryParser.findAndCountAll(req.query, limit);
+  models.Position.findAndCountAll(query)
     .then(result => {
       const positions = result.rows.map(position => {
         return new Position(position.dataValues);
       });
-      const resource = new PositionsList(req.originalUrl, positions);
-      resource.currentPage = page;
-      resource.limt = limit;
-      resource.total = result.count;
-      resource.pages = Math.ceil(result.count / limit);
+      const resource = new PositionsList(req.originalUrl, positions, currentPage, limit, result.count);
       res.json(resource);
     })
     .catch(err => {
