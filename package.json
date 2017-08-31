@@ -5,9 +5,10 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "parse": "node ./parse/index",
+    "migrate": "sequelize db:migrate",
+    "parse": "node ./db/seed/data/parse/index",
+    "seed": "node ./db/seed/index",
     "start": "nodemon ./bin/www",
-    "seed": "node ./seed/index",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:integration": "dredd",
     "test:runserver": "node tests/integration.js"
