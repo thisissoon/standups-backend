@@ -5,9 +5,12 @@ const positionCtrl = require('../controllers').positionCtrl;
 
 // Routes
 router.route('/')
-  .get(positionCtrl.list);
+  .get(positionCtrl.list)
+  .post(positionCtrl.create);
 
 router.route('/:id')
-  .get(positionCtrl.get);
+  .get(positionCtrl.get)
+  .put(positionCtrl.update)
+  .delete(positionCtrl.delete);
 
 module.exports = router;
