@@ -68,6 +68,29 @@ exports.get = function find(req, res, next) {
 };
 
 /**
+ * Update a specific day
+ *
+ * @method update
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.update = function update(req, res, next) {
+  models.Day.findById(req.params.id)
+    .then(day => {
+      if (!day) throw new errors.NotFound();
+      return day.update(req.body);
+    })
+    .then(day => {
+      const resource = new resources.days.Day(day.dataValues);
+      res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
  * Delete a specific day
  *
  * @method delete

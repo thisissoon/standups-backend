@@ -10,6 +10,7 @@ router.route('/')
 
 router.route('/:id')
   .get(dayCtrl.get)
+  .put(dayCtrl.update)
   .delete(dayCtrl.delete);
 
 module.exports = router;
