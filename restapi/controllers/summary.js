@@ -29,6 +29,25 @@ exports.list = function list(req, res, next) {
 };
 
 /**
+ * Create a new summary.
+ *
+ * @method create
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.create = function create(req, res, next) {
+  models.Summary.create(req.body)
+    .then(summary => {
+      const resource = new resources.summaries.Create(summary.dataValues);
+      res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
  * Retrieve a specific summary.
  *
  * @method get
@@ -48,3 +67,47 @@ exports.get = function get(req, res, next) {
     });
 };
 
+/**
+ * Update a specific summary
+ *
+ * @method update
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.update = function update(req, res, next) {
+  models.Summary.findById(req.params.id)
+    .then(summary => {
+      if (!summary) throw new errors.NotFound();
+      return summary.update(req.body);
+    })
+    .then(summary => {
+      const resource = new resources.summaries.Summary(summary.dataValues);
+      res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
+ * Delete a specific summary
+ *
+ * @method delete
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.delete = (req, res, next) => {
+  models.Summary.findById(req.params.id)
+    .then(summary => {
+      if (!summary) throw new errors.NotFound();
+      return summary.destroy();
+    })
+    .then(noDestroyed => {
+      res.status(204).json(noDestroyed);
+    })
+    .catch(err => {
+      next(err);
+    });
+};

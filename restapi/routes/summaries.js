@@ -5,9 +5,12 @@ const summaryCtrl = require('../controllers').summaryCtrl;
 
 // Routes
 router.route('/')
-  .get(summaryCtrl.list);
+  .get(summaryCtrl.list)
+  .post(summaryCtrl.create);
 
 router.route('/:id')
-  .get(summaryCtrl.get);
+  .get(summaryCtrl.get)
+  .put(summaryCtrl.update)
+  .delete(summaryCtrl.delete);
 
 module.exports = router;
