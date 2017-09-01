@@ -20,3 +20,9 @@ exports.List = class List extends hal.Resource {
   }
 };
 
+exports.Create = class Create extends hal.Resource {
+  constructor(data) {
+    super({}, root);
+    this.link('day', `${root}/${data.ID}`);
+  }
+};
