@@ -29,6 +29,25 @@ exports.list = function get(req, res, next) {
 };
 
 /**
+ * Create a new day.
+ *
+ * @method create
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.create = function create(req, res, next) {
+  models.Day.create(req.body)
+    .then(day => {
+      const resource = new resources.days.Create(day.dataValues);
+      res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
  * Retrieve a specific day
  *
  * @method get
@@ -42,6 +61,28 @@ exports.get = function find(req, res, next) {
       if (!day) throw new errors.NotFound();
       const resource = new resources.days.Day(day.dataValues);
       res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
+ * Delete a specific day
+ *
+ * @method delete
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.delete = (req, res, next) => {
+  models.Day.findById(req.params.id)
+    .then(day => {
+      if (!day) throw new errors.NotFound();
+      return day.destroy();
+    })
+    .then(noDestroyed => {
+      res.status(204).json(noDestroyed);
     })
     .catch(err => {
       next(err);

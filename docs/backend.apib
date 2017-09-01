@@ -346,6 +346,60 @@ Resources related to Days in the API.
             "total": 360
         }
 
+### Create a Day [POST]
+
++ Attributes
+    + date: `2016-04-10T23:00:00.000Z` (string) - Date in ISO format
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 201 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "v1/days"
+                    },
+                    "staffMember": {
+                        "href": "v1/days/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                }
+            }
+
++ Request Invalid Body (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+        
+    + Body
+    
+            {}
+
++ Response 422 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/v1/days"
+                    }
+                },
+                "_errors": {
+                    "message": "notNull Violation: date cannot be null",
+                    "errors": {
+                        "date": "date cannot be null"
+                    }
+                }
+            }
+
 ## Day [/v1/days/{id}]
 
 Access a specific day using this resource.
@@ -389,6 +443,38 @@ Access a specific day using this resource.
                 "_links": {
                     "self": {
                         "href": "v1/days/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                    }
+                },
+                "_errors": {
+                    "message": "Not Found"
+                }
+            }
+
+### Delete Day [DELETE]
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 204 (application/json)
+
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/v1/days/4f9953f0-8f00-11e7-a05b-4f71aaa9a239"
                     }
                 },
                 "_errors": {

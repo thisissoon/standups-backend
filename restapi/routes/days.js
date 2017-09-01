@@ -5,9 +5,11 @@ const dayCtrl = require('../controllers').dayCtrl;
 
 // Routes
 router.route('/')
-  .get(dayCtrl.list);
+  .get(dayCtrl.list)
+  .post(dayCtrl.create);
 
 router.route('/:id')
-  .get(dayCtrl.get);
+  .get(dayCtrl.get)
+  .delete(dayCtrl.delete);
 
 module.exports = router;
