@@ -1,8 +1,7 @@
 const fs             = require('fs');
 const StandupParser  = require('standup-parser').StandupParser;
-const Logger         = require('logger').Logger;
 
-const logger         = new Logger;
+const logger         = require('../../../../logger').logger;
 
 const getFileName    = require('./parser-methods').getFileName;
 
