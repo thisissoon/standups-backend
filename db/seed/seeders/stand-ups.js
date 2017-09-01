@@ -1,5 +1,5 @@
 const models = require('../../models/index');
-const logger = require('../../../logger/index').logger;
+const logger = require('../../../logger').logger;
 
 function saveStandUps(standUps){
   const promises = standUps.map((standUp, index) => {
