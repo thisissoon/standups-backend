@@ -3,6 +3,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 const errors = require('./errors');
+const ValidationError = require('sequelize/lib/errors').ValidationError;
 
 class Server {
 
@@ -48,6 +49,7 @@ class Server {
    * @param {Function} next Callback to continue middleware chain
    */
   error(err, req, res, next) {
+    if (err instanceof ValidationError) err.status = 422;
     res.status(err && err.status ? err.status : 500)
       .json(new errors.HalErrors(req, err));
   }
