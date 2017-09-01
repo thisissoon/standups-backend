@@ -40,7 +40,12 @@ module.exports = {
           defaultValue: Sequelize.NOW
         }
       }
-    );
+    ).then(() => {
+      queryInterface.addConstraint('Position', ['staffID', 'dayID'], {
+        type: 'unique',
+        name: 'positions_per_staff_member_per_day'
+      });
+    });
   },
   down: function (queryInterface, Sequelize) {
     return queryInterface.dropTable('Position');
