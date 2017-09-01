@@ -29,6 +29,25 @@ exports.list = function list(req, res, next) {
 };
 
 /**
+ * Create a new position.
+ *
+ * @method create
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.create = function create(req, res, next) {
+  models.Position.create(req.body)
+    .then(position => {
+      const resource = new resources.positions.Create(position.dataValues);
+      res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
  * Retrieve a specific position.
  *
  * @method get
@@ -42,6 +61,51 @@ exports.get = function get(req, res, next) {
       if (!position) throw new errors.NotFound();
       const resource = new resources.positions.Position(position.dataValues);
       res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
+ * Update a specific position
+ *
+ * @method update
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.update = function update(req, res, next) {
+  models.Position.findById(req.params.id)
+    .then(position => {
+      if (!position) throw new errors.NotFound();
+      return position.update(req.body);
+    })
+    .then(position => {
+      const resource = new resources.positions.Position(position.dataValues);
+      res.status(200).json(resource);
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+/**
+ * Delete a specific position
+ *
+ * @method delete
+ * @param {Object}   req  Express Request
+ * @param {Object}   res  Express Response
+ * @param {Function} next Callback to continue middleware chain
+ */
+exports.delete = (req, res, next) => {
+  models.Position.findById(req.params.id)
+    .then(position => {
+      if (!position) throw new errors.NotFound();
+      return position.destroy();
+    })
+    .then(noDestroyed => {
+      res.status(204).json(noDestroyed);
     })
     .catch(err => {
       next(err);

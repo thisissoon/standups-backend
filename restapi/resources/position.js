@@ -19,3 +19,10 @@ exports.List = class List extends hal.Resource {
     if (positions.length) this.embed('positions', positions);
   }
 };
+
+exports.Create = class Create extends hal.Resource {
+  constructor(data) {
+    super({}, root);
+    this.link('position', `${root}/${data.ID}`);
+  }
+};

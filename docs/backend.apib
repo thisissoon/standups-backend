@@ -188,12 +188,13 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/staff-members"
-                    },
-                    "project": {
-                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "v1/staff-members/66d9a140-8e61-11e7-a003-4d7d2dcbc635"
                     }
-                }
+                },
+                "ID": "66d9a140-8e61-11e7-a003-4d7d2dcbc635",
+                "firstName": "vanda",
+                "lastName": "smith",
+                "role": "designer"
             }
 
 + Request Invalid Body (application/json; charset=utf-8)
@@ -617,6 +618,64 @@ Resources related to Positions in the API.
             "total": 9
         }
 
+### Create a Position [POST]
+
++ Attributes
+    + placeIndex: `1` (string) - Place index of position.
+    + staffID: `bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Staff member UUID.
+    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 201 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "v1/positions"
+                    },
+                    "staffMember": {
+                        "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                }
+            }
+
++ Request Invalid Body (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+        
+    + Body
+    
+            {}
+
++ Response 422 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "v1/staff-members"
+                    }
+                },
+                "_errors": {
+                    "message": "Validation Error",
+                    "errors": {
+                        "placeIndex": "non zero value required",
+                        "staffID": "non zero value required",
+                        "dayID": "non zero value required"
+                    }
+                }
+            }
+
 ## Position [/v1/positions/{id}]
 
 Access a specific position using this resource.
@@ -668,6 +727,119 @@ Access a specific position using this resource.
                 "message": "Not Found"
             }
         }
+
+### Update Position [PUT]
+
++ Attributes
+    + placeIndex: `1` (string) - Place index of position.
+    + staffID: `bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Staff member UUID.
+    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "v1/positions/bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                },
+                "ID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a",
+                "placeIndex": 4,
+                "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
+                "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+            }
+
++ Request Invalid Body (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+    
+    + Body
+    
+            {}
+
++ Response 422 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "v1/staff-members"
+                    }
+                },
+                "_errors": {
+                    "message": "Validation Error",
+                    "errors": {
+                        "placeIndex": "non zero value required",
+                        "staffID": "non zero value required",
+                        "dayID": "non zero value required"
+                    }
+                }
+            }
+
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                }
+            },
+            "_errors": {
+                "message": "Not Found"
+            }
+        }
+
+### Delete Position [DELETE]
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+
++ Response 204 (application/json)
+
++ Request Invalid ID (application/json; charset=utf-8)
+
+    + Parameters
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+
+    + Headers
+
+            Accept: application/json
+
++ Response 404 (application/json; charset=utf-8)
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                    }
+                },
+                "_errors": {
+                    "message": "Not Found"
+                }
+            }
 
 # Group Summaries
 
