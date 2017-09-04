@@ -1,15 +1,15 @@
 const Sequelize = require('sequelize');
-const connectionConfig = require('./config.json');
+const connectionConfig = require('../config/db.json')[process.env.MODE || 'dev'];
 
-const sequelize = new Sequelize(connectionConfig.development);
+const sequelize = new Sequelize(connectionConfig);
 
 sequelize
   .authenticate()
   .then(() => {
-    console.log('Connection has been established successfully.');
+    console.log(`Connection to ${connectionConfig.database} has been established successfully.`);
   })
   .catch(err => {
-    console.error('Unable to connect to the database:', err);
+    console.error(`Unable to connect to ${connectionConfig.database}:`, err);
   });
 
 module.exports = {
