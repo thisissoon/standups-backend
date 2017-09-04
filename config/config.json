@@ -1,0 +1,14 @@
+{
+  "prod": {
+    "loggerLevel": "info",
+    "data": "production"
+  },
+  "dev": {
+    "loggerLevel": "info",
+    "data": "dummy"
+  },
+  "test": {
+    "loggerLevel": "info",
+    "data": "dummy"
+  }
+}

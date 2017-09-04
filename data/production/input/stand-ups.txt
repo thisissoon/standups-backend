@@ -1,0 +1,491 @@
+11/04/2016: ken > alex > fred > ryan > greg > ed > chris > radek > florence > vanda | alex > ed > florence > vanda > ryan > greg > ken > chris > radek > fred
+
+12/04/2016: ken > fred > alex > chris > ryan > ed > radek > james > vanda > florence > greg | alex > james > ryan > florence >fred > chris > ken > ed > radek > greg > vanda
+
+13/04/2016: ken > vanda > james > ed > radek > chris > ryan > greg | greg > ryan > chris > radek > ed > james > vanda > ken
+
+14/04/2016: ken > fred > alex > ryan > chris > james > ed > radek > florence > vanda > greg | vanda > chris > florence > ryan > ed > fred > greg > ken > james > radek > alex
+
+15/04/2016: ken > fred > ryan > vanda > ed > alex > chris > james > florence > greg > radek | alex > ed > vanda > ryan > fred > ken > radek > greg > florence > james > chris
+
+18/04/2016: ken > fred > alex > ryan > james > ed > chris > radek > vanda > greg > florence | alex > ken > james > radek > chris > florence > ryan > fred > greg > vanda > ed
+
+19/04/2016: ken > fred > ryan > ed > alex > chris > james > greg > florence > radek > vanda | alex > ed > ryan > fred > ken > chris > james > greg > radek > vanda > florence
+
+20/04/2016: ken > ed > alex > fred > vanda  > chris > james > ryan > greg > florence > radek | alex > ed > ken > fred > florence > radek > vanda > greg > ryan > chris > james
+
+21/04/2016: ken > florence > radek > vanda | florence > ken > vanda > radek
+
+22/04/2016: ken > fred > ryan > ed > florence > vanda > alex > radek > chris > james > greg | alex > fred > ryan > vanda > florence > radek > ed > greg > chris > ken > james
+
+25/04/2016: ken > florence > vanda > greg > fred > ryan > alex > ed > chris > radek | alex > florence > ed > vanda > chris > ryan > fred > ken > radek > greg
+
+26/04/2016: ken > vanda > fred > ryan > alex > ed > chris > james > radek > florence > greg | alex > vanda > james > ed > radek > greg > fred > chris > florence > ken > ryan
+
+27/04/2016: ken > fred > james > ed > ryan > chris > alex > vanda > florence > radek | alex > ken > fred > chris > vanda > james > ed > florence > radek > ryan
+
+28/04/2016: ken > ryan > ed > florence > chris > james > vanda | florence > vanda > ken > ed > james > chris > ryan
+
+29/04/2016: ken > fred > ed > ryan > alex > chris > james > florence > vanda | alex > ryan > ed > fred > ken > vanda > florence > james > chris
+
+03/05/2016: ken > james > ed > radek > vanda > florence > alex > greg > chris > fred > ryan | alex > ken > ryan > florence > james > radek > chris > fred > ed > vanda > greg
+
+04/05/2016: ken > florence > greg > fred > james > ryan > ed > chris > alex > vanda > radek | alex > james > radek > vanda > ryan > ed > florence > chris > fred > ken > greg
+
+05/05/2016: ken > florence > vanda > greg > ed > chris > radek > james | chris > florence > radek > james > ken > vanda > ed > greg
+
+06/05/2016: ken > fred > ryan > greg > ed > alex > chris > radek > james > florence > svilen > vanda | alex > ed > greg > ryan > fred > ken > vanda > svilen > florence > james > radek > chris
+
+09/05/2016: ken > chris > svilen > florence > fred > ryan > ed > alex > vanda > radek | alex > ryan > chris > vanda > ken > fred > florence > radek > ed > svilen
+
+10/05/2016: ken > florence > fred > svilen > ryan > vanda > ed > chris > greg > radek > james | chris > fred > ken > vanda > james > radek > ed > greg > svilen > florence > ryan
+
+11/05/2016: ken > greg > vanda > fred > ryan > svilen > alex > ed > chris > florence > radek > james | alex > james > ed > ken > svilen > greg > ryan > chris > radek > vanda > fred > florence
+
+12/05/2016: ken > florence > greg > fred > vanda > svilen > radek > ed > alex > chris > james | alex > vanda > florence > ken > james > chris > ed > radek > fred > svilen > greg
+
+13/05/2016: ken > fred > greg > ed > radek > chris > james > svilen > vanda > florence | greg > fred > ken > florence > vanda > svilen > james > chris > radek > ed
+
+16/05/2016: ken > alex > ed > fred > greg > ryan > svilen > chris > radek > james > vanda | alex > vanda > greg > james > chris > radek > ken > svilen > ed > ryan > fred
+
+17/05/2016: ken > fred > ryan > greg > svilen > ed > alex > chris > radek > james > vanda > florence | alex > ryan > chris > vanda > florence > ed > ken > radek > james > svilen > greg > fred
+
+18/05/2016: ken > greg > fred > ryan > svilen > ed > radek > james > chris > florence > vanda | greg > svilen > vanda > ed > ken > ryan > james > chris > radek > florence > fred
+
+19/05/2016: ken > greg > florence > fred > james > svilen > ed > alex > radek > ryan > chris > vanda | alex > florence > fred > ryan > james > greg > ed > vanda > svilen > ken > chris > radek
+
+20/05/2016: ken > vanda > fred > ryan > greg > ed > florence > james > radek > chris > svilen | vanda > james > chris > greg > svilen > ed > radek > florence > ryan > ken > fred
+
+23/05/2016: ken > greg > fred > svilen > ryan > ed > florence > chris > vanda | greg > florence > ken > ryan > chris > ed > fred > svilen > vanda
+
+24/05/2016: ken > greg > fred > ryan > svilen > ed > chris > florence > radek > james > vanda | fred > ken > ryan > vanda > chris > james > radek > florence > svilen > ed > greg
+
+25/05/2016: Ken > vanda > florence > radek > greg > ryan > james > ed > chris | greg > florence > ryan > vanda > chris > ed > radek > james > ken
+
+26/05/2016: ken > vanda > greg > fred > ryan > florence > ed > chris > alex > james > radek | alex > vanda > fred > radek > florence > ed > ken > chris > ryan > greg > james
+
+27/05/2016: ken > fred > greg > ryan > ed > florence > alex > chris > james > radek > vanda | alex > florence > ed > ryan > chris > greg > james > radek > vanda > ken > fred
+
+31/05/2016: ken > fred > ed > ryan > alex > chris > vanda > greg | alex > chris > vanda > ryan > greg > ed > ken > fred
+
+01/06/2016: ken > ed > ryan > chris > vanda > florence > greg | greg > ken > ed > ryan > florence > chris > vanda
+
+02/06/2016: ken > greg > ed > florence > chris > vanda | greg > ken > vanda > chris > florence > ed
+
+03/06/2016: ken > fred > greg > ryan > alex > ed > florence > vanda | greg > florence > vanda > ken > fred > ryan > alex > ed
+
+06/06/2016: ken > greg > fred > ryan > ed > vanda > florence > james | vanda > ryan > ken > fred > florence > james > ed > greg
+
+07/06/2016: ken > fred > greg > ed > james > ryan > florence > alex > vanda | alex > ryan > florence > greg > ed > vanda > james > ken > fred
+
+08/06/2016: fred > ed > ryan > alex > vanda > florence > james | alex > vanda > ed > james > florence > ryan > fred
+
+09/06/2016: ken > vanda > fred > james > ed > ryan > florence > alex | alex > ed > james > ken > vanda > ryan > fred > florence
+
+10/06/2016: ken > fred > alex > ryan > ed > florence > vanda > james | alex > ken > vanda > florence > ryan > james > ed > fred
+
+13/06/2016: ken > alex > ryan > james > florence > chris > ed > greg > fred | alex > chris > fred > ryan > greg > ed > james > florence > ken
+
+14/06/2016: ken > ed > alex > chris > james > vanda > florence > greg > fred > ryan | alex > florence  > ed > greg > ken > ryan > fred > james > vanda > chris
+
+15/06/2016: ken > greg > fred > ryan > alex > ed > james > florence > vanda  > chris | alex > chris > ryan > greg > ken > ed > james > florence > vanda > fred
+
+16/06/2016: ken > florence > greg > ryan > ed > alex > chris > james > vanda | alex > vanda > ryan > chris > florence > > james > ken > ed > greg
+
+17/06/2016: ken > greg > ryan > vanda > ed > chris > florence > james | ryan > greg > ken > james > ed > florence > chris > vanda
+
+20/06/2016: ken > ryan > rosie > ed > chris > vanda > fred > florence > greg | greg > chris > vanda > ken > ryan > ed > florence > fred
+
+21/06/2016: ken > rosie > greg > fred > ed > ryan > alex > florence > chris > james > vanda | alex > james > ed > ken > vanda > ryan > florence > chris > rosie > greg > fred
+
+22/06/2016: ken > ed > chris > james > rosie > florence > greg > vanda | greg > vanda > ken > ed > chris > rosie > florence > james
+
+23/06/2016: ken > chris > florence > greg > vanda | vanda > chris > ken > florence > greg
+
+24/06/2016: ken > fred > rosie > ed > ryan > vanda > alex > chris > james > florence | alex > florence > fred > chris > ryan > james > ken > vanda > rosie > ed
+
+27/06/2016: ken > vanda > ryan > alex > chris > rosie > james > greg > fred | alex > james > chris > ryan > vanda > greg > ken > rosie > fred
+
+28/06/2016: ken > ryan > ed > chris > alex > vanda > james > greg | alex > ryan > james > ken > greg > chris > ed > vanda
+
+29/06/2016: ken > greg > alex > ed > ryan > chris > vanda > james | alex > chris > ken > ryan > greg > james > ed > vanda
+
+30/06/2016: ken > james > rosie > fred > ryan > ed > greg > alex > chris > vanda | alex > rosie > greg > ken > ryan > vanda > ed > james > chris > fred
+
+01/07/2016: ken > rosie > vanda > fred > greg | fred > vanda > rosie > ken > greg
+
+05/07/2016: ken > ed > chris > vanda > james > rosie > greg > fred > ryan > alex | alex > chris > greg > ken > ryan > ed > james > vanda > rosie > fred
+
+06/07/2016: ken > fred > ryan > ed > chris > vanda > james | vanda > ed > ryan > fred > james > chris > ken
+
+07/07/2016: ken > rosie > james > greg > fred > ryan > alex > ed > chris > vanda | alex > rosie > chris > fred > ryan > ken > ed > vanda > james > greg
+
+08/07/2016: ken > fred > ryan > greg > ed > rosie > alex > chris > vanda > james | alex > vanda > greg > rosie > ken > james > fred > ed > chris > ryan
+
+11/07/2016: ken > rosie > ryan > florence > panda | ken > vanda > ryan > rosie
+
+12/07/2016: ken > vanda > ed > chris > james > florence > greg > alex | florence > chris > ed > vanda > alex > james > ken > greg
+
+13/07/2016: ken > ryan > ed > alex > chris > james > vanda > florence > greg | alex > florence > james > chris >vanda > ryan > ed > ken > greg
+
+14/07/2016: ken > ryan > ed > florence > vanda > rosie > fred > alex | fred > florence > ed > rosie > ryan > ken > vanda > alex
+
+15/07/2016: ken > greg > ryan > rosie > ed > chris > james | ed > james > rosie > ken > greg > ryan > chris
+
+18/07/2016: ken > ryan > ed > florence > greg > rosie | ryan > greg > ed > florence > ken > rosie
+
+19/07/2016: ken > james > vanda > rosie > florence > ed > ryan > chris | chris > vanda > ed > james > ryan > rosie > florence > ken
+
+20/07/2016: ken > james > alex > florence > rosie > ryan > vanda > ed > chris | alex > ryan > chris > rosie > james > ed > ken > vanda > florence
+
+21/07/2016: ken > ryan > james > vanda > alex > chris > florence > rosie | alex > ken > chris > vanda > rosie > ryan > james > florence
+
+22/07/2016: ken > james > ryan > alex > chris > rosie > florence > vanda | alex > ryan > james > ken > vanda > florence > rosie > chris
+
+25/07/2016: ken > florence > chris > vanda > james > rosie > fred > ryan | ryan > ken > florence > chris > vanda > james > rosie > fred
+
+26/07/2016: ken > ryan > chris > vanda > james > florence > fred > alex > rosie | alex > james > ken > fred > rosie > vanda > florence > ryan > chris
+
+27/07/2016: ken > alex > vanda > ryan > rosie > fred | alex > ken > fred > vanda > rosie > ryan
+
+28/07/2016: ken > james > chris > alex > ryan > florence > vanda > fred > rosie | alex > james > ken > florence > rosie > chris > ryan > fred > vanda
+
+29/07/2016: ken > fred > ryan > alex > rosie > chris > james > florence > vanda | alex > ken > florence > james > chris > rosie > fred > vanda > ryan
+
+01/08/2016: ken > florence > fred > ed > chris > alex > vanda > ryan > rosie | alex > florence > ken > chris > ryan > ed > rosie > vanda > fred
+
+02/08/2016: ken > florence > rosie > fred > ryan > alex > ed > vanda > chris > james | alex > chris > fred > ed > ken > vanda > rosie > florence > james > ryan
+
+03/08/2016: ken > fred > ryan > greg > ed > florence > chris > vanda > james > rosie | greg > fred > ed > james > chris > ken > ryan > florence > vanda > rosie
+
+04/08/2016: ken > ed > chris > vanda > james > florence > rosie > greg > alex > fred | greg > fred > vanda > ed > ken > rosie > chris > alex > james > florence
+
+05/08/2016: ken > fred > alex > greg > ed > james > chris > rosie > florence > vanda | fred > james > ed > alex > chris > vanda > ken > rosie > florence > greg
+
+08/08/2016: ken > alex > james > ed > chris > ryan > rosie > florence > greg | alex > ed > ryan > florence > james > chris > ken > greg > rosie
+
+09/08/2016: greg > james > rosie > ryan > ed > florence > chris | ryan > chris > florence > ed > greg > rosie > james
+
+10/08/2016: greg > ryan > alex > nicky > florence > ed > chris > james | alex > ryan > greg > florence > chris > ed > james
+
+11/08/2016: ken > nicky > alex > greg > james > ed > chris > florence > ryan | alex > ken > ryan > florence > james > ed > greg > chris > nicky
+
+12/08/2016: ken > greg > ryan > ed > alex > rosie >  chris > florence > james > nicky > ollie | alex > ed > ryan > rosie > chris > james > nicky > florence > ken > greg
+
+15/08/2016: ken > ryan > nicky > james > ed > greg | greg > nicky > ryan > ed > james > ken
+
+16/08/2016: ken > ryan > alex > nicky > ed > chris > florence > greg | alex > florence > ed > ken > ryan > greg > nicky > chris
+
+17/08/2016: ken > james > chris > greg > ed > ryan > ollie | greg > ryan > ollie > ken > chris > james > ed
+
+18/08/2016: ken > florence > dave > greg > ed | greg > ed > ken > florence
+
+19/08/2016: ken > alex > ed > ryan > greg > ollie > dave | alex > dave > ollie > greg > ken > ryan > ed
+
+22/08/2016: ken > ollie > andy > greg > florence > fred > ryan > alex > chris > james > vanda | alex > ken > florence > chris > ryan > vanda > james > greg > james > fred > andy
+
+23/08/2016: ken > florence > james > dave > andy > greg > chris > ryan > fred > alex > vanda | alex > chris > ken > ryan > florence > vanda > greg > fred > james > dave > andy
+
+24/08/2016: ken > andy > chris > dave > nicky > ollie > florence > greg > fred > ryan > vanda > james > alex | alex > dave > chris > florence > james > vanda > ken > fred > ryan > ollie > nicky > greg > andy
+
+25/08/2016: ken > florence > fred > ryan > nicky > dave > greg > vanda > chris > james > andy | fred > chris > vanda > ken > ryan > james > andy > dave > florence > greg > nicky
+
+30/08/2016: ken > ed > andy > dave > nicky > chris > fred > florence | fred > ed > chris > ken > dave > andy > nicky
+
+31/08/2016: ken > ed > chis > greg > dave > florence > nicky > ollie > fred > andy > ryan | greg > fred > ed > florence > ken > nicky > ollie > chris > ryan > andy > dave
+
+01/09/2016: ken > florence > ollie > fred > ryan > nicky > ed > chris > greg > dave | greg > fred > dave > nicky > ryan > ed > ken > chris > ollie > florence
+
+02/09/2016: ken > greg > fred > ollie > ed > florence > dave > nicky > chris | florence > chris > ed > greg > dave > ken > ollie > nicky > fred
+
+05/09/2016: ken > james > ollie > greg > fred > nicky > ryan > dave > ed > chris > florence | ollie > greg > ryan > james > ed > ken > nicky > florence > chris > dave > fred
+
+06/09/2016: ken > fred > ryan > nicky > ed > chris > james > greg > florence > dave > andy > ollie | greg > ryan > ken > chris > nicky > andy > ollie > florence > ed > dave > james > fred
+
+07/09/2016: ken > andy > chris > florence > greg > ollie > fred > nicky > dave > james > ed | ed > greg > dave > chris > ken > nicky > florence > james > andy > ollie > fred
+
+08/09/2016: ken > florence > dave > andy > nicky > greg > vanda > chris | greg > nicky > florence > chris > vanda > ken > andy > dave
+
+09/09/2016: ken > fred > nicky > vanda > andy > ed > chris > james > dave > greg > ollie | vanda > fred > ollie > greg > dave > ed > ken > chris > james > nicky > andy
+
+12/09/2016: ken > andy > dave > ollie > greg > fred > ryan > vanda > nicky > ed > chris > alex | alex > andy > ken > vanda > greg > ed > ollie > fred > chris > dave > nicky > ryan
+
+13/09/2016: ken > fred > vanda > ryan > nicky > ed > alex > chris > james > greg > dave > andy > ollie | alex > dave > nicky > greg > ryan > james > chris > ed > ken > fred > andy > vanda > ollie
+
+14/09/2016: ken > ryan > ed > vanda > chris > greg > james > dave > florence  | greg > ed > dave > vanda > ken > ryan > chris > florence > james
+
+15/09/2016: greg > ollie > fred > nicky > ryan > alex > vanda > ed > chris > florence > dave > andy | alex > ed > andy > fred > ryan > florence > vanda > dave > ollie > nicky > chris > greg
+
+16/09/2016: greg > fred > alex > vanda > florence > ed > chris > andy > dave | alex > chris > andy > dave > ed > fred > vanda > greg > florence
+
+19/09/2016: greg > richard fred > ryan > ed > nicky > vanda > chris > alex > andy > ollie > florence > dave | alex > vanda > florence > ed > greg > fred > chris > nicky > andy > ryan > dave > richard > ollie
+
+20/09/2016: greg > ollie > ed > ryan > vanda > alex > nicky > dave > florence > james > andy > fred | alex > dave > ed > nicky > fred > ryan > james > andy > greg > ollie > florence > vanda
+
+21/09/2016: fred > nicky > alex > vanda > ed > chris > james > dave > alex > ryan > ollie > florence > richard | alex > richard > florence > vanda > ryan > ed > alex > james > fred > chris > nicky > ollie
+
+22/09/2016: greg > richard > fred > alex > james > vanda > chris > florence > andy > dave > ollie | chris > alex > ollie > greg > richard > james > andy > vanda > dave > florence > fred
+
+23/09/2016: greg > ollie > richard > fred > ryan > andy > vanda > florence > chris > james > tippers > dave | chris > ryan > vanda > fred > dave > richard > ollie > tippers > james > andy > florence > greg
+
+26/09/2016: ken > florence > greg > richard > fred > ryan > nicky > nada > ed > chris > alex > dave > andy > james > tippers | alex > ken > ed > fred > andy > james > tippers > florence > nicky > greg > chris > dave > richard > ryan > vanda
+
+27/09/2016: ken > andy > fred > vanda > ryan > florence > richard > ollie > chris > tippers > nicky > dave > greg | fred > chris > ryan > greg > vanda > nicky > richard > ollie > andy > florence > dave > tippers > ken
+
+28/09/2016: ken > greg > dave > fred > nicky > andy > ryan > vanda > richard > alex > chris | alex > chris > fred > ken > ryan > greg > andy > nicky > dave > vanda > richard
+
+29/09/2016: ken > andy > fred > vanda > ryan > florence > nicky > ollie > richard > alex > chris > tippers > james > ed > dave > greg | alex > ed > nicky > florence > james > vanda > ollie > richard > tippers > andy > ken > fred > chris > dave > ryan > greg
+
+30/09/2016: ken fred > nicky > vanda > ryan > ed > tippers > richard > alex > dave > florence > james > greg > andy > ollie | alex > ryan > greg > tippers > nicky > fred > richard > dave > florence > james > ed > vanda > andy > ken > ollie
+
+03/10/2016: fred > vanda > ryan > ed > richard > ollie > greg > tippers > dave > james > florence | greg > florence > ryan > james > dave > ed > tippers > ollie > richard > fred > vanda
+
+04/10/2016: ken > ollie > alex > james > ryan > vanda > florence > tippers > ed > chris > andy > dave | florence > james > ed > alex > ken > tippers > chris > ollie > vanda > andy > dave > ryan
+
+05/10/2016: ken > florence > andy > alex > ollie > fred > tippers > greg > ryan > ed > chris > dave | alex > ryan > florence > ed > andy > chris > fred > dave > ken > greg > tippers > ollie
+
+06/10/2016: ken > fred > greg > james > ryan > ed > alex > chris > tippers > dave > florence > andy > ollie | alex > james > chris > fred > tippers > andy > ryan > greg > florence > ed > ollie > dave > ken
+
+07/10/2016: ken > fred > ryan > ed > tippers > dave > chris > james > florence > andy > greg > ollie | greg > fred > chris > ryan > ed > ken > florence > dave > james > tippers > ollie > andy
+
+10/10/2016: ken > greg > andy > dave > ollie > tippers > fred > vanda > florence > james > ed > alex > chris | alex > chris > andy > fred > ed > james > dave > tippers > vanda > ollie > ken > greg > florence
+
+11/10/2016: ken > ollie > florence > andy > fred > vanda > ryan > ed > alex > tippers > greg > chris > james | alex > ken > ryan > florence > ed > ollie > fred > tippers > chris > james > vanda > greg > andy
+
+12/10/2016: ken > james > ollie > florence > fred > chris > vanda > ryan > tippers > ed > alex > greg > andy | alex > tippers > florence > ryan > fred > andy > ken > vanda > chris > ed > james > ollie > greg
+
+13/10/2016: ken > florence > james > chris > ollie > fred > vanda > ed > ryan > tippers > alex > greg | alex > chris > ryan > ken > ed > james > fred > tippers > ollie > greg > florence > vanda
+
+14/10/2016: ken > andy > vanda > james > ed > chris > florence > tippers > greg | greg > vanda > james > chris > florence > andy > tippers > ken > ed
+
+17/10/2016: ken > greg > fred > vanda > ryan > tippers > ed > chris > alex > james > andy > florence | alex > vanda > ryan > ken > greg > andy > james > ed > chris > tippers > florence > fred
+
+18/10/2016: ken > greg > fred > vanda > florence > ryan > ed > alex > chris > james > tippers | alex > ken > greg > ed > fred > tippers > vanda > florence > james > ryan > chris
+
+19/10/2016: ken > tippers > andy >ed > james > florence > chris > fred > vanda > ryan | tippers > vanda > ken > chris > ed > andy > fred > ryan > james > florence
+
+20/10/2016: ken > florence > greg > fred > vanda > ryan > james > ed > tippers > alex > chris > andy | alex > greg > ed > florence > james > ken > ryan > chris > andy > vanda > tippers > fred
+
+21/10/2016: greg > fred > ryan > vanda > florence > tippers > chris > alex > ed > andy > james | alex > andy > chris > fred > vanda > ed > tippers > greg > florence > ryan > james
+
+24/10/2016: ken > james > fred > vanda > ryan > inga > florence > alex > ed > tippers > andy > chris | alex > chris > ryan > ed > vanda > florence > andy > james > ken > fred > tippers > inga
+
+25/10/2016: ken > inga > tippers > florence > chris > ed > james > greg > fred > vanda > ryan | fred > chris > ken > ryan > florence > ed > tippers > inga > vanda > greg > james
+
+26/10/2016: ken > alex > chris > florence > ed > james > inga > tippers > fred > greg > vanda > ryan > andy | alex > ken > andy > fred > chris > ed > greg > james > inga > tippers > florence > vanda > ryan
+
+27/10/2016: ken > greg > fred > vanda > tippers > ryan > florence > inga > chris > james > ed | ken > fred > chris > ryan > ed > florence > james > tippers > vanda > greg > inga
+
+28/10/2016: ken > fred > ryan > vanda > florence > greg > alex > ed > james | alex > ed > james > ken > fred > greg > ryan > florence > vanda
+
+31/10/2016: ken > ryan > vanda > alex > chris > tippers > ed > florence > greg > fred > inga | alex > chris > tippers > ed > florence > greg > fred > inga > ken > ryan > vanda
+
+01/11/2016: ken > tippers > fred > ryan > ed > vanda > chris > alex > greg > inga > james | alex > ken > tippers > ed > greg > fred > vanda > james > ryan > chris > inga
+
+02/11/2016: ken > ryan > tippers > chris > inga > ed > greg > florence > fred > vanda | greg > tippers > chris > vanda > florence > ken > fred > ed > inga > ryan
+
+03/11/2016: ken > james > ed > florence > andy > greg > fred > tippers > vanda > inga > chris | fred > james > vanda > ken > tippers > inga > chris > ed > andy > florence > greg
+
+04/11/2016: ken > greg > fred > vanda > florence > ryan > tippers > james > andy > ed > inga | fred > andy > florence > tippers > ken > greg > vanda > inga > ed > james > ryan
+
+07/11/2016: ken > james > tippers > chris > ed > andy > florence > greg > fred > ryan > vanda | greg > tippers > andy > ken > vanda > chris > florence > ryan > ed > fred > james
+
+08/11/2016: ken > tippers > greg > ryan > florence > vanda > james > alex > chris > inga > ed | alex > tippers > vanda > ed > chris > florence > james > ken > inga > ryan > greg
+
+09/11/2016: ken > inga > ryan > vanda > chris > greg > ed > james > florence > andy > alex | alex > ryan > greg > ken > andy > florence > chris > ed > inga > james > vanda
+
+10/11/2016: ken > ryan > alex > inga > ed > greg > florence > james > vanda | alex > ed > ryan > ken > florence > vanda > greg > james > inga
+
+11/11/2016: ken > alex > vanda > ryan > james > greg > ed > florence > inga | ed > florence > inga > ken > alex > vanda > ryan > james > greg
+
+14/11/2016: ken > florence > ed > greg > fred > alex > chris > vanda > tipper > ryan > andy > inga | alex > inga > ken > vanda > fred > tippers > ed > chris > florence > ryan > andy > greg
+
+15/11/2016: ken > james > ed > florence > fred > andy > tippers > vanda > alex > ryan > inga > greg > chris | alex > ken > vanda > inga > greg > james > chris > tippers > florence > andy > fred
+
+16/11/2016: ken > fred > vanda > greg > ryan > tippers > chris > andy > ed > james > inga | fred > andy > ed > james > tippers > vanda > ryan > ken > inga > chris > greg
+
+17/11/2016: ken > florence > greg > james > andy > fred > ryan > vanda > alex > ed > inga > chris | alex > vanda > ryan > fred > andy > inga > james > ken > chris > ed > florence > greg
+
+18/11/2016: ken > andy > greg > fred > ryan > vanda > james > chris > alex > ed > florence > inga | alex > inga > ken > andy > greg > chris > ed > florence > james > vanda > ryan > fred
+
+21/11/2016: greg > fred > alex > ryan > inga > tippers > chris > ed > vanda | alex > chris > vanda > tippers > fred > ed > inga > greg > ryan
+
+22/11/2016: ken > florence > greg > fred > ryan > vanda > inga > alex > james > tippers > ed > chris | alex > ed > fred > james > ken > tippers > ryan > chris > florence > greg > vanda > inga
+
+23/11/2016: ken > ed > james > greg > vanda > florence > tippers > chris | greg > chris > ken > tippers > ed > james > vanda > florence
+
+24/11/2016: fred > vanda > ryan > ed > james > alex | alex > james > ryan > vanda > ed > fred
+
+25/11/2016: ken > fred > ryan > vanda > inga > chris > ed > florence > james > greg | chris > fred > greg > inga > florence > james > ken > vanda > ryan > ed
+
+28/11/2016: ken > florence > greg > fred > vanda > ryan > inga > tippers > richard > chris > ed > james | fred > ed > vanda > florence > greg > inga > tippers > ryan > ken > chris > james
+
+29/11/2016: ken > fred > vanda > ryan > inga > tippers > chris > ed > florence > alex > greg > james | alex > ryan > greg > vanda > ed > florence > tippers > james > chris > inga > ken > fred
+
+30/11/2016: ken > inga > ryan > ed > chris | ryan > ken > inga > chris > ed
+
+01/12/2016: ken > ryan > chris > florence > ed > james > greg > vanda | ryan > florence > ed > ken > james > vanda > chris > greg
+
+02/12/2016: ken > fred > ryan > vanda > inga > alex > ed > james > florence > greg > chris | alex > ryan > ed > inga > vanda > chris > greg > ken > james > florence > fred
+
+05/12/2016: greg > inga > fred > james > vanda > ryan > chris > florence | fred > chris > inga > greg > james > ryan > vanda > florence
+
+06/12/2016: fred > vanda > inga > alex > chris > james > ed > ryan > florence | alex > ed > vanda > florence > inga > chris > james > ryan > fred
+
+07/12/2016: ken > ed > florence > fred > ryan > vanda > alex > inga > greg > chris > james | alex > james > ryan > vanda > ed > greg > ken > inga > chris > florence > fred
+
+08/12/2016: ken > fred > vanda > inga > greg > chris > florence > ed > james | greg > inga > vanda > james > ed > chris > florence > fred > ken
+
+09/12/2016: ken > james > florence > inga > vanda > ryan > alex > ed > chris | alex > inga > ken > ryan > ed > vanda > chris > florence > james
+
+12/12/2016: fred > vanda > inga > tippers > chris > ed > james > alex | tippers > chris > ed > james > alex > inga > vanda > fred
+
+13/12/2016: ken > fred > james > vanda > ryan > tippers > alex > chris > ed > florence > inga | alex > ken > fred > chris > tippers > ryan > florence > vanda > ed > james > inga
+
+14/12/2016: ken > inga > greg > fred > vanda > florence > ryan > alex > tippers > chris > james > ed | alex > ryan > florence > fred > james > tippers > inga > ken > greg > ed > vanda > chris
+
+16/12/2016: fred > ryan > inga > vanda > chris > ed > florence > james | ryan > inga > vanda > chris > ed > florence > james > fred
+
+19/12/2016: greg > vanda > alex > inga | alex > inga > greg > vanda
+
+20/12/2016: vanda > inga > alex > florence | alex > florence > vanda > inga
+
+03/12/2017: ken > emma > alex > james > vanda > ryan > chris > ed > florence > greg > inga | alex > emma > ken > inga > greg > florence > ed > chris > ryan > vanda > james
+
+04/01/2017: ken > ed > james > florence > vanda > greg > alex > ryan > inga > emma > chris | alex > ed > inga > florence > vanda > greg > james > ryan > emma > ken > chris
+
+05/01/2017: ken > inga > ryan > vanda > chris > ed > florence > james | chris > vanda > ken > james > florence > ryan > ed > inga
+
+06/01/2017: ken > vanda > ryan > emma > inga > florence > chris > alex > emma > james > greg | alex > vanda > ken > greg > james > ed > chris > florence > inga > emma > ryan
+
+09/01/2017: ken > inga > florence > alex > fred > emma > ryan | alex > florence > inga > ken > ryan > emma > fred
+
+10/01/2017: ken > fred > ryan > emma > vanda > alex > chris > inga > james > ed > florence > greg | alex > ryan > james > fred > greg > ken > florence > vanda > inga > chris > emma > ed
+
+11/01/2017: ken > florence > fred > james > vanda > alex > ryan > emma > chris > greg > inga > ed | alex > inga > greg > ed > james> vanda > emma > fred > chris > ryan > ken > florence
+
+12/01/2017: ken > fred > ryan > vanda > emma > chris > ed > florence > greg | florence > greg > vanda > chris > fred > emma > ryan > ed > ken
+
+13/01/2017: ken > fred > ryan > vanda > florence > emma > alex > chris > james > ed > inga > greg | alex > ken > fred > chris > florence > ryan > emma > inga > greg > emma > james > vanda
+
+16/01/2017: ken > ryan > emma > alex > chris > inga > florence > ed > james > fred > greg > vanda | alex > ed > emma > chris > ryan  > james > vanda > ken > florence > fred > inga
+
+17/01/2017: ken > ed > james > florence > emma > greg > ryan > vanda > alex > inga > chris | alex > james > ryan > inga > chris > florence > greg > emma > ed > ken > vanda
+
+18/01/2017: ken > alex > ed > ryan > fred > greg > emma > vanda > chris > inga > james | alex > chris > ed > fred > james > ken > emma > vanda > inga > ryan > greg
+
+19/01/2017: ken > james > florence > greg > fred > ryan > alex > vanda > inga > emma > chris > ed | alex > ken > vanda > greg > inga > fred > emma > florence > chris > james > ed
+
+20/01/2017: ken > greg > fred > ryan > florence > vanda > inga > alex > chris > james > ed | alex > fred > chris > florence > inga > vanda > greg > ken > ryan > james > ed
+
+23/01/2017: ken > tippers > emma > james > ed > florence > chris > alex > greg > fred > inga > ryan | alex > ken > ryan > florence > emma > greg > inga > fred > chris > james > ed > tippers
+
+24/01/2017: ken > chris > ed > james > florence > greg > fred > ryan > alex > emma > inga > tippers | alex > ed > ryan > james > chris > fred > tippers > inga > florence > ken > emma > greg
+
+25/01/2017: ken > alex > greg > fred > james > ryan > florence > emma > tippers > chris > inga > ed | alex > inga > ryan > ed > florence > chris > emma > james > ken > tippers > greg > fred
+
+26/01/2017: ken > fred > greg > ryan > emma > vanda > tippers > chris > ed > james > florence > inga > alex | vanda > florence > ed > fred > chris > ryan > james > emma > inga > greg > ken > tippers > alex
+
+27/01/2017: ken > greg > fred > ryan > james > vanda > emma > inga > chris > florence > ed | ed > fred > ken > james > florence > greg > vanda > chris > inga > emma > ryan
+
+30/01/2017: ken > fred > alex > greg > emma > vanda > ryan > chris > inga > ed > florence | alex > ryan > fred > emma > ken > inga > vanda > chris > ed > florence > greg
+
+31/01/2017: ken > tippers > chris > alex > inga > james > ed > fred > vanda > ryan > emma | alex > tippers > fred > inga > chris > ken > ryan > vanda > emma > james > ed
+
+01/02/2017: ken > ryan > emma > vanda > tippers > chris > ed > james > alex > greg > inga > florence | alex > ed > ken > james > emma > vanda > florence > ryan > inga > tippers
+
+02/02/2017: ken > fred > vanda > ryan > florence > emma > tippers > chris > ed > james > inga > greg | fred > tippers > inga > ken > ryan > greg > vanda > florence > james > ed > chris > emma
+
+03/02/2017: ken > fred > vanda > ryan > emma > inga > tippers > chris > james > florence > ed > greg | greg > tippers > chris > ken > fred > inga > emma > vanda > ed > ryan > james > florence
+
+06/02/2017: ken > james > greg > chris > fred > ryan > vanda > inga > emma > alex > ed > florence | alex > ryan > ed > florence > vanda > greg > chris > fred > james > ken > inga > emma
+
+07/02/2017: ken > james > ed > greg > inga > fred > vanda > florence > ryan > emma > alex > tippers > chris | alex > florence > james > ryan > greg > emma > chris > ed > ken > vanda > fred > inga > tippers
+
+08/02/2017: ken > fred > ryan > inga > alex > vanda > emma > james > ed > greg | alex > inga > ryan > vanda > emma > james > ed > greg > ken > fred
+
+09/02/2017: ken > ed > james > florence > ryan > greg > inga > emma > vanda > tippers > chris | greg > inga > emma > vanda > florence > tippers > chris > ken > ed > james > ryan
+
+10/02/2017: ken > fred > ryan > vanda > ed > tippers > chris > james > emma > vanda > greg | greg > fred > vanda > ed > tippers > chris > james > emma > inga > ken > ryan
+
+13/02/2017: ken > greg > james > ed > florence > fred > vanda > ryan > emma > tippers > inga > chris | greg > florence > emma > ryan > ed > tippers > inga > fred > chris > ken > vanda > james
+
+14/02/2017: ken > ryan > vanda > ed > inga > fred > florence > chris > emma > tippers > greg > james | greg > fred > ken > ryan > florence > ed > inga > emma > james > vanda > tippers > chris
+
+15/02/2017: ken > emma > ed > james > greg > fred > florence > ryan > vanda > tippers > inga > chris | fred > vanda > ken > ryan > tippers > ed > chris > florence > inga > emma > james > greg
+
+16/02/2017: ken > florence > greg > fred > alex > ryan > james > emma > vanda > tippers > chris > ed > inga | alex > inga > vanda > florence > greg > fred > chris > ken > ryan > james > tippers > emma > ed
+
+17/02/2017: ken > fred > inga > ryan > vanda > emma > alex > ed | inga > fred > ken > ed > emma > vanda > ryan > alex
+
+20/02/2017: ken > inga > ed > florence> fred > ryan > emma > vanda > alex > chris | alex > chris > vanda > ken > emma > inga > ryan > ed > florence > fred
+
+21/02/2017: ken > florence > ryan > greg > ed > inga > fred > james > emma > vanda > alex > chris | alex > ryan > greg > james > chris > florence > inga > fred > emma > ken > ed > vanda
+
+22/02/2017: ken > fred > vanda > florence > james > ryan > emma > greg > ed > inga | greg > inga > vanda > florence > ed > james > ken > ryan > emma > fred
+
+23/02/2017: ken > inga > fred > vanda > emma > ryan > alex > greg > james > ed > florence | alex > inga > ryan > ken > emma > florence > ed > james > fred > vanda > greg
+
+24/02/2017: ken > greg > fred > ryan > florence > emma > inga > vanda > alex > james > eo | alex > fred > vanda > greg > ryan > florence > inga > james > emma > ed > ken
+
+27/02/2017: ken > james > ed > florence > greg > inga > emma > alex > chris | alex > james > ed > emma > inga > ken > greg > chris > florence
+
+28/02/2017: ken > ed > james > florence > greg > inga > fred > ryan > emma > alex > chris | alex > chris > inga > ken > ed > ryan > emma > greg > james > fred > florence
+
+01/03/2017: ken > florence > james > emma > fred > vanda > ryan > chris > ed > inga > alex | alex > ed > fred > ken > florence > emma > chris > ryan > vanda > inga > james
+
+02/03/2017: vanda > ryan > emma > chris > greg > ed > florence > ken > inga > fred > alex | greg > ryan > florence > inga > vanda > chris > ken > alex > emma > ed > fred
+
+03/03/2017: ken > ryan > emma > vanda > chris > florence > james > ed > greg | emma > ryan > chris > greg > vanda > ken > florence > james > ed
+
+06/03/2017: ken > chris > greg > james > ed > florence > emma > ryan > vanda | greg > chris > ken > vanda > ryan > ed > james > emma > florence
+
+07/03/2017: ken > ed > james > fred > greg > alex > inga > ryan > emma > vanda > florence > chris | alex > chris > ed > emma > vanda > ken ryan > inga > greg > james > fred > florence
+
+08/03/2017: ken ed > james > ryan > florence > inga > emma > vanda > chris | chris > vanda > ryan > inga > emma > ed > florence > james > ken
+
+09/03/2017: ken > florence > james > inga > vanda > emma > chris > ed | florence > james > emma > vanda > chris > ed > ken > inga
+
+10/03/2017: ken > florence > emma > ed > james > ryan > vanda > chris | florence > ryan > ken > vanda > chris > ed > emma > james
+
+13/03/2017: ken > ryan > inga > emma > chris > florence > ed | chris > ryan > ed > florence > emma > inga > ken
+
+14/03/2017: ken > florence > james > ed > ryan > vanda > emma > inga > chris | florence > ed > inga > ken > ryan > vanda > emma > james > chris
+
+15/03/2017: ken > ed > james> florence > inga > emma > vanda > ryan > chris | vanda > ryan > chris > ken > ed > james > emma > inga > florence
+
+16/03/2017: ken > fred > vanda > inga > alex > emma > chris > greg > james > ed > florence | alex > james > vanda > chris > fred > ed > inga > florence > ken > emma > greg
+
+17/03/2017: ken > fred > ryan > emma > vanda > chris > ed > james > florence | florence > emma > james > ed > chris > vanda > fred > ken
+
+20/03/2017: ken > greg > ed > james > vanda > emma > ryan > chris | vanda > chris > ken > greg > ed > james > emma > ryan
+
+21/03/2017: ken > fred > alex > ryan > ed > vanda > emma > chris > greg | alex > ken > vanda > chris > greg > fred > ed > ryan > emma
+
+22/03/2017: ken > fred > emma > vanda > ryan > chris > ed > james | fred > ken > vanda > ryan > james > ed > chris > emma
+
+23/03/2017: ken > florence > fred > greg > ryan > emma > vanda > alex > chris > ed > james | alex > james > ryan > ken > vanda > emma > ed > chris > greg > fred > florence
+
+28/03/2017: ken > fred > greg > ryan > ed > james > alex > inga > vanda > chris > florence > emma | alex > ryan > ken > vanda > greg > inga > ed > chris > fred > florence > emma > james
+
+29/03/2017: ken > fred > greg > florence > ed > vanda > inga > chris > james > alex > emma | alex > ed > james > fred > chris > vanda > inga > emma > ken > florence > greg
+
+30/03/2017: ken > emma > vanda > ryan > florence > ed > chris > greg > inga > fred > james | fred > ryan > james > vanda > florence > chris > greg > inga > ken > emma > ed
+
+31/03/2017: ken > vanda > alex > greg > ed > fred > chris > florence > emma > inga > james > ryan | alex > chris > florence > inga > greg > emma > ed > vanda > james > ryan > ken > fred
+
+03/04/2017: ken > inga > greg > james > ryan > florence > dk > ct > fred > vanda > chris > emma > ed > | ken > greg > vanda > emma > inga > ed > ryan > fred > james > chris > florence > dk > ct
+
+04/04/2017: ken > vanda > ryan > fred > ed > chris > inga > emma > alex | alex > ed > ken > chris > vanda > fred > emma > ryan > inga
+
+05/04/2017: ken > vanda > chris > ed > emma > greg > ryan > florence > james | greg > vanda > ryan > emma > chris > florence > james > ed > ken
+
+06/04/2017: ken > florence > alex > vanda > chris > emma > james > ed > fred > greg > inga > ryan | alex > emma > fred > ken > greg > ryan > inga > ed > james > vanda > chris > florence
+
+07/04/2017: ken > alex > inga > greg > ryan > fred > vanda > florence > chris > ed > james > emma | alex > chris > ryan > fred > inga > ken > emma > vanda > ed > james > florence > greg
+
+10/04/2017: ken > ed > emma > fred > inga > vanda > ryan > florence > greg > chris | greg > emma > vanda > florence > chris > fred > ryan > inga > ken > ed
+
+11/04/2017: ken > greg > emma > james > ed > vanda > ryan > florence > inga > chris | ken > greg > ed > vanda > chris > emma > florence > ryan > inga > james
+
+12/04/2017: ken > ryan > fred > inga > vanda > florence > emma > alex > greg > chris > ed > james | alex > ken > greg > florence > ed > vanda > fed > ryan > james > emma > chris > inga

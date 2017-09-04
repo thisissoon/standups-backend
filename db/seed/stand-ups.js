@@ -1,5 +1,5 @@
-const models = require('../../models/index');
-const logger = require('../../../logger').logger;
+const models = require('../models/index');
+const logger = require('../../logger').logger;
 
 function saveStandUps(standUps){
   const promises = standUps.map((standUp, index) => {
@@ -63,7 +63,7 @@ function savePosition(Position, dayID, firstName, placeIndex) {
 }
 
 function getStaffID(firstName) {
-  return models.StaffMember.findOne({ where: { firstName } })
+  return models.StaffMember.findOne({ where: { firstName: firstName.toLowerCase() } })
     .then(staffMember => {
       if (!staffMember) throw `staffMember "${firstName}" cannot be found. Please seed "${firstName}".`;
       return staffMember.dataValues.ID;
