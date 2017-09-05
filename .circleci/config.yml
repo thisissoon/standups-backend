@@ -8,6 +8,8 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
+
+      - image: postgres:9.5
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -35,12 +37,9 @@ jobs:
       
       - run:
           name: Set up DB
-          command: |
-            bundle exec rake db:create db:schema:load --trace
-            bundle exec rake db:migrate
+          command: npm run db:init:test
           environment:
             DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
-
         
       # run tests!
       - run: npm test
