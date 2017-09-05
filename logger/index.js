@@ -1,4 +1,4 @@
-const config = require('../config/config.json')[process.env.MODE || 'dev'];
+const config = require('../config/config');
 
 const Logger = require('logger').Logger;
 const logger = new Logger();

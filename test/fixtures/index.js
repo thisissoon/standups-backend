@@ -1,7 +1,6 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'test';
+
 var hooks = require('hooks');
-
-process.env.MODE = 'test';
-
 var models = require('../../db/models');
 
 hooks.beforeAll(function (transactions, done) {
