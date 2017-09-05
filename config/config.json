@@ -5,10 +5,10 @@
   },
   "dev": {
     "loggerLevel": "info",
-    "data": "dummy"
+    "data": "development"
   },
   "test": {
     "loggerLevel": "info",
-    "data": "dummy"
+    "data": "test"
   }
 }
