@@ -10,8 +10,6 @@ Resources related to Staff Members in the API.
 
 ## Staff Members Collection [/v1/staff-members{?sort,role,firstName}]
 
-### List All Staff Members [GET]
-
 + Parameters
 
     + role: `designer` (string, optional) - Filter by role.
@@ -28,13 +26,15 @@ Resources related to Staff Members in the API.
             + `role:asc`
             + `role:desc`
 
+### List All Staff Members [GET]
+
 + Request (application/json; charset=utf-8)
 
     + Headers
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
             "_embedded": {
@@ -62,8 +62,8 @@ Resources related to Staff Members in the API.
 ### Create a Staff Member [POST]
 
 + Attributes
-    + firstName: `jack` (string) - First name
-    + lastName: `matthews` (string) - Last name
+    + firstName: `harry` (string) - First name
+    + lastName: `styles` (string) - Last name
     + role: `developer` (string) - Staff member's role within SOON_.
 
 + Request (application/json; charset=utf-8)
@@ -122,7 +122,7 @@ Resources related to Staff Members in the API.
 Manage a specific Staff Member's state using this resource.
 
 + Parameters
-    + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The Staff Member UUID
+    + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0c` (string, required) - The Staff Member UUID
 
 ### Get Staff Member [GET]
 
@@ -132,16 +132,16 @@ Manage a specific Staff Member's state using this resource.
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
-                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
-                "firstName": "foo",
-                "lastName": "bar",
+                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0c",
+                "firstName": "foofoofoo",
+                "lastName": "barbarbar",
                 "role": "developer",
                 "_links": {
                     "self": {
-                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0c"
                     }
                 }
             }
@@ -149,7 +149,7 @@ Manage a specific Staff Member's state using this resource.
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a3b0a`
 
     + Headers
 
@@ -160,7 +160,7 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a3b0a"
                     }
                 },
                 "_errors": {
@@ -171,8 +171,8 @@ Manage a specific Staff Member's state using this resource.
 ### Update Staff Member [PUT]
 
 + Attributes
-    + firstName: `jack` (string) - First name
-    + lastName: `matthews` (string) - Last name
+    + firstName: `sting` (string) - First name
+    + lastName: `` (string) - Last name
     + role: `developer` (string) - Staff member's role within SOON_.
 
 + Request (application/json; charset=utf-8)
@@ -188,16 +188,16 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/staff-members/66d9a140-8e61-11e7-a003-4d7d2dcbc635"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0c"
                     }
                 },
-                "ID": "66d9a140-8e61-11e7-a003-4d7d2dcbc635",
-                "firstName": "vanda",
-                "lastName": "smith",
-                "role": "designer"
+                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0c",
+                "firstName": "sting",
+                "lastName": "",
+                "role": "developer"
             }
 
-+ Request Invalid Body (application/json; charset=utf-8)
++ Request Empty Body (application/json; charset=utf-8)
 
     + Headers
 
@@ -205,32 +205,31 @@ Manage a specific Staff Member's state using this resource.
     
     + Body
     
-            {}
+            {
+                "firstName": 2,
+                "lastName": 2,
+                "role": 3
+            }
 
-+ Response 422 (application/json; charset=utf-8)
++ Response 500 (application/json; charset=utf-8)
 
     + Body
 
             {
                 "_links": {
                     "self": {
-                        "href": "v1/staff-members"
+                        "href": "/v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0c"
                     }
                 },
                 "_errors": {
-                    "message": "Validation Error",
-                    "errors": {
-                        "firstName": "non zero value required",
-                        "lastName": "non zero value required",
-                        "role": "non zero value required"
-                    }
+                    "message": "val.toLowerCase is not a function"
                 }
             }
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a`
 
     + Headers
 
@@ -241,7 +240,7 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a"
                     }
                 },
                 "_errors": {
@@ -257,12 +256,12 @@ Manage a specific Staff Member's state using this resource.
 
             Accept: application/json
 
-+ Response 204 (application/json)
++ Response 204
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a`
 
     + Headers
 
@@ -273,7 +272,7 @@ Manage a specific Staff Member's state using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/staff-members/bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a"
                     }
                 },
                 "_errors": {
@@ -286,8 +285,6 @@ Manage a specific Staff Member's state using this resource.
 Resources related to Days in the API.
 
 ## Days Collection [/v1/days{?date,sort,page,limit}]
-
-### List All Days [GET]
 
 + Parameters
 
@@ -302,13 +299,15 @@ Resources related to Days in the API.
     + limit: `2` (number, optional) - Set the number of items per page.
         + Default: `100`
 
+### List All Days [GET]
+
 + Request (application/json; charset=utf-8)
 
     + Headers
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
             "_embedded": {
@@ -338,7 +337,7 @@ Resources related to Days in the API.
                     "href": "v1/days?page=1&limit=2"
                 },
                 "next": {
-                    "href": "v1/days?page=2&limit=2",
+                    "href": "v1/days?page=2&limit=2"
                 }
             },
             "pages": 180,
@@ -350,7 +349,7 @@ Resources related to Days in the API.
 ### Create a Day [POST]
 
 + Attributes
-    + date: `2016-04-10T23:00:00.000Z` (string) - Date in ISO format
+    + date: `1991-04-10T23:00:00.000Z` (string) - Date in ISO format
 
 + Request (application/json; charset=utf-8)
 
@@ -367,7 +366,7 @@ Resources related to Days in the API.
                     "self": {
                         "href": "v1/days"
                     },
-                    "staffMember": {
+                    "day": {
                         "href": "v1/days/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 }
@@ -406,7 +405,7 @@ Resources related to Days in the API.
 Access a specific day using this resource.
 
 + Parameters
-    + id: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The day UUID
+    + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b` (string, required) - The day UUID
 
 
 ### Get Day [GET]
@@ -417,22 +416,22 @@ Access a specific day using this resource.
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
             "_links": {
                 "self": {
-                    "href": "v1/days/bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                    "href": "v1/days/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
                 }
             },
-            "ID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a",
-            "date": "2016-04-11T23:00:00.000Z"
+            "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b",
+            "date": "1993-04-11T23:00:00.000Z"
         }
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf53dc51-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a`
 
     + Headers
 
@@ -443,7 +442,7 @@ Access a specific day using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/days/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/days/bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a"
                     }
                 },
                 "_errors": {
@@ -454,7 +453,7 @@ Access a specific day using this resource.
 ### Update Day [PUT]
 
 + Attributes
-    + date: `2016-04-10T23:00:00.000Z` (string) - Date in ISO format
+    + date: `1994-04-10T23:00:00.000Z` (string) - Date in ISO format
 
 + Request (application/json; charset=utf-8)
 
@@ -469,12 +468,11 @@ Access a specific day using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/days"
-                    },
-                    "day": {
-                        "href": "v1/days/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/days/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
                     }
-                }
+                },
+                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b",
+                "date": "1994-04-10T23:00:00.000Z"
             }
 
 + Request Invalid Body (application/json; charset=utf-8)
@@ -482,33 +480,36 @@ Access a specific day using this resource.
     + Headers
 
             Accept: application/json
-    
-    + Body
-    
-            {}
+
+    + body
+
+            {
+                "date": "1992-04-10T23:00:00.000Z"
+            }
+
 
 + Response 422 (application/json; charset=utf-8)
 
     + Body
 
             {
-                "_links": {
-                    "self": {
-                        "href": "/v1/days"
-                    }
-                },
-                "_errors": {
-                    "message": "notNull Violation: date cannot be null",
-                    "errors": {
-                        "date": "date cannot be null"
-                    }
+            "_links": {
+                "self": {
+                "href": "/v1/days/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
                 }
+            },
+            "_errors": {
+                "message": "Validation error",
+                "errors": {
+                "date": "date must be unique"
+                }
+            }
             }
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0b`
 
     + Headers
 
@@ -519,7 +520,7 @@ Access a specific day using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/days/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/days/bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0b"
                     }
                 },
                 "_errors": {
@@ -535,12 +536,12 @@ Access a specific day using this resource.
 
             Accept: application/json
 
-+ Response 204 (application/json)
++ Response 204
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0b`
 
     + Headers
 
@@ -551,7 +552,7 @@ Access a specific day using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "/v1/days/4f9953f0-8f00-11e7-a05b-4f71aaa9a239"
+                        "href": "/v1/days/bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0b"
                     }
                 },
                 "_errors": {
@@ -563,19 +564,16 @@ Access a specific day using this resource.
 
 Resources related to Positions in the API.
 
-## Positions Collection [/v1/positions{?dayID,date,sort,page,limit}]
-
-### List All Positions [GET]
+## Positions Collection [/v1/positions{?dayID,sort,page,limit}]
 
 + Parameters
 
-    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by dayID.
-    + date: `2016-04-11T23:00:00.000Z` (string, optional) - Filter by date.
-    + sort: `date:asc` (string, optional)
+    + dayID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by dayID.
+    + sort: `dayID:asc` (string, optional)
         Sort positions by supported parameters
         + Members
-            + `date:asc`
-            + `date:desc`
+            + `dayID:asc`
+            + `dayID:desc`
             + `placeIndex:asc`
             + `placeIndex:desc`
     + page: `1` (number, optional) - Set the page number to view content for.
@@ -583,13 +581,15 @@ Resources related to Positions in the API.
     + limit: `10` (number, optional) - Set the number of items per page.
         + Default: `200`
 
+### List All Positions [GET]
+
 + Request (application/json; charset=utf-8)
 
     + Headers
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
             "_embedded": {
@@ -609,7 +609,10 @@ Resources related to Positions in the API.
             },
             "_links": {
                 "self": {
-                    "href": "/v1/positions?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a&date=2016-04-11T23:00:00.000Z&sort=date:asc&page=1&limit=2"
+                    "href": "/v1/positions?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a&sort=dayID:asc&page=1&limit=2"
+                },
+                "next": {
+                    "href": "/v1/positions?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a&sort=dayID:asc&page=2&limit=2"
                 }
             },
             "pages": 1,
@@ -622,8 +625,8 @@ Resources related to Positions in the API.
 
 + Attributes
     + placeIndex: `1` (string) - Place index of position.
-    + staffID: `bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Staff member UUID.
-    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
+    + staffID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b` (string) - Staff member UUID.
+    + dayID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
 
 + Request (application/json; charset=utf-8)
 
@@ -640,7 +643,7 @@ Resources related to Positions in the API.
                     "self": {
                         "href": "v1/positions"
                     },
-                    "staffMember": {
+                    "position": {
                         "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 }
@@ -681,8 +684,7 @@ Resources related to Positions in the API.
 Access a specific position using this resource.
 
 + Parameters
-    + id: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The position UUID
-
+    + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The position UUID
 
 ### Get specific position [GET]
 
@@ -692,7 +694,7 @@ Access a specific position using this resource.
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
             "_links": {
@@ -701,15 +703,15 @@ Access a specific position using this resource.
                 }
             },
             "ID": "bf618250-792c-11e7-9e1d-b10f7e8a2b0a",
-            "placeIndex": 4,
-            "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
-            "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+            "placeIndex": 1,
+            "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+            "dayID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
         }
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf53dc51-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b03`
 
     + Headers
 
@@ -720,7 +722,7 @@ Access a specific position using this resource.
         {
             "_links": {
                 "self": {
-                    "href": "v1/positions/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                    "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b03"
                 }
             },
             "_errors": {
@@ -731,9 +733,9 @@ Access a specific position using this resource.
 ### Update Position [PUT]
 
 + Attributes
-    + placeIndex: `1` (string) - Place index of position.
-    + staffID: `bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Staff member UUID.
-    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
+    + placeIndex: `2` (string) - Place index of position.
+    + staffID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Staff member UUID.
+    + dayID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
 
 + Request (application/json; charset=utf-8)
 
@@ -748,13 +750,13 @@ Access a specific position using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/positions/bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 },
-                "ID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a",
-                "placeIndex": 4,
-                "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
-                "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                "placeIndex": 2,
+                "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                "dayID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
             }
 
 + Request Invalid Body (application/json; charset=utf-8)
@@ -765,32 +767,29 @@ Access a specific position using this resource.
     
     + Body
     
-            {}
+            {
+                "dayID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b05"
+            }
 
-+ Response 422 (application/json; charset=utf-8)
++ Response 500 (application/json; charset=utf-8)
 
     + Body
 
             {
                 "_links": {
                     "self": {
-                        "href": "v1/positions/bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                    "href": "/v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 },
                 "_errors": {
-                    "message": "Validation Error",
-                    "errors": {
-                        "placeIndex": "non zero value required",
-                        "staffID": "non zero value required",
-                        "dayID": "non zero value required"
-                    }
+                    "message": "insert or update on table \"Position\" violates foreign key constraint \"Position_dayID_fkey\""
                 }
             }
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b03`
 
     + Headers
 
@@ -801,7 +800,7 @@ Access a specific position using this resource.
         {
             "_links": {
                 "self": {
-                    "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                    "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b03"
                 }
             },
             "_errors": {
@@ -817,12 +816,12 @@ Access a specific position using this resource.
 
             Accept: application/json
 
-+ Response 204 (application/json)
++ Response 204
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b03`
 
     + Headers
 
@@ -833,7 +832,7 @@ Access a specific position using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b03"
                     }
                 },
                 "_errors": {
@@ -847,17 +846,15 @@ Resources related to Summaries in the API.
 
 ## Summaries Collection [/v1/summaries{?dayID,staffID,sort,page,limit}]
 
-### List All Summaries [GET]
-
 + Parameters
 
-    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by dayID.
-    + staffID: `bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by staffID.
-    + sort: `date:asc` (string, optional)
+    + dayID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by dayID.
+    + staffID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string, optional) - Filter by staffID.
+    + sort: `dayID:asc` (string, optional)
         Sort summaries by supported parameters
         + Members
-            + `date:asc`
-            + `date:desc`
+            + `dayID:asc`
+            + `dayID:desc`
             + `orderIndex:asc`
             + `orderIndex:desc`
     + page: `1` (number, optional) - Set the page number to view content for.
@@ -865,13 +862,15 @@ Resources related to Summaries in the API.
     + limit: `10` (number, optional) - Set the number of items per page.
         + Default: `200`
 
+### List All Summaries [GET]
+
 + Request (application/json; charset=utf-8)
 
     + Headers
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
             "_embedded": {
@@ -884,14 +883,17 @@ Resources related to Summaries in the API.
                         },
                         "ID": "bf618250-792c-11e7-9e1d-b10f7e8a2b0a",
                         "orderIndex": 4,
-                        "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
-                        "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                        "dayID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 ]
             },
             "_links": {
                 "self": {
-                    "href": "/summaries?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a&staffID=bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a&date=2016-04-11T23:00:00.000Z&sort=date:asc&page=1&limit=2"
+                    "href": "/summaries?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a&staffID=bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a&sort=dayID:asc&page=1&limit=2"
+                },
+                "next": {
+                    "href": "/v1/summaries?dayID=bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a&staffID=bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a&sort=dayID:asc&page=2&limit=2"
                 }
             },
             "pages": 1,
@@ -904,8 +906,8 @@ Resources related to Summaries in the API.
 
 + Attributes
     + orderIndex: `1` (string) - Place index of position.
-    + staffID: `bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Staff member UUID.
-    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
+    + staffID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b` (string) - Staff member UUID.
+    + dayID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
 
 + Request (application/json; charset=utf-8)
 
@@ -963,8 +965,7 @@ Resources related to Summaries in the API.
 Access a specific position using this resource.
 
 + Parameters
-    + id: `bf618250-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The summary UUID
-
+    + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string, required) - The summary UUID
 
 ### Get specific summary [GET]
 
@@ -974,24 +975,24 @@ Access a specific position using this resource.
 
             Accept: application/json
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
             "_links": {
                 "self": {
-                    "href": "v1/summaries/bf618250-792c-11e7-9e1d-b10f7e8a2b0a"
+                    "href": "v1/summaries/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                 }
             },
-            "ID": "bf618250-792c-11e7-9e1d-b10f7e8a2b0a",
-            "placeIndex": 4,
-            "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
-            "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+            "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+            "orderIndex": 4,
+            "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+            "dayID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
         }
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf53dc51-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a`
 
     + Headers
 
@@ -1002,7 +1003,7 @@ Access a specific position using this resource.
         {
             "_links": {
                 "self": {
-                    "href": "v1/positions/bf53dc51-792c-11e7-9e1d-b10f7e8a2b0"
+                    "href": "v1/positions/bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a"
                 }
             },
             "_errors": {
@@ -1013,9 +1014,9 @@ Access a specific position using this resource.
 ### Update Summary [PUT]
 
 + Attributes
-    + orderIndex: `1` (string) - Place index of position.
-    + staffID: `bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Staff member UUID.
-    + dayID: `bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
+    + orderIndex: `2` (string) - Place index of position.
+    + staffID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Staff member UUID.
+    + dayID: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a` (string) - Day UUID.
 
 + Request (application/json; charset=utf-8)
 
@@ -1030,13 +1031,13 @@ Access a specific position using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/summaries/bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                        "href": "v1/summaries/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 },
-                "ID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a",
-                "orderIndex": 4,
-                "staffID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
-                "dayID": "bf52dc51-792c-11e7-9e1d-b10f7e8a2b0a"
+                "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                "orderIndex": 2,
+                "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a",
+                "dayID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
             }
 
 + Request Invalid Body (application/json; charset=utf-8)
@@ -1047,32 +1048,29 @@ Access a specific position using this resource.
     
     + Body
     
-            {}
+            {
+                "orderIndex" : "foo"
+            }
 
-+ Response 422 (application/json; charset=utf-8)
++ Response 500 (application/json; charset=utf-8)
 
     + Body
 
             {
                 "_links": {
                     "self": {
-                        "href": "v1/summaries"
+                        "href": "v1/summaries/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 },
                 "_errors": {
-                    "message": "Validation Error",
-                    "errors": {
-                        "orderIndex": "non zero value required",
-                        "staffID": "non zero value required",
-                        "dayID": "non zero value required"
-                    }
+                    "message": "invalid input syntax for integer: \"foo\""
                 }
             }
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a`
 
     + Headers
 
@@ -1083,7 +1081,7 @@ Access a specific position using this resource.
         {
             "_links": {
                 "self": {
-                    "href": "v1/summaries/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                    "href": "v1/summaries/bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a"
                 }
             },
             "_errors": {
@@ -1099,12 +1097,12 @@ Access a specific position using this resource.
 
             Accept: application/json
 
-+ Response 204 (application/json)
++ Response 204
 
 + Request Invalid ID (application/json; charset=utf-8)
 
     + Parameters
-        + id: `bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0`
+        + id: `bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a`
 
     + Headers
 
@@ -1115,7 +1113,7 @@ Access a specific position using this resource.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/summaries/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0"
+                        "href": "v1/summaries/bf4b3b30-792c-11e7-9e1d-b10f7f8a2b0a"
                     }
                 },
                 "_errors": {

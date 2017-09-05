@@ -26,7 +26,7 @@
     "start:test": "MODE=test nodemon ./bin/www",
     "start:dev": "MODE=dev nodemon ./bin/www",
     "start:prod": "MODE=prod nodemon ./bin/www",
-    "test": "nyc --reporter=html --reporter=text mocha"
+    "test": "npm run data:parse:test && npm run db:init:test && dredd"
   },
   "repository": {
     "type": "git",
