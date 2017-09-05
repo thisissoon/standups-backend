@@ -10,6 +10,8 @@ jobs:
       - image: circleci/node:7.10
 
       - image: postgres:9.5
+          environment:
+          - POSTGRES_USER=jackhkmatthews
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -39,7 +41,7 @@ jobs:
           name: Set up DB
           command: npm run db:init:test
           environment:
-            DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
+            DATABASE_URL: "postgres://ubuntu:@127.0.0.1:5432/circle_test"
         
       # run tests!
       - run: npm test
