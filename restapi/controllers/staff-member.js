@@ -38,7 +38,7 @@ exports.create = function create(req, res, next) {
   models.StaffMember.create(req.body)
     .then(staffMember => {
       const resource = new resources.staffMembers.Create(staffMember.dataValues);
-      res.status(200).json(resource);
+      res.status(201).json(resource);
     })
     .catch(err => {
       next(err);
