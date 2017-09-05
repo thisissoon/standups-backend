@@ -1,5 +1,6 @@
 const Server = require('../restapi').Server;
+const config = require('../config/config');
 
 // Configure and run instance of server
-const server = new Server(3000);
+const server = new Server(config.serverPort);
 server.run();

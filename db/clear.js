@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 
-const config = require('../config/db')[process.env.MODE || 'dev'];
+const config = require('../config/config');
 const logger = require('./../logger').logger;
 
 const client = new Client();
