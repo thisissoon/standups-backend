@@ -1,5 +1,3 @@
-process.env.NODE_ENV = process.env.NODE_ENV || 'test';
-
 var hooks = require('hooks');
 var models = require('../../db/models');
 

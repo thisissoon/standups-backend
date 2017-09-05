@@ -13,8 +13,7 @@
     "db:seed": "node ./db/seed/index",
     "db:init": "npm run db:clear && npm run db:migrate && npm run db:seed",
     "start": "nodemon ./bin/www",
-    "test": "npm run data:parse && npm run db:init && dredd",
-    "variables": "node ./variables"
+    "test": "npm run data:parse && npm run db:init && dredd"
   },
   "repository": {
     "type": "git",
