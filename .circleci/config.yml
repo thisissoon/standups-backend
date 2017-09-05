@@ -34,8 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - name: Set up DB
-        command: |
-          npm run db:init:test
+        command: npm run db:init:test
         environment:
           DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
         
