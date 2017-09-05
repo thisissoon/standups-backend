@@ -40,7 +40,7 @@ exports.create = function create(req, res, next) {
   models.Day.create(req.body)
     .then(day => {
       const resource = new resources.days.Create(day.dataValues);
-      res.status(200).json(resource);
+      res.status(201).json(resource);
     })
     .catch(err => {
       next(err);

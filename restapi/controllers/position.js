@@ -40,7 +40,7 @@ exports.create = function create(req, res, next) {
   models.Position.create(req.body)
     .then(position => {
       const resource = new resources.positions.Create(position.dataValues);
-      res.status(200).json(resource);
+      res.status(201).json(resource);
     })
     .catch(err => {
       next(err);

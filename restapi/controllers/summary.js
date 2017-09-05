@@ -40,7 +40,7 @@ exports.create = function create(req, res, next) {
   models.Summary.create(req.body)
     .then(summary => {
       const resource = new resources.summaries.Create(summary.dataValues);
-      res.status(200).json(resource);
+      res.status(201).json(resource);
     })
     .catch(err => {
       next(err);

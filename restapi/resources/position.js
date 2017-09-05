@@ -16,6 +16,9 @@ exports.List = class List extends hal.Resource {
   constructor(url, positions, currentPage, limit, count) {
     const pagination = getPagination(currentPage, limit, count);
     super(pagination, url);
+    const pageArray = url.split(`page=${currentPage}`);
+    const nextUrl = pageArray.join(`page=${++currentPage}`);
+    this.link('next', nextUrl);
     if (positions.length) this.embed('positions', positions);
   }
 };
