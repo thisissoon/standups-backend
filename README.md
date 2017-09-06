@@ -27,6 +27,20 @@ This API utilises SOON_'s `node-standups` node module in the database seeding pr
 
 With the app's default configuration the below commands will populate the database with the test data provided in the repo and serve the endpoints detailed in the API Blueprint `doc/backend.apib` locally on port 3000.
 
+Development and production seed data can be added in the following file structure.
+
+This data, and relevant databases can then by used by setting the `NODE_ENV` environment variable to the  appropriate value (`dev` or `prod`) with the setup commands.
+
+```shell
+|__data
+| |_production
+| | |_input
+| | | |_production-data.txt
+| |_development
+| | |_input
+| | | |_development-data.txt
+``` 
+
 #### 1. Install Dependencies
 
 ```shell
@@ -78,6 +92,6 @@ Configuration options, as well as their node environment variables are detailed 
 * parseData: `process.env.PARSE_DATA`,
 * serverPort: `process.env.SERVER_PORT`
 
-Furthermore, there are three preset modes to set the above values appropriately; `test`, `dev`, and `prod`. These can be activating by setting the node environment variable `NODE_ENV` equal to the desired mode. For example:
+Furthermore, there are three preset modes to set the above values appropriately; `test`, `dev`, and `prod`. These can be activated by setting the node environment variable `NODE_ENV` equal to the desired mode. For example:
 
 `NODE_ENV=dev npm start`
