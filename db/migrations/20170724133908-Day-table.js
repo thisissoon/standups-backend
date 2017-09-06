@@ -11,7 +11,7 @@ module.exports = {
           defaultValue: Sequelize.UUIDV1
         },
         date: {
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
           allowNull: false,
           unique: true
         },

@@ -8,7 +8,7 @@ const Day = sequelize.define('Day', {
     defaultValue: Sequelize.UUIDV1
   },
   date: {
-    type: Sequelize.DATE,
+    type: Sequelize.DATEONLY,
     allowNull: false
   }
 }, {
