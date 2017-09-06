@@ -3,6 +3,8 @@ const { Client } = require('pg');
 const config = require('../config/config');
 const logger = require('./../logger').logger;
 
+console.log(config);
+
 const client = new Client();
 
 function dropIfExistAsPromise(client, database) {
