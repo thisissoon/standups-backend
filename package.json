@@ -34,6 +34,7 @@
     "hal": "^1.1.0",
     "logger": "git://github.com/jackhkmatthews/node-logger#v1.0.0",
     "morgan": "~1.8.1",
+    "nodemon": "^1.12.0",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.3.2",
