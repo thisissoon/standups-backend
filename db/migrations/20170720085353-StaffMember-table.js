@@ -13,17 +13,23 @@ module.exports = {
         firstName: {
           type: Sequelize.STRING,
           allowNull: false,
-          notEmpty: true
+          validate: {
+            notEmpty: true
+          }
         },
         lastName: {
           type: Sequelize.STRING,
           allowNull: false,
-          notEmpty: true
+          validate: {
+            notEmpty: true
+          }
         },
         role: {
           type: Sequelize.STRING,
           allowNull: false,
-          notEmpty: true
+          validate: {
+            notEmpty: true
+          }
         },
         createdAt: {
           type: Sequelize.DATE,

@@ -12,9 +12,11 @@ module.exports = {
         },
         date: {
           type: Sequelize.DATEONLY,
-          allowNull: false,
           unique: true,
-          notEmpty: true
+          allowNull: false,
+          validate: {
+            notEmpty: true
+          }
         },
         createdAt: {
           type: Sequelize.DATE,
