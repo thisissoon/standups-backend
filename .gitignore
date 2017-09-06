@@ -1,2 +1,6 @@
-.nyc_output
-coverage
+data/production/input
+data/production/staff-members.json
+data/production/stand-ups.json
+data/development/input
+data/development/staff-members.json
+data/development/stand-ups.json
