@@ -6,23 +6,78 @@ ___
 
 # Stand-ups Visualisation Backend
 
-A simple Express, PostgresSQL and Sequelize Web API and Database for the storage and serving of data from SOON_'s daily morning stand-ups.
+A simple Express, PostgresSQL and Sequelize Web API and Database configuration for the storage and serving of data from SOON_'s daily stand-ups.
 
 This project was used as a learning tool for: 
 
-* the Express application generator, 
-* Sequelize, Sequelize CLI, 
+* Express application generator, 
+* Sequelize and it's CLI, 
 * relational databases, 
-* HAL API structure and 
-* api blueprint.
+* environment variables and app configuration,
+* HAL API specification,
+* API Blueprint,
+* integration testing with Dredd, and
+* continous integration with CircleCI.
 
-This API is used with other web services where SOON_ standup data is required. For example CLIs where standup data can be entered and posted  to this server to be saved.
+This API is used by other web services where SOON_ stand-up data is required. For example CLIs where stand-up data can be entered and posted  to this server to be saved.
 
 This API utilises SOON_'s `node-standups` node module in the database seeding process.
 
-### Installation
+### Local Development Setup
 
+With the app's default configuration the below commands will populate the database with the test data provided in the repo and serve the endpoints detailed in the API Blueprint `doc/backend.apib` locally on port 3000.
 
-### Usage
+#### 1. Install Dependencies
 
-### Task List
+```shell
+$ npm i
+```
+
+#### 2. Parse Input Data
+
+```shell
+$ npm run data:parse
+```
+
+Consumes the first file in the `data/test/input` folder and produces a `stand-ups.json` file in `data/test`. The JSON file will later be used to seed the database.
+
+#### 3. Initialise Database
+
+```shell
+$ npm run db:init
+```
+
+Drops, creates, migrates and seeds the database.
+
+#### 4. Spin Up The Server
+
+```shell
+$ npm start
+```
+
+Serves the endpoints detailed in the API documentation with the data stored in the database.
+
+### Testing
+
+```shell
+$ npm test
+```
+
+With the app's default configuration initialises the test DB, spins up the server, executes the fixtures and uses Dredd to test whether the requests to the API detailed in the API Blueprint recieve an expected response.
+
+### Configuration
+
+Configuration options, as well as their node environment variables are detailed below (these can also be found in `config/config.js`).
+
+* username: `process.env.DB_USERNAME`,
+* password: `process.env.DB_PASSWORD`,
+* database: `process.env.DB_NAME`,
+* host: `process.env.DB_HOST`,
+* logging: `process.env.DB_LOGGING`,
+* loggerLevel: `process.env.LOGGER_LEVEL`,
+* parseData: `process.env.PARSE_DATA`,
+* serverPort: `process.env.SERVER_PORT`
+
+Furthermore, there are three preset modes to set the above values appropriately; `test`, `dev`, and `prod`. These can be activating by setting the node environment variable `NODE_ENV` equal to the desired mode. For example:
+
+`NODE_ENV=dev npm start`
