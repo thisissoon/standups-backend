@@ -5,7 +5,11 @@ const logger = require('./../logger').logger;
 
 console.log(config);
 
-const client = new Client();
+const client = new Client({
+  user: config.username,
+  host: config.host,
+  password: config.password
+});
 
 function dropIfExistAsPromise(client, database) {
   return new Promise((resolve, reject) => {
