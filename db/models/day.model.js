@@ -9,7 +9,10 @@ const Day = sequelize.define('Day', {
   },
   date: {
     type: Sequelize.DATEONLY,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   }
 }, {
   tableName: 'Day'
