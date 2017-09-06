@@ -8,10 +8,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
-
-      - image: postgres:9.5
-          environment:
-          - POSTGRES_USER=jackhkmatthews
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -36,12 +32,6 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      
-      - run:
-          name: Set up DB
-          command: npm run db:init:test
-          environment:
-            DATABASE_URL: "postgres://ubuntu:@127.0.0.1:5432/circle_test"
         
       # run tests!
       - run: npm test
