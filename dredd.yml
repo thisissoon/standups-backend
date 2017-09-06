@@ -2,7 +2,7 @@ dry-run: null
 hookfiles: ./test/fixtures/index.js
 language: nodejs
 sandbox: false
-server: npm run start
+server: node bin/www
 server-wait: 3
 init: false
 custom:
