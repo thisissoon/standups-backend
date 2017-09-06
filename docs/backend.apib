@@ -104,15 +104,15 @@ Resources related to Staff Members in the API.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/staff-members"
+                        "href": "/v1/staff-members"
                     }
                 },
                 "_errors": {
-                    "message": "Validation Error",
+                    "message": "notNull Violation: firstName cannot be null,\nnotNull Violation: lastName cannot be null,\nnotNull Violation: role cannot be null",
                     "errors": {
-                        "firstName": "non zero value required",
-                        "lastName": "non zero value required",
-                        "role": "non zero value required"
+                        "firstName": "firstName cannot be null",
+                        "lastName": "lastName cannot be null",
+                        "role": "role cannot be null"
                     }
                 }
             }
@@ -666,15 +666,15 @@ Resources related to Positions in the API.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/positions"
+                        "href": "/v1/positions"
                     }
                 },
                 "_errors": {
-                    "message": "Validation Error",
+                    "message": "notNull Violation: placeIndex cannot be null,\nnotNull Violation: staffID cannot be null,\nnotNull Violation: dayID cannot be null",
                     "errors": {
-                        "placeIndex": "non zero value required",
-                        "staffID": "non zero value required",
-                        "dayID": "non zero value required"
+                        "placeIndex": "placeIndex cannot be null",
+                        "staffID": "staffID cannot be null",
+                        "dayID": "dayID cannot be null"
                     }
                 }
             }
@@ -947,15 +947,15 @@ Resources related to Summaries in the API.
             {
                 "_links": {
                     "self": {
-                        "href": "v1/summaries"
+                        "href": "/v1/summaries"
                     }
                 },
                 "_errors": {
-                    "message": "Validation Error",
+                    "message": "notNull Violation: orderIndex cannot be null,\nnotNull Violation: staffID cannot be null,\nnotNull Violation: dayID cannot be null",
                     "errors": {
-                        "orderIndex": "non zero value required",
-                        "staffID": "non zero value required",
-                        "dayID": "non zero value required"
+                        "orderIndex": "orderIndex cannot be null",
+                        "staffID": "staffID cannot be null",
+                        "dayID": "dayID cannot be null"
                     }
                 }
             }
