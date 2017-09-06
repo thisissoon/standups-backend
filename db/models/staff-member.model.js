@@ -10,6 +10,7 @@ const StaffMember = sequelize.define('StaffMember', {
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
+    notEmpty: true,
     set(val) {
       this.setDataValue('firstName', val.toLowerCase());
     }
@@ -17,6 +18,7 @@ const StaffMember = sequelize.define('StaffMember', {
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
+    notEmpty: true,
     set(val) {
       this.setDataValue('lastName', val.toLowerCase());
     }
@@ -24,6 +26,7 @@ const StaffMember = sequelize.define('StaffMember', {
   role: {
     type: Sequelize.STRING,
     allowNull: false,
+    notEmpty: true,
     set(val) {
       this.setDataValue('role', val.toLowerCase());
     }

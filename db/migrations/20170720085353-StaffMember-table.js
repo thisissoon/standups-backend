@@ -12,15 +12,18 @@ module.exports = {
         },
         firstName: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: false,
+          notEmpty: true
         },
         lastName: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: false,
+          notEmpty: true
         },
         role: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: false,
+          notEmpty: true
         },
         createdAt: {
           type: Sequelize.DATE,
