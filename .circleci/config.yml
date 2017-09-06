@@ -16,9 +16,6 @@ jobs:
 
       - image: circleci/postgres:9.5-alpine
         environment:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp-test
-          POSTGRES_PASSWORD: ""
 
     working_directory: ~/repo
 
@@ -41,5 +38,7 @@ jobs:
         
       # run tests!
       - run: npm test
+        environment:
+          NODE_ENV: test
 
 
