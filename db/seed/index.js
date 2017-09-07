@@ -4,8 +4,8 @@ const saveStandUps = require('./stand-ups').saveStandUps;
 
 const logger = require('../../logger').logger;
 
-const staffMembers = require(`../../data/${config.parseData}/staff-members.json`);
-const standUps = require(`../../data/${config.parseData}/stand-ups.json`);
+const staffMembers = require(`../../data/${config.parseOutput}/staff-members.json`);
+const standUps = require(`../../data/${config.parseOutput}/stand-ups.json`);
 
 saveStaffMembers(staffMembers)
   .then(() => {

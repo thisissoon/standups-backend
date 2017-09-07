@@ -12,9 +12,9 @@
     "db:drop": "node ./db/drop",
     "db:migrate": "sequelize db:migrate",
     "db:seed": "node ./db/seed/index",
-    "db:init": "npm run db:drop && npm run db:create && npm run db:migrate && npm run db:seed",
+    "db:init": "npm run db:create && npm run db:migrate && npm run db:seed",
     "start": "nodemon ./bin/www",
-    "test": "npm run data:parse && npm run db:init && dredd && npm run db:drop"
+    "test": "npm run db:create && npm run db:migrate && dredd && npm run db:drop"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,7 @@
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.3.2",
     "sequelize-cli": "^2.7.0",
-    "standup-parser": "git://github.com/jackhkmatthews/node-standups#v3.0.1"
+    "standup-parser": "git://github.com/jackhkmatthews/node-standup-parser#v4.0.0"
   },
   "devDependencies": {
     "rimraf": "^2.6.1"

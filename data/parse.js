@@ -6,9 +6,13 @@ const logger         = require('../logger').logger;
 
 const standupParser  = new StandupParser(logger);
 
-standupParser.parse(`${__dirname}/${config.parseData}/input`)
+const path = process.argv
+  .filter(element => element.includes('PATH'))
+  .map(element => element.split('=')[1])[0];
+
+standupParser.parse(path)
   .then(json => {
-    fs.writeFile(`${__dirname}/${config.parseData}/stand-ups.json`, JSON.stringify(json), 'utf8', function (err) {
+    fs.writeFile(`${__dirname}/${config.parseOutput}/stand-ups.json`, JSON.stringify(json), 'utf8', function (err) {
       if (err) {
         logger.log('error', err);
         process.exit(1);

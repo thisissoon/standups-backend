@@ -9,7 +9,6 @@ function getConfig(NODE_ENV) {
         dialect: 'postgres',
         logging: false,
         loggerLevel: 'info',
-        parseData: 'test',
         serverPort: 3000
       };
     case 'dev':
@@ -21,7 +20,7 @@ function getConfig(NODE_ENV) {
         dialect: 'postgres',
         logging: false,
         loggerLevel: 'info',
-        parseData: 'development',
+        parseOutput: 'development',
         serverPort: 3000
       };
     case 'prod':
@@ -33,7 +32,7 @@ function getConfig(NODE_ENV) {
         dialect: 'postgres',
         logging: false,
         loggerLevel: 'info',
-        parseData: 'production',
+        parseOutput: 'production',
         serverPort: 3000
       };
     default:
@@ -45,7 +44,7 @@ function getConfig(NODE_ENV) {
         dialect: 'postgres',
         logging: process.env.DB_LOGGING || false,
         loggerLevel: process.env.LOGGER_LEVEL || 'info',
-        parseData: process.env.PARSE_DATA || 'test',
+        parseOutput: process.env.PARSE_DATA || 'development',
         serverPort: process.env.SERVER_PORT || 3000
       };
   }
