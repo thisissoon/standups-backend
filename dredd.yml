@@ -1,5 +1,5 @@
 dry-run: null
-hookfiles: ./test/fixtures/index.js
+hookfiles: ./test/dredd/fixtures.js
 language: nodejs
 sandbox: false
 server: node bin/www

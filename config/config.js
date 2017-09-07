@@ -9,7 +9,8 @@ function getConfig(NODE_ENV) {
         dialect: 'postgres',
         logging: false,
         loggerLevel: 'info',
-        serverPort: 3000
+        serverPort: 3000,
+        testDb: 'stand-ups-test'
       };
     case 'dev':
       return {
@@ -21,7 +22,8 @@ function getConfig(NODE_ENV) {
         logging: false,
         loggerLevel: 'info',
         parseOutput: 'development',
-        serverPort: 3000
+        serverPort: 3000,
+        testDb: 'stand-ups-test'
       };
     case 'prod':
       return {
@@ -33,7 +35,8 @@ function getConfig(NODE_ENV) {
         logging: false,
         loggerLevel: 'info',
         parseOutput: 'production',
-        serverPort: 3000
+        serverPort: 3000,
+        testDb: 'stand-ups-test'
       };
     default:
       return {
@@ -45,7 +48,8 @@ function getConfig(NODE_ENV) {
         logging: process.env.DB_LOGGING || false,
         loggerLevel: process.env.LOGGER_LEVEL || 'info',
         parseOutput: process.env.PARSE_DATA || 'development',
-        serverPort: process.env.SERVER_PORT || 3000
+        serverPort: process.env.SERVER_PORT || 3000,
+        testDb: process.env.TEST_DB_NAME || 'stand-ups-test'
       };
   }
 }
