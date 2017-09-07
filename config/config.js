@@ -42,7 +42,7 @@ function getConfig(NODE_ENV) {
       return {
         username: process.env.DB_USERNAME || 'postgres',
         password: process.env.DB_PASSWORD || 'postgres',
-        database: process.env.DB_NAME || 'stand-ups-test',
+        database: process.env.DB_NAME || 'stand-ups-dev',
         host: process.env.DB_HOST || '127.0.0.1',
         dialect: 'postgres',
         logging: process.env.DB_LOGGING || false,
