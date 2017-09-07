@@ -18,7 +18,6 @@ function saveStandUp(standUp, index) {
     })
     .catch(err => {
       logger.log('error', `${err.errors[0].message}. Standup ${++index} (with date ${standUp.date}) was not saved.`);
-      process.exit(1);
     });
 }
 
@@ -37,8 +36,7 @@ function saveSummary(Summary, dayID, firstName, orderIndex) {
       return object.dataValues;
     })
     .catch(err => {
-      logger.log('error', err);
-      process.exit(1);
+      return Promise.reject(err);
     });
 }
 
@@ -57,8 +55,7 @@ function savePosition(Position, dayID, firstName, placeIndex) {
       return object.dataValues;
     })
     .catch(err => {
-      logger.log('error', err);
-      process.exit(1);
+      return Promise.reject(err);
     });
 }
 
