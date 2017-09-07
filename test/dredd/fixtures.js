@@ -23,11 +23,11 @@ hooks.beforeAll(function (transactions, done) {
   }])
   .then(() => {
     return models.Day.bulkCreate([{
-      date: '1992-04-10T23:00:00.000Z',
+      date: '1991-04-10T00:00:00.000Z',
       ID: 'bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a'
     },
     {
-      date: '1993-04-10T23:00:00.000Z',
+      date: '1991-04-11T00:00:00.000Z',
       ID: 'bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b'
     }]);
   })

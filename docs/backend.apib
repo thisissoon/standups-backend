@@ -288,7 +288,7 @@ Resources related to Days in the API.
 
 + Parameters
 
-    + date: `2016-04-13` (string, optional) - Filter by date.
+    + date: `1991-04-10` (string, optional) - Filter by date.
     + sort: `date:asc` (string, optional)
         Sort days by supported parameters
         + Members
@@ -349,7 +349,7 @@ Resources related to Days in the API.
 ### Create a Day [POST]
 
 + Attributes
-    + date: `1991-04-10T23:00:00.000Z` (string) - Date in ISO format
+    + date: `1991-04-12T00:00:00.000Z` (string) - Date in ISO format
 
 + Request (application/json; charset=utf-8)
 
@@ -425,7 +425,7 @@ Access a specific day using this resource.
                 }
             },
             "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b",
-            "date": "1993-04-11T23:00:00.000Z"
+            "date": "1991-04-11T00:00:00.000Z"
         }
 
 + Request Invalid ID (application/json; charset=utf-8)
@@ -453,7 +453,7 @@ Access a specific day using this resource.
 ### Update Day [PUT]
 
 + Attributes
-    + date: `1994-04-10T23:00:00.000Z` (string) - Date in ISO format
+    + date: `1994-04-13T23:00:00.000Z` (string) - Date in ISO format
 
 + Request (application/json; charset=utf-8)
 
@@ -472,7 +472,7 @@ Access a specific day using this resource.
                     }
                 },
                 "ID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b",
-                "date": "1994-04-10T23:00:00.000Z"
+                "date": "1994-04-10T00:00:00.000Z"
             }
 
 + Request Invalid Body (application/json; charset=utf-8)
@@ -484,7 +484,7 @@ Access a specific day using this resource.
     + body
 
             {
-                "date": "1992-04-10T23:00:00.000Z"
+                "date": "1991-04-12T00:00:00.000Z"
             }
 
 

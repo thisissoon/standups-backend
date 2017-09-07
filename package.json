@@ -15,7 +15,7 @@
     "start": "nodemon ./bin/www",
     "db:test:create": "node ./test/dredd/db-create",
     "db:test:drop": "node ./test/dredd/db-drop",
-    "test": "npm run db:test:drop && npm run db:test:create && npm run db:migrate && dredd && npm run db:test:drop"
+    "test": "npm run db:test:drop && npm run db:test:create && npm run db:migrate && dredd"
   },
   "repository": {
     "type": "git",
