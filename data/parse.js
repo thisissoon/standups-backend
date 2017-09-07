@@ -15,4 +15,7 @@ standupParser.parse(`${__dirname}/${config.parseData}/input`)
       }
       logger.log('info', 'The file was saved!');
     });
+  })
+  .catch(err => {
+    console.log(err);
   });

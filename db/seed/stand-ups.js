@@ -4,20 +4,20 @@ const logger = require('../../logger').logger;
 function saveStandUps(standUps){
   const promises = standUps.map((standUp, index) => {
     return saveStandUp(standUp, index)
-      .then(() => logger.log('info', `standup ${++index} saved`));
+      .then(() => logger.log('info', `standup ${++index} saved`))
+      .catch(err => {
+        logger.log('error', `${err.errors[0].message}. Standup ${++index} (with date ${standUp.date}) was not saved.`);
+      });
   });
   return Promise.all(promises);
 }
 
-function saveStandUp(standUp, index) {
+function saveStandUp(standUp) {
   return models.Day.create({ date: standUp.date })
     .then(day => {
       const positionPromise = savePositions(models.Position, standUp.positions, day.dataValues.ID);
       const summaryPromise = saveSummaries(models.Summary, standUp.summaries, day.dataValues.ID);
       return Promise.all([positionPromise, summaryPromise]);
-    })
-    .catch(err => {
-      logger.log('error', `${err.errors[0].message}. Standup ${++index} (with date ${standUp.date}) was not saved.`);
     });
 }
 
@@ -36,7 +36,8 @@ function saveSummary(Summary, dayID, firstName, orderIndex) {
       return object.dataValues;
     })
     .catch(err => {
-      return Promise.reject(err);
+      logger.log('error', `summary not saved.`);
+      throw err;
     });
 }
 
@@ -55,7 +56,8 @@ function savePosition(Position, dayID, firstName, placeIndex) {
       return object.dataValues;
     })
     .catch(err => {
-      return Promise.reject(err);
+      logger.log('error', `position not saved.`);
+      throw err;
     });
 }
 
