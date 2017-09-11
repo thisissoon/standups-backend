@@ -43,7 +43,7 @@ jobs:
       - deploy:
           name: Push application Docker image
           command: |
-            if [ "$ {CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
               docker build -t "${DOCKER_REGISTRY}/stand-ups-backend:latest"
               docker push "${DOCKER_REGISTRY}/stand-ups-backend:latest"
