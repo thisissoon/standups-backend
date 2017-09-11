@@ -8,14 +8,13 @@
   "private": true,
   "scripts": {
     "data:parse": "node ./data/parse",
-    "db:create": "node ./db/create",
     "db:migrate": "sequelize db:migrate",
     "db:seed": "node ./db/seed/index",
-    "db:init": "npm run db:create && npm run db:migrate && npm run db:seed",
+    "db:init": "npm run db:migrate && npm run db:seed",
     "start": "nodemon ./bin/www",
     "db:test:create": "node ./test/dredd/db-create",
     "db:test:drop": "node ./test/dredd/db-drop",
-    "test": "npm run db:test:drop && npm run db:test:create && npm run db:migrate && dredd"
+    "test": "npm run db:test:drop && npm run db:test:create && npm run db:migrate && dredd && npm run db:test:drop"
   },
   "repository": {
     "type": "git",

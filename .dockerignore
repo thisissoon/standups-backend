@@ -1,0 +1,4 @@
+node_modules/
+.git
+data/production/stand-ups.json
+data/development/stand-ups.json

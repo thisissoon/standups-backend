@@ -1,0 +1,24 @@
+version: "3"
+services:
+  web:
+    # replace username/repo:tag with your name and image details
+    image: jackhkmatthews/stand-ups:v1.0.2
+    environment:
+      - DB_HOST=db
+      - DB_NAME=stand-ups-dev
+    ports:
+      - "3000:3000"
+    # wait until db container is ready
+    depends_on:
+      - db
+    # makes web container aware of db container name_in_compose:name_in_web
+    links:
+      - db:db
+    # Overrides start command in Dockerfile
+    command: sh -c './wait-for db:5432 -- npm run data:parse -- PATH=/app/dev-stand-ups.txt && npm run db:init && npm start'
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=stand-ups-dev
