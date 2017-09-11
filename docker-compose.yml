@@ -18,7 +18,10 @@ services:
     command: sh -c './wait-for db:5432 -- npm run data:parse -- PATH=/app/dev-stand-ups.txt && npm run db:init && npm start'
   db:
     image: postgres
+    volumes:
+      - ./.data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=stand-ups-dev
+      - PGDATA=/var/lib/postgresql/data

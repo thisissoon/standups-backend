@@ -4,3 +4,4 @@ data/development/staff-members.json
 data/development/stand-ups.json
 dev-stand-ups.txt
 prod-stand-ups.txt
+.data
