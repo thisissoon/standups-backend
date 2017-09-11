@@ -15,7 +15,7 @@ services:
     links:
       - db:db
     # Overrides start command in Dockerfile
-    command: sh -c './wait-for db:5432 -- npm run data:parse -- PATH=/app/dev-stand-ups.txt && npm run db:init && npm start'
+    command: sh -c './wait-for db:5432 -- npm start'
   db:
     image: postgres
     volumes:
