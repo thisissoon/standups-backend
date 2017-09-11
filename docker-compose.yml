@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     # replace username/repo:tag with your name and image details
-    image: jackhkmatthews/stand-ups:v1.0.2
+    image: registry.soon.build/stand-ups-backend:latest
     environment:
       - DB_HOST=db
       - DB_NAME=stand-ups-dev
