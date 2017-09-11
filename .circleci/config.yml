@@ -41,7 +41,7 @@ jobs:
           command: npm test
 
       - deploy:
-        name: Push application Docker image
+          name: Push application Docker image
           command: |
             if [ "$ {CIRCLE_BRANCH}" == "master" ]; then
               login="$(aws ecr get-login)"
