@@ -31,6 +31,10 @@ module.exports = {
             notEmpty: true
           }
         },
+        current: {
+          type: Sequelize.BOOLEAN,
+          allowNull: false
+        },
         createdAt: {
           type: Sequelize.DATE,
           allowNull: false

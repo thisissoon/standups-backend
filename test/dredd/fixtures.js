@@ -7,19 +7,22 @@ hooks.beforeAll(function (transactions, done) {
     firstName: 'foo',
     lastName: 'bar',
     role: 'developer',
-    ID: 'bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a'
+    ID: 'bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a',
+    current: false
   },
   {
     firstName: 'foofoo',
     lastName: 'barbar',
     role: 'developer',
-    ID: 'bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b'
+    ID: 'bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b',
+    current: true
   },
   {
     firstName: 'foofoofoo',
     lastName: 'barbarbar',
     role: 'developer',
-    ID: 'bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0c'
+    ID: 'bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0c',
+    current: true
   }])
   .then(() => {
     return models.Day.bulkCreate([{

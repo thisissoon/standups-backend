@@ -8,7 +8,7 @@ A simple Express Web API for the storage and serving of data from SOON_'s daily 
 
 Resources related to Staff Members in the API.
 
-## Staff Members Collection [/v1/staff-members{?sort,role,firstName}]
+## Staff Members Collection [/v1/staff-members{?sort,role,firstName,current}]
 
 + Parameters
 
@@ -18,6 +18,7 @@ Resources related to Staff Members in the API.
           + `designer`
           + `producer`
     + firstName: `fred` (string, optional) - Filter by first name.
+    + current: `true` (boolean, optional) - Filter by is staff member is current or not.
     + sort: `firstName:asc` (string, optional)
         Sort staff members by supported parameters
         + Members
@@ -64,7 +65,8 @@ Resources related to Staff Members in the API.
 + Attributes
     + firstName: `harry` (string) - First name
     + lastName: `styles` (string) - Last name
-    + role: `developer` (string) - Staff member's role within SOON_.
+    + role: `developer` (string) - Staff member's role within SOON_
+    + current: true (boolean) - If staff member currenlty works at SOON_
 
 + Request (application/json; charset=utf-8)
 

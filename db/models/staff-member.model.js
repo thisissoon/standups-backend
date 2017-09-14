@@ -36,6 +36,10 @@ const StaffMember = sequelize.define('StaffMember', {
     set(val) {
       this.setDataValue('role', val.toLowerCase());
     }
+  },
+  current: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false
   }
 }, 
   {
