@@ -27,6 +27,8 @@ services:
     # makes web container aware of db container name_in_compose:name_in_web
     links:
       - db:db
+    volumes:
+      - ./prod-stand-ups.txt:/app/prod-stand-ups.txt
     # Overrides start command in Dockerfile
     command: sh -c './wait-for db:5432 -- npm start'
   db:
