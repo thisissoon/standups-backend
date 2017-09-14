@@ -9,7 +9,8 @@ const config = {
   parseOutput: process.env.PARSE_OUTPUT || 'development',
   seedInput: process.env.SEED_INPUT || 'development',
   serverPort: process.env.SERVER_PORT || 3000,
-  testDb: process.env.TEST_DB_NAME || 'stand-ups-test'
+  testDb: process.env.TEST_DB_NAME || 'stand-ups-test',
+  root: process.env.ROOT || ''
 };
 
 module.exports = config;

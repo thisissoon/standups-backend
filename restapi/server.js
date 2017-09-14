@@ -1,6 +1,8 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+
+const config = require('../config/config');
 const routes = require('./routes');
 const errors = require('./errors');
 const ValidationError = require('sequelize/lib/errors').ValidationError;
@@ -25,7 +27,7 @@ class Server {
     this.app.use(logger('dev'));
 
     // // Setup routes
-    this.app.use('', routes);
+    this.app.use(config.root, routes);
 
     // Error handling
     this.app.use(this.error);
