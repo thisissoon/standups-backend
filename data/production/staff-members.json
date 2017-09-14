@@ -1,0 +1,128 @@
+[
+  {
+    "firstName": "ken",
+    "lastName": "shaw",
+    "role": "designer",
+    "current": true
+  },
+  {
+    "firstName": "vanda",
+    "lastName": "gomes",
+    "role": "designer",
+    "current": true
+  },
+  {
+    "firstName": "fred",
+    "lastName": "flade",
+    "role": "designer",
+    "current": true
+  },
+  {
+    "firstName": "alex",
+    "lastName": "light",
+    "role": "MD",
+    "current": true
+  },
+  {
+    "firstName": "ryan",
+    "lastName": "french",
+    "role": "designer",
+    "current": true
+  },
+  {
+    "firstName": "chris",
+    "lastName": "reeves",
+    "role": "developer",
+    "current": true
+  },
+  {
+    "firstName": "james",
+    "lastName": "warren",
+    "role": "developer",
+    "current": true
+  },
+  {
+    "firstName": "ed",
+    "lastName": "opare-aryee",
+    "role": "developer",
+    "current": true
+  },
+  {
+    "firstName": "florence",
+    "lastName": "holmes",
+    "role": "producer",
+    "current": false
+  },
+  {
+    "firstName": "greg",
+    "lastName": "reed",
+    "role": "developer",
+    "current": true
+  },
+  {
+    "firstName": "ollie",
+    "lastName": "wright",
+    "role": "producer",
+    "current": true
+  },
+  {
+    "firstName": "inga",
+    "lastName": "galvanauskaite",
+    "role": "producer",
+    "current": true
+  },
+  {
+    "firstName": "emma",
+    "lastName": "curry",
+    "role": "marketing",
+    "current": true
+  },
+  {
+    "firstName": "radek",
+    "lastName": "los",
+    "role": "developer",
+    "current": false
+  },
+  {
+    "firstName": "svilen",
+    "lastName": "gospodinov",
+    "role": "developer",
+    "current": false
+  },
+  {
+    "firstName": "rosie",
+    "lastName": "haine",
+    "role": "producer",
+    "current": false
+  },
+  {
+    "firstName": "nicky",
+    "lastName": "gibson",
+    "role": "designer",
+    "current": false
+  },
+  {
+    "firstName": "dave",
+    "lastName": "poulter",
+    "role": "developer",
+    "current": false
+  },
+  {
+    "firstName": "andy",
+    "lastName": "law",
+    "role": "developer",
+    "current": false
+  },
+  {
+    "firstName": "richard",
+    "lastName": "hallows",
+    "role": "developer",
+    "current": false
+  },
+  {
+    "firstName": "tipper",
+    "lastName": "tiplady",
+    "role": "developer",
+    "current": false
+  }
+]
