@@ -18,13 +18,13 @@ This project was used as a learning tool for:
 * API Blueprint,
 * integration testing with Dredd,
 * continous integration with CircleCI, and
-* deployment with Docker.
+* deployment with Docker, AWS and nginx.
 
 This API is used by other web apps where SOON_ stand-up data is required.
 
 This API utilises SOON_'s `node-standups` node module in the `stand-up.txt` data parsing process.
 
-This repo makes publicily accessible SOON_'s stand-up data. 
+This repo makes publicily accessible SOON_'s stand-up data.
 
 ### Docker Setup
 
