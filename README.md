@@ -59,7 +59,7 @@ Any postgreSQL data will persist in this repo's `.data/` directory.
 $ npm i
 ```
 
-#### 2. create Database
+#### 2. create database
 
 ```shell
 $ psql
@@ -71,7 +71,7 @@ CREATE DATEBASE "stand-ups";
 
 Creates a postgreSQL database, here called `stand-ups`.
 
-#### 3. parse Input Data
+#### 3. parse input data
 
 ```shell
 $ npm run data:parse
@@ -91,7 +91,7 @@ The input file must included date followed by positions followed by summaries in
 ```
 Any errors in the data will be logged to the terminal and can then be corrected.
 
-#### 4. initialise Database
+#### 4. initialise database
 
 ```shell
 $ DB_NAME=stand-ups npm run db:init
@@ -103,7 +103,7 @@ Runs the database migrations (`/db/migrations`) and the seed file (`/db/seed/ind
 
 Any errors in the `stand-ups.json` file (missing staff members or duplicate names) will be logged to the terminal and not saved to the database. These can then be address, the database dropped and `db:init` ran again.
 
-#### 5. spin Up The Server
+#### 5. spin up the server
 
 ```shell
 $ DB_NAME=stand-ups npm start
@@ -118,7 +118,7 @@ Serves the endpoints detailed in the API documentation with the data stored in t
 $ npm test
 ```
 
-Drops test database if exists, creates new database, runs migrations and executes Dredd. Dredd runs the fixtures, spins up the server and tests the APIs responses to each of the requests in the API docs are as expected.
+Drops test database if exists, creates new database, runs migrations and executes Dredd. Dredd runs the fixtures, spins up the server and tests that the APIs responses to each of the requests in the API docs are as expected.
 
 ### Configuration
 
