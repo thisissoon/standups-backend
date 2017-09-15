@@ -24,7 +24,9 @@ This API is used by other web apps where SOON_ stand-up data is required.
 
 This API utilises SOON_'s `node-standups` node module in the `stand-up.txt` data parsing process.
 
-This repo makes SOON_'s stand-up data publicly accessible. This data can be replaced with similarly formated data. 
+This repo makes SOON_'s stand-up data publicly accessible. This data can be replaced with similarly formated data.
+
+`docs/backend.apib` can be viewed with [aglio](https://www.npmjs.com/package/aglio).
 
 ### Docker Setup
 
