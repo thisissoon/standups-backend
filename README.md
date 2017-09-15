@@ -139,4 +139,5 @@ Configuration options, as well as their node environment variables are detailed 
 ### Task List
 
 - [ ] Deal more elegantly with the initial seeding of data.
+- [ ] Serve rendered docs at `api/docs`.
 
