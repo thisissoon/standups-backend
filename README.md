@@ -66,7 +66,7 @@ $ psql
 ```
 
 ```shell
-CREATE DATEBASE "stand-ups"
+CREATE DATEBASE "stand-ups";
 ```
 
 Creates a postgreSQL database, here called `stand-ups`.
