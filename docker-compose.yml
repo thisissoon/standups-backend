@@ -9,8 +9,8 @@ services:
     links:
       - web:web
     ports:
-    # internal:external
-    - "80:80"
+    # external:internal
+    - "3000:80"
   web:
     # replace username/repo:tag with your name and image details
     image: registry.soon.build/stand-ups-backend:latest
@@ -19,8 +19,6 @@ services:
       - DB_HOST=db
       - DB_NAME=stand-ups-dev
       - ROOT=/api
-    ports:
-      - "3000:3000"
     # wait until db container is ready
     depends_on:
       - db
