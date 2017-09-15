@@ -1,14 +1,13 @@
 const fs             = require('fs');
 const StandupParser  = require('standup-parser').StandupParser;
 
-const config         = require('../config/config');
 const logger         = require('../logger').logger;
 
 const standupParser  = new StandupParser(logger);
 
 const path = process.argv
   .filter(element => element.includes('PATH'))
-  .map(element => element.split('=')[1])[0];
+  .map(element => element.split('=')[1])[0] || `${__dirname}/stand-ups.txt`;
 
 standupParser.parse(path)
   .then(json => {
