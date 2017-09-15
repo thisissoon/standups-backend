@@ -6,8 +6,6 @@ const config = {
   dialect: 'postgres',
   logging: process.env.DB_LOGGING || false,
   loggerLevel: process.env.LOGGER_LEVEL || 'info',
-  parseOutput: process.env.PARSE_OUTPUT || 'development',
-  seedInput: process.env.SEED_INPUT || 'development',
   serverPort: process.env.SERVER_PORT || 3000,
   testDb: process.env.TEST_DB_NAME || 'stand-ups-test',
   root: process.env.ROOT || ''

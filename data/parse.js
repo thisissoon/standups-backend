@@ -12,7 +12,7 @@ const path = process.argv
 
 standupParser.parse(path)
   .then(json => {
-    fs.writeFile(`${__dirname}/${config.parseOutput}/stand-ups.json`, JSON.stringify(json), 'utf8', function (err) {
+    fs.writeFile(`${__dirname}/stand-ups.json`, JSON.stringify(json), 'utf8', function (err) {
       if (err) {
         logger.log('error', err);
         process.exit(1);
