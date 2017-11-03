@@ -39,12 +39,10 @@ exports.create = function create(req, res, next) {
         })
         return models.Summary.bulkCreate(summariesWithID, { transaction: t });
       })
-
   }).then(function (result) {
     const resource = new resources.standups.Create(day);
     res.status(201).json(resource);
   }).catch(function (err) {
-    console.log(err);
     next(err);
   });
 };
