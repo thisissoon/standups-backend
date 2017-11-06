@@ -1125,7 +1125,7 @@ Access a specific position using this resource.
 
 # Group Standups
 
-Endpoints related to Standups (combination or Day, Positions and Summaries) in the API.
+Endpoints related to Standups (combination of Day, Positions and Summaries) in the API.
 
 ## Standups Collection [/v1/standups]
 
@@ -1176,20 +1176,19 @@ Endpoints related to Standups (combination or Day, Positions and Summaries) in t
                 "_links": {
                     "self": {
                         "href": "v1/standups"
-                    },
-                    "day": {
-                        "href": "v1/days/bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
                     }
                 },
                 "_embedded": {
-                    "day": {
-                        "ID": "bf4b6241-792c-11e7-9e1d-b10f7e8a2b0a",
-                        "date": "2017-10-10"
-                    }
+                    "days": [
+                        {
+                            "ID": "10940f80-c2d9-11e7-a098-d19c1b043fcc",
+                            "date": "2017-10-10"
+                        }
+                    ]
                 }
             }
 
-+ Request Invalid Body (application/json; charset=utf-8)
++ Request No Date (application/json; charset=utf-8)
 
     + Headers
 
@@ -1197,24 +1196,40 @@ Endpoints related to Standups (combination or Day, Positions and Summaries) in t
         
     + Body
     
-            {}
+            {
+                "positions": [
+                    {
+                        "placeIndex": 0,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    },
+                    {
+                        "placeIndex": 1,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
+                    }
+                ],
+                "summaries": [
+                    {
+                        "orderIndex": 0,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
+                    },
+                    {
+                        "orderIndex": 1,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                ]
+            }
 
-+ Response 422 (application/json; charset=utf-8)
++ Response 400 (application/json; charset=utf-8)
 
     + Body
 
             {
                 "_links": {
                     "self": {
-                        "href": "/v1/staff-members"
+                        "href": "/v1/standups"
                     }
                 },
                 "_errors": {
-                    "message": "notNull Violation: firstName cannot be null,\nnotNull Violation: lastName cannot be null,\nnotNull Violation: role cannot be null",
-                    "errors": {
-                        "firstName": "firstName cannot be null",
-                        "lastName": "lastName cannot be null",
-                        "role": "role cannot be null"
-                    }
+                    "message": "Request body missing \"date\". "
                 }
             }
