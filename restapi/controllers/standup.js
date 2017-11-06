@@ -14,6 +14,13 @@ const sequelize = require('../../db/connection').sequelize;
  */
 exports.create = function create(req, res, next) {
 
+  if (!req.body.date || !req.body.positions || !req.body.summaries) {
+    message = !req.body.date ? 'Request body missing "date". ' : '';
+    message += !req.body.positions ? 'Request body missing "positions". ' : '';
+    message += !req.body.summaries ? 'Request body missing "summaries". ' : '';
+    return next(new errors.dataMissing(message));
+  }
+
   let day;
 
   return sequelize.transaction(function (t) {
