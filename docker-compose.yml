@@ -30,7 +30,7 @@ services:
     # Overrides start command in Dockerfile
     command: sh -c './wait-for db:5432 -- npm start'
   db:
-    image: postgres
+    image: postgres:9.6
     restart: on-failure
     volumes:
       - ./.data:/var/lib/postgresql/data
