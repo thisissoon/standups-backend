@@ -41,6 +41,20 @@ class NotFound extends CustomError {
 }
 exports.NotFound = NotFound;
 
+/**
+ * Error with 400 status for post requests with missing data
+ *
+ * @class dataMissing
+ * @extends {CustomError}
+ */
+class dataMissing extends CustomError {
+  constructor(message) {
+    super(message);
+    this.status = 400;
+  }
+}
+exports.dataMissing = dataMissing;
+
 
 /**
  * HAL error map
