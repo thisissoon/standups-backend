@@ -1122,3 +1122,114 @@ Access a specific position using this resource.
                     "message": "Not Found"
                 }
             }
+
+# Group Standups
+
+Endpoints related to Standups (combination of Day, Positions and Summaries) in the API.
+
+## Standups Collection [/v1/standups]
+
+### Create a Standup [POST]
+
++ Attributes
+    + date (string) - Date of standup in ISO format
+    + positions (array[object]) - A collection of positions
+    + summaries (array[object]) - A collection of summaries
+
++ Request (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+        
+    + Body
+    
+            {
+                "date": "2017-10-10",
+                "positions": [
+                    {
+                        "placeIndex": 0,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    },
+                    {
+                        "placeIndex": 1,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
+                    }
+                ],
+                "summaries": [
+                    {
+                        "orderIndex": 0,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
+                    },
+                    {
+                        "orderIndex": 1,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                ]
+            }
+
++ Response 201 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "v1/standups"
+                    }
+                },
+                "_embedded": {
+                    "days": [
+                        {
+                            "ID": "10940f80-c2d9-11e7-a098-d19c1b043fcc",
+                            "date": "2017-10-10"
+                        }
+                    ]
+                }
+            }
+
++ Request No Date (application/json; charset=utf-8)
+
+    + Headers
+
+            Accept: application/json
+        
+    + Body
+    
+            {
+                "positions": [
+                    {
+                        "placeIndex": 0,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    },
+                    {
+                        "placeIndex": 1,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
+                    }
+                ],
+                "summaries": [
+                    {
+                        "orderIndex": 0,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0b"
+                    },
+                    {
+                        "orderIndex": 1,
+                        "staffID": "bf4b3b30-792c-11e7-9e1d-b10f7e8a2b0a"
+                    }
+                ]
+            }
+
++ Response 400 (application/json; charset=utf-8)
+
+    + Body
+
+            {
+                "_links": {
+                    "self": {
+                        "href": "/v1/standups"
+                    }
+                },
+                "_errors": {
+                    "message": "Request body missing \"date\". "
+                }
+            }

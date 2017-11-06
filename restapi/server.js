@@ -1,11 +1,17 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const config = require('../config/config');
 const routes = require('./routes');
 const errors = require('./errors');
 const ValidationError = require('sequelize/lib/errors').ValidationError;
+
+const corsOptions = {
+  origin: config.corsOrigin,
+  optionsSuccessStatus: 200
+};
 
 class Server {
 
@@ -25,12 +31,15 @@ class Server {
     // Global middleware
     this.app.use(bodyParser.json());
     this.app.use(logger('dev'));
+    this.app.use(cors(corsOptions));
 
     // // Setup routes
     this.app.use(config.root, routes);
 
     // Error handling
     this.app.use(this.error);
+
+    // Cors
 
   }
 
