@@ -9,7 +9,7 @@ const config = {
   serverPort: process.env.SERVER_PORT || 3000,
   testDb: process.env.TEST_DB_NAME || 'stand-ups-test',
   root: process.env.ROOT || '',
-  corsOrigin: 'http://192.168.7.58:4200'
+  corsOrigin: process.env.CORS_ORIGIN || '*'
 };
 
 module.exports = config;
